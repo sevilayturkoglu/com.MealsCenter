@@ -13,16 +13,17 @@ public class US_024 {
 
         24-- Test Case
 
-        * US_019 adimlari uygulanip
-          Url "https://qa.mealscenter.com/backoffice/food/category" dogrulanmali.
-        * "Food" ogesine tiklanilmali ve "Category" ogesinin goruntulenebilir oldugu test edilerek uygun sekilde calistigi dogrulanmali.
-        * "Category" ogesine tiklanip gelen sayfada "Category List" ogesinin oldugu dogrulanmali. (kategorilerin goruntulendigini dogrulamak icin)
-        * "Add new" butonuna tikla ve gelen sayfanin title nin "Add Category" oldugunu dogrula.
-        * "Name" kutusuna "yeni menu" yaz ve "Save" butonuna bas sonrasinda "Category" ogesine tikla ve listedeki ilk elemanin "yeni menu" icerdigini dogrula.
-        * "yeni menu" ogesinin yaninda bulunan "Update (kalem isareti)" butonuna tikla ve gelen sayfanin title nin "Add Category" oldugunu dogrula.
-        * "Description" kutusuna "aciklama" yaz ve "Save" butonuna bas sonrasinda "Category" ogesine tikla ve listedeki ilk elemanin "aciklama" icerdigini dogrula.
-        * "yeni menu" ogesinin yaninda bulunan "Delete" butonuna tikla ve "Delete Confirmation" ogesinin gorunur oldugunu dogrula.
-        * "Delete" butonuna tikla ve listedeki ilk elemanin "yeni menu" icermedigini dogrula.
+       * Follow the US_019 steps and
+           Verify the url "https://qa.mealscenter.com/backoffice/food/category".
+        * Verify that it works properly by clicking on the "Food" item and testing that the "Category" item is viewable.
+        * Verify that there is a "Category List" item on the page that comes up after clicking on the "Category" item. (to verify that the categories are displayed)
+        * Click the "Add new" button and verify that the title of the page is "Add Category".
+        * Type "Kayseri" in the "Name" box and click the "Save" button, then click "Category" and verify that the first item in the list contains "Kayseri".
+        * Click the "Update (symbol: pen)" button next to the "Kayseri" item and verify that the title of the page is "Add Category".
+        * Type "Manti" in the "Description" box and press the "Save" button, then click "Category" and verify that the first item in the list contains "Manti".
+        * Click the "Delete" button next to the "Kayseri" item and verify that the "Delete Confirmation" item is visible.
+        * Click the "Delete" button and verify that the first item in the list does not contain "Kayseri".
+
 
      */
 }

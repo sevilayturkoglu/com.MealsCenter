@@ -11,11 +11,12 @@ public class US_012 {
 
         12-- Test Case
 
-        * US_005 adimlari uygulanip
-          Url "https://qa.mealscenter.com/" dogrulanmali.
-        * Sayfada bulunan ilk mutfak tipine tiklanip gelen sayfada cikan mutfak isminin, Sayfada cikan ogenin aciklamasinda icerildigi dogrulanmali.
-        * Sayfada bulunan "More" dropdown una tiklanip ilk mutfak tipine tiklandiktan sonra gelen sayfada cikan mutfak isminin,
-          Sayfada cikan ogenin aciklamasinda icerildigi dogrulanmali.
+        * Follow the US_005 steps and
+           The url "https://qa.mealscenter.com/" must be verified.
+         * It should be verified that the name of the cuisine that appears on the page that comes up after clicking on the Cuisine type
+           is included in the store description on the page.
+         * The name of the cuisine that appears after clicking on the "More" dropdown on the page and clicking on the cuisine type,
+           It should be verified that it is included in the description of the store on the page.
 
      */
 }
