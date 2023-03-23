@@ -57,8 +57,8 @@ public class UserPage {
     @FindBy(xpath = "//div[.='Go to checkout']")
     public WebElement userBagChecOutText;
 //User Favorites Locators
-@FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
-public WebElement favouriteTikStarBox;
+   @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
+    public WebElement favouriteTikStarBox;
     @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[5]")
     public WebElement favouriteTikBurgerBox;
     @FindBy(xpath = "//h5[.='Burger King']")
