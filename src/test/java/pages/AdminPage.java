@@ -28,6 +28,33 @@ public class AdminPage {
     //Orders
 
 
+    @FindBy(xpath = "(//a[@href='javascript:;'])[2]")
+    public WebElement ordersLink;
+    @FindBy(xpath = "//li[@class='position-relative order_list']")
+    public WebElement allOrderLink;
+    @FindBy(xpath = "(//*[text()='All Orders'])[2]")
+    public WebElement allOrdersText;
+    @FindBy(xpath = "(//*[text()='Orders'])[2]")
+    public WebElement ordersText;
+    @FindBy(xpath = "//p[text()='Cancel']")
+    public WebElement cancelText;
+
+    @FindBy(xpath = "//*[text()='Total refund']")
+    public WebElement totalRefundText;
+    @FindBy(xpath = "//*[text()='Total Orders']")
+    public WebElement totalOrdersText;
+
+
+    @FindBy(xpath = "(//*[text()='Filters'])[1]")
+    public WebElement filtersButton;
+    @FindBy(xpath = "(//*[@aria-label='Order ID: activate to sort column ascending'])[1]")
+    public WebElement orderId;
+    @FindBy(xpath = "(//*[@class='zmdi zmdi-eye'])[1]")
+    public WebElement eyeSign;
+    @FindBy(xpath = "(//*[@class='zmdi zmdi-download'])[1]")
+    public WebElement downloadSign;
+    @FindBy(xpath = "(//div[@class='card-body'])[2]")
+    public WebElement filtersBody;
 
 
 
