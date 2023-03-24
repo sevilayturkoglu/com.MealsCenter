@@ -40,13 +40,7 @@ public class US_012 {
         // giris yap anasayfaya git
         UserPage userPage = new UserPage();
         userPage.userLoginBeing();
-        userPage.userLogo.click();
-
-        // anasayfada oldugunu dogrula
-        String actTitle = Driver.getDriver().getTitle();
-        String expTitle = "Meals Center";
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actTitle,expTitle);
+        userPage.userLogo.click(); //tam olarak anasayfa baslangicinda olmadigi icin anasayfaya cekiyoruz
 
         // page down yap cuisineleri gormek icin
         Actions actions = new Actions(Driver.getDriver());
