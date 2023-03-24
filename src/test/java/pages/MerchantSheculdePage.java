@@ -139,9 +139,7 @@ public void accordingToCustomName(String customerName){
             }
             Collections.sort(dateListSorted);
             softAssert.assertEquals(dateList,dateListSorted);
-
         }
-
         softAssert.assertAll();
     }
 
