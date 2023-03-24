@@ -18,16 +18,25 @@ public class UserPage {
     //Login page locators
     @FindBy(xpath = "//a[.='Sign in']")
     public WebElement userSignIn;
-    @FindBy(xpath = "//label[@for='username']")
+    //@FindBy(xpath = "//label[@for='username']")
+    @FindBy(xpath = "//input[@id='username']")
     public WebElement userEmailLogin;
-    @FindBy(xpath = "//label[@for='password']")
+    //@FindBy(xpath = "//label[@for='password']")
+    @FindBy(xpath = "(//input[@id='password'])[1]")
     public WebElement userPasswordLogin;
-    @FindBy(xpath = "//span[.='Sign in']")
+    //@FindBy(xpath = "//span[.='Sign in']")
+    @FindBy(css = "button[class='btn btn-green w-100'] span")
     public WebElement userSignInLogin;
     @FindBy(xpath = "//span[.='Decline']")
     public WebElement userCookies;
     @FindBy(xpath = "//h5[.='Login']")
     public WebElement userLoginText;
+    @FindBy(css ="#dropdownMenuLink")
+    public WebElement userNameHeaderRight;
+    @FindBy(css = ".dropdown-item.with-icon-account")
+    public WebElement userManageMyAccount;
+    @FindBy(xpath = ("//h6[@class='m-0 p-2 pd-5 with-icon-account with-icon']"))
+    public WebElement userProfilePage;
     //User page locators
     @FindBy(xpath = "//a[@id='dropdownMenuLink']")
     public WebElement userUstDropDownButton;
