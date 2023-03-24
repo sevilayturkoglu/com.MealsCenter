@@ -73,8 +73,21 @@ public class US_012 {
             i++;
         }
 
-
-
+        String[] moreCuisines = {"Chinese","Kosher","Halal","Vegetarian"};
+        for (int i = 0; i <= 3;) {
+            String type = moreCuisines[i];
+        userPage.userCuisineMoreButton.click();
+        Driver.getDriver().findElement(By.xpath("(//a[.='" + type + "'])[1]")).click();
+            String actCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+            String expCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
+            System.out.println(actCuisine);
+            System.out.println(expCuisine);
+            softAssert.assertTrue(expCuisine.contains(actCuisine));
+            userPage.userLogo.click();
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            ReusableMethods.bekle(1);
+            i++;
+        }
 
     }
 }
