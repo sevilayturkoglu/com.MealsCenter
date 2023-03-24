@@ -9,38 +9,46 @@ import pages.AdminPage;
 import utilities.Driver;
 import utilities.JSUtilities;
 import utilities.ReusableMethods;
+import utilities.TestBaseReport;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
-public class US_038_AdminOrderListTest {
+public class US_038_AdminOrderListTest extends TestBaseReport {
     AdminPage adminPage = new AdminPage();
     SoftAssert softAssert = new SoftAssert();
 
     @Test(priority = 5)
     public void testTC_03801() {
-         adminPage = new AdminPage();
-//The user opens the browser.
-        //   The user logs into the webpage:https://qa.mealscenter.com/backoffice/login
-        //   The user  types the correct Username and Password and  click Sign-in.
+        adminPage = new AdminPage();
 
+        extentTest = extentReports.createTest("testTC_03801", "Orders option should be clicked, All orders text should be visible.");
         adminPage.adminLoginOl();
+        extentTest.info("Browser is opened ,admin page is opened");
         ReusableMethods.bekle(4);
-        //   The user clicks "Orders" link under the Dashboard.
+        extentTest.info("It is waited 4 seconds.");
+
         adminPage.ordersLink.click();
-        //   The user  clicks "All order" link under the "Orders".
+        extentTest.info("Orders Link is clicked.");
+
         adminPage.allOrderLink.click();
-        // The user waits until "All Orders"  text is visible.
+        extentTest.info("All order Link is clicked.");
+
         ReusableMethods.waitForVisibility(adminPage.allOrdersText, 3);
-
-        //  Verify that "All Orders"  text is visible.
-
+        extentTest.info("It should be waited until All Orders text is visible.");
         String expectedText = "All Orders";
+        extentTest.info("All Orders is expected text.");
         String actualResult = adminPage.allOrdersText.getText();
+        extentTest.info("Actual text is found.");
         softAssert.assertEquals(actualResult, expectedText);
+        extentTest.info("Expected Result and Actual result are compaired.");
+        extentTest.pass("All orders are visible .");
 
         softAssert.assertAll();
         Driver.closeDriver();
+        extentTest.info("The browser is closed.");
 
     }
 
@@ -49,58 +57,64 @@ public class US_038_AdminOrderListTest {
 
 
         adminPage = new AdminPage();
-
-        //The user opens the browser.
-        //The user logs into the webpage:https://qa.mealscenter.com/backoffice/login
-        //The user  types the correct Username and Password and  click Sign-in.
+        extentTest = extentReports.createTest("testTC_03802", "Cancel, Total refund, Total Orders should be visible");
+        extentTest.info("Browser is opened ,admin page is opened");
         adminPage.adminLoginOl();
         ReusableMethods.bekle(4);
-        //   The user clicks "Orders" link under the Dashboard.
-        adminPage.ordersLink.click();
-        //   The user  clicks "All order" link under the "Orders".
-        adminPage.allOrderLink.click();
-        // The user waits until "All Orders"  text is visible.
-        ReusableMethods.waitForVisibility(adminPage.allOrdersText, 3);
+        extentTest.info("It is waited 3 seconds.");
 
-        //Verify that "Orders" text should be visible
+        adminPage.ordersLink.click();
+        extentTest.info("Orders Link is clicked.");
+        adminPage.allOrderLink.click();
+        extentTest.info("All order Link is clicked.");
+        ReusableMethods.waitForVisibility(adminPage.allOrdersText, 3);
+        extentTest.info("It should be waited until All Orders text is visible.");
+        extentTest.info("Orders text should be visible");
+        extentTest.pass("Orders text is visible .");
         softAssert.assertTrue(adminPage.ordersText.isDisplayed());
 
-        //Verify that ""Cancel"" text should be visible
+        extentTest.info("Cancel text should be visible");
+        extentTest.pass("Cansel text is visible .");
         softAssert.assertTrue(adminPage.cancelText.isDisplayed());
-        //Verify that ""Total refund"" text should be visible
+        extentTest.info("Total Refund text should be visible");
+        extentTest.pass("Total Refund text is visible .");
         softAssert.assertTrue(adminPage.totalRefundText.isDisplayed());
-        //Verify that ""Total Orders"" text should be visible
+
         softAssert.assertTrue(adminPage.totalOrdersText.isDisplayed());
+        extentTest.info("Total Orders text should be visible");
+        extentTest.pass("Total Orders text is visible .");
         softAssert.assertAll();
         Driver.closeDriver();
+        extentTest.info("The browser is closed.");
     }
 
     @Test(priority = 25)
     public void test_TC_03803() {
 
         adminPage = new AdminPage();
-
-        //The user opens the browser.
-        //The user logs into the webpage:https://qa.mealscenter.com/backoffice/login
-        //The user  types the correct Username and Password and  click Sign-in.
+        extentTest = extentReports.createTest("testTC_03803", "By a specific Date Range select option is should be visible");
+        ReusableMethods.bekle(5);
         adminPage.adminLoginOl();
+        extentTest.info("Browser is opened ,admin page is opened");
         ReusableMethods.bekle(4);
-        //   The user clicks "Orders" link under the Dashboard.
-        adminPage.ordersLink.click();
-        //   The user  clicks "All order" link under the "Orders".
-        adminPage.allOrderLink.click();
-        // The user waits until "Filters"  button is visible.
-        ReusableMethods.waitForVisibility(adminPage.filtersButton, 3);
+        extentTest.info("It is waited 4 seconds.");
 
-        //The user clicks "Filters" button.
+        adminPage.ordersLink.click();
+        extentTest.info("Orders Link is clicked.");
+        adminPage.allOrderLink.click();
+        extentTest.info("All order Link is clicked.");
+        ReusableMethods.waitForVisibility(adminPage.filtersButton, 3);
+        extentTest.info("It should be waited until Filters button  is visible.");
         adminPage.filtersButton.click();
+        extentTest.info("Filters Button is clicked.");
         //Verify that "By a specific Date Range" select option is visible.
         String expectedOption = "By a specific Date Range";
         String allOptionsFilters = adminPage.filtersBody.getText();
         softAssert.assertTrue(allOptionsFilters.contains(expectedOption));
-
+        extentTest.fail("By a specific Date Range select option is not visible");
         softAssert.assertAll();
         Driver.closeDriver();
+        extentTest.info("The browser is closed.");
     }
 
     @Test(priority = 15)
@@ -108,68 +122,100 @@ public class US_038_AdminOrderListTest {
 
 
         adminPage = new AdminPage();
-
-
-        //The user opens the browser.
-        //The user logs into the webpage:https://qa.mealscenter.com/backoffice/login
-        //The user  types the correct Username and Password and  click Sign-in.
+        extentTest = extentReports.createTest("testTC_03804", "All products should be sorted bi ID Element");
         adminPage.adminLoginOl();
+        extentTest.info("Browser is opened ,admin page is opened");
         ReusableMethods.bekle(4);
-        //   The user clicks "Orders" link under the Dashboard.
-        adminPage.ordersLink.click();
-        //   The user  clicks "All order" link under the "Orders".
-        adminPage.allOrderLink.click();
-        // The user waits until "Order ID"  link is visible.
-        ReusableMethods.waitForVisibility(adminPage.orderId, 3);
+        extentTest.info("It is waited 4 seconds.");
 
-//The user clicks "Order ID" link.
+        adminPage.ordersLink.click();
+        extentTest.info("Orders Link is clicked.");
+        adminPage.allOrderLink.click();
+        extentTest.info("All order Link is clicked.");
+        ReusableMethods.waitForVisibility(adminPage.orderId, 3);
+        extentTest.info("It should be waited until Order ID link is visible.");
         adminPage.orderId.click();
-//Verify that all products should be sorted .
+        extentTest.info("Order ID Link is clicked.");
         adminPage.orderIdElementsMethod();
         List<Integer> sortedIdElements = adminPage.orderIdElementsMethod();
         Collections.sort(sortedIdElements);
         softAssert.assertEquals(sortedIdElements, adminPage.orderIdElementsMethod());
+        extentTest.pass("All products were sorted");
         Driver.closeDriver();
+        extentTest.info("The browser is closed.");
     }
 
     @Test(priority = 20)
     public void testTC_03805() {
 
-       adminPage = new AdminPage();
-
-
-        //The user opens the browser.
-        //The user logs into the webpage:https://qa.mealscenter.com/backoffice/login
-        //The user  types the correct Username and Password and  click Sign-in.
+        adminPage = new AdminPage();
+        softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
         adminPage.adminLoginOl();
+        extentTest.info("Browser is opened ,admin page is opened");
+        extentTest.info("It is waited for 4 seconds.");
         ReusableMethods.bekle(4);
-        //   The user clicks "Orders" link under the Dashboard.
         adminPage.ordersLink.click();
-        //   The user  clicks "All order" link under the "Orders".
+        extentTest.info("Orders Link is clicked.");
         adminPage.allOrderLink.click();
-        // The user waits until "eye sign"  is visible.
+        extentTest.info("All Order Link is clicked.");
         ReusableMethods.waitForVisibility(adminPage.eyeSign, 3);
-
-        //The user clicks "eye sign"
-        //Verify that "Summary" text is visible.//
-
+        extentTest.info("It should be waited until Eye Sign is visible.");
+        extentTest.info("Eye Sign links are clicked.");
+        extentTest.info("Summary texts are visible.");
 
         for (int i = 1; i <= 10; i++) {
             ReusableMethods.bekle(3);
             WebElement eyeSign = Driver.getDriver().findElement(By.xpath("(//a[@class='ref_view_order normal btn btn-light tool_tips'])[" + i + "]"));
-            JSUtilities.scrollToElement(Driver.getDriver(),eyeSign);
+            JSUtilities.scrollToElement(Driver.getDriver(), eyeSign);
             ReusableMethods.bekle(3);
-           eyeSign.click();
+            eyeSign.click();
             ReusableMethods.bekle(3);
 
             WebElement summaryText = Driver.getDriver().findElement(By.xpath("//h5[text()='Summary']"));
             softAssert.assertTrue(summaryText.isDisplayed());
+
             ReusableMethods.bekle(3);
             Driver.getDriver().navigate().back();
 
+        }
+        extentTest.pass("Summary texts were seen.");
+        extentTest.info("The browser is closed.");
+        Driver.getDriver().close();
+    }
+
+    @Test(priority = 22)
+    public void testTC_03806() {
+        adminPage = new AdminPage();
+
+        softAssert = new SoftAssert();
+        extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
+        ReusableMethods.bekle(10);
+        adminPage.adminLoginOl();
+        extentTest.info("Browser is opened ,admin page is opened");
+        extentTest.info("It is waited for 4 seconds.");
+        ReusableMethods.bekle(4);
+        adminPage.ordersLink.click();
+        extentTest.info("Orders Link is clicked.");
+        adminPage.allOrderLink.click();
+        extentTest.info("All Order Link is clicked.");
+        ReusableMethods.waitForClickablility(adminPage.downloadSign, 4);
+        extentTest.info("It should be waited until Download Sign is visible.");
+        extentTest.info("Download Sign links are clicked.");
+
+        extentTest.info("Download documents are visible on the computer.");
+
+        for (int i = 1; i <= 10; i++) {
+
+            WebElement downloadSign = Driver.getDriver().findElement(By.xpath("(//i[@class='zmdi zmdi-download'])[" + i + "]"));
+
+            downloadSign.click();
+            String dynamicPathOfFile = "C:\\Users\\ebasm\\Downloads\\document (" + i + ").pdf";
+            softAssert.assertTrue(Files.exists(Paths.get(dynamicPathOfFile)));
 
         }
-        //The user closes the browser.
+        extentTest.pass("Download documents were seen on the computer.");
+        extentTest.info("The browser is closed.");
         Driver.getDriver().close();
     }
 }
