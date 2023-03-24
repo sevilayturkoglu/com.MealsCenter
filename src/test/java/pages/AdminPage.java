@@ -18,6 +18,63 @@ public class AdminPage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement adminSignIn;
 
+    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[1]")
+    public WebElement totalSales;
+
+    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[2]")
+    public WebElement totalMerchant;
+
+    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[3]")
+    public WebElement totalCommission;
+
+    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[4]")
+    public WebElement totalSubscription;
+
+    @FindBy(xpath = "(//div[@class='card'])[1]")
+    public WebElement comissionThisWeek;
+
+    @FindBy(xpath = "(//div[@class='card'])[2]")
+    public WebElement comissionThisMonth;
+
+    @FindBy(xpath = "(//div[@class='card'])[3]")
+    public WebElement subscriptionsThisMonth;
+
+    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[1]")
+    public WebElement orderReceived;
+
+    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[2]")
+    public WebElement todayDelivered;
+
+    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[3]")
+    public WebElement newCustomer;
+
+    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[4]")
+    public WebElement totalRefund;
+
+    @FindBy(xpath = "(//h5[@class='m-0'])[1]")
+    public WebElement lastOrders;
+
+    @FindBy(xpath = "(//h5[@class='m-0'])[2]")
+    public WebElement popularItems;
+
+    @FindBy(xpath = "(//h5[@class='m-0'])[3]")
+    public WebElement popularMerchants;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[1]")
+    public WebElement salesOverview;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[2]")
+    public WebElement topCustomers;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[3]")
+    public WebElement overviewOfReviev;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[4]")
+    public WebElement recentPayout;
+
+
+
+
 
     //Merchant
 

@@ -84,5 +84,7 @@ public class US_012 {
             i++;
         }
 
+        softAssert.assertAll();
+
     }
 }
