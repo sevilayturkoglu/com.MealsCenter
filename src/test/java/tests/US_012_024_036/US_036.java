@@ -33,41 +33,28 @@ public class US_036 {
      */
 
     @Test
-    public void Test01 () {
+    public void Test01() {
 
-       // giris yap anasayfaya git
-       AdminPage adminPage = new AdminPage();
-       adminPage.adminLoginOl();
+        // giris yap anasayfaya git
+        AdminPage adminPage = new AdminPage();
+        adminPage.adminLoginOl();
 
-       /////// web element ile otomatize edemedim suana kadar
+        // locater WebElement leri arraya atip foreach ile sirayla test et
+        // calistigini gormek icin foreach icinde yazdir
 
-    //    WebElement [] elements = {adminPage.totalSales, adminPage.totalMerchant, adminPage.totalCommission, adminPage.totalSubscription,
-    //            adminPage.comissionThisWeek, adminPage.comissionThisMonth, adminPage.subscriptionsThisMonth,
-    //            adminPage.orderReceived, adminPage.todayDelivered, adminPage.newCustomer, adminPage.totalRefund,
-    //            adminPage.lastOrders, adminPage.popularItems, adminPage.popularMerchants,
-    //            adminPage.salesOverview, adminPage.topCustomers, adminPage.overviewOfReviev, adminPage.recentPayout};
-
-
+        WebElement[] elements = {adminPage.totalSales, adminPage.totalMerchant, adminPage.totalCommission, adminPage.totalSubscription,
+                adminPage.comissionThisWeek, adminPage.comissionThisMonth, adminPage.subscriptionsThisMonth,
+                adminPage.orderReceived, adminPage.todayDelivered, adminPage.newCustomer, adminPage.totalRefund,
+                adminPage.lastOrders, adminPage.popularItems, adminPage.popularMerchants,
+                adminPage.salesOverview, adminPage.topCustomers, adminPage.overviewOfReviev, adminPage.recentPayout};
 
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(adminPage.totalSales.isDisplayed());
-        softAssert.assertTrue(adminPage.totalMerchant.isDisplayed());
-        softAssert.assertTrue(adminPage.totalCommission.isDisplayed());
-        softAssert.assertTrue(adminPage.totalSubscription.isDisplayed());
-        softAssert.assertTrue(adminPage.comissionThisWeek.isDisplayed());
-        softAssert.assertTrue(adminPage.comissionThisMonth.isDisplayed());
-        softAssert.assertTrue(adminPage.subscriptionsThisMonth.isDisplayed());
-        softAssert.assertTrue(adminPage.orderReceived.isDisplayed());
-        softAssert.assertTrue(adminPage.todayDelivered.isDisplayed());
-        softAssert.assertTrue(adminPage.newCustomer.isDisplayed());
-        softAssert.assertTrue(adminPage.totalRefund.isDisplayed());
-        softAssert.assertTrue(adminPage.lastOrders.isDisplayed());
-        softAssert.assertTrue(adminPage.popularItems.isDisplayed());
-        softAssert.assertTrue(adminPage.popularMerchants.isDisplayed());
-        softAssert.assertTrue(adminPage.salesOverview.isDisplayed());
-        softAssert.assertTrue(adminPage.topCustomers.isDisplayed());
-        softAssert.assertTrue(adminPage.overviewOfReviev.isDisplayed());
-        softAssert.assertTrue(adminPage.recentPayout.isDisplayed());
+
+        for (WebElement each : elements) {
+            softAssert.assertTrue(each.isDisplayed());
+            System.out.println(each.getText());
+
+        }
 
         softAssert.assertAll();
 
