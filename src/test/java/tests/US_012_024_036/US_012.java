@@ -40,7 +40,8 @@ public class US_012 {
         // giris yap anasayfaya git
         UserPage userPage = new UserPage();
         userPage.userLoginBeing();
-        userPage.userLogo.click(); //tam olarak anasayfa baslangicinda olmadigi icin anasayfaya cekiyoruz
+        userPage.userLogo.click(); // tam olarak anasayfa baslangicinda olmadigimiz icin anasayfaya cekiyoruz.
+
 
         // page down yap cuisineleri gormek icin
         Actions actions = new Actions(Driver.getDriver());
@@ -48,7 +49,7 @@ public class US_012 {
         ReusableMethods.bekle(1);
 
 
-
+        SoftAssert softAssert = new SoftAssert();
 
         //cuisine tikla
 
