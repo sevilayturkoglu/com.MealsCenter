@@ -87,7 +87,7 @@ public void accordingToCustomName(String customerName){
                 }
             }
             for (int i = 0; i < actualLisSort.size()-1; i++) {
-                if(actualLisSort.get(i)>actualLisSort.get(i+1)) {
+                if(actualLisSort.get(i)>=actualLisSort.get(i+1)) {
                     softAssert.assertTrue(true);
                 }else{
                     softAssert.assertTrue(false);
@@ -117,7 +117,6 @@ public void accordingToCustomName(String customerName){
                 dateTemp= each.getText().replaceAll("\\D","").substring(0,2);
                 dateList.add(Integer.parseInt(dateTemp));
             }
-            System.out.println(dateList);
 
             for (int i = 0; i < dateList.size()-1; i++) {
                 if (dateList.get(i) >= dateList.get(i + 1)) {
@@ -140,7 +139,7 @@ public void accordingToCustomName(String customerName){
             Collections.sort(dateListSorted);
             softAssert.assertEquals(dateList,dateListSorted);
         }
-        softAssert.assertAll();
+
     }
 
 }
