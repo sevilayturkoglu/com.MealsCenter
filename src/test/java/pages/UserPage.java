@@ -95,7 +95,8 @@ public class UserPage {
         userPage.userAdresBox.sendKeys("100000");
         ReusableMethods.waitForVisibility(userPage.userChooseAddres,10);
         userPage.userChooseAddres.click();
-        Driver.getDriver().navigate().back();
+        ReusableMethods.bekle(1);
+       userLogo.click();
     }
 
     //Bu method size  ust sagda hesabinizin ayrintilarinin oldugu dropDowni acacak sizi gitmek istediginiz yere goturecek ve
