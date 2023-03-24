@@ -1,10 +1,15 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminPage {
     public AdminPage() {
@@ -57,6 +62,22 @@ public class AdminPage {
     public WebElement filtersBody;
 
 
+    //Bu methodla Order Id 'nin altindaki sayilari sirayla alabiliyorsunuz.
+    public List<Integer> orderIdElementsMethod() {
+        //   //tbody/tr[3]/td[5]======>3.satir,  5.sutun
+
+
+        List<Integer> idElementsInt = new ArrayList<>();
+        String idElements = "";
+        for (int i = 1; i <= 10; i++) {
+            ReusableMethods.bekle(3);
+            idElements = Driver.getDriver().findElement(By.xpath("//tbody/tr[" + i + "]/td[3]")).getText();
+            idElementsInt.add(Integer.parseInt(idElements));
+
+        }
+        return idElementsInt;
+
+    }
 
     //Earnings
 
