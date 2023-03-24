@@ -4,6 +4,7 @@ public class US_024 {
 
     /*
 
+        US_024  As a restaurant manager (to be able to view the categories of my restaurant, add a new category, edit and delete) I want to have the Category List page.
         24-- Acceptance Criteria
 
         * On the "https://qa.mealscenter.com/backoffice/food/category" page.

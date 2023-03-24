@@ -4,6 +4,8 @@ public class US_036 {
 
     /*
 
+        US_036  As an admin, I should be able to see summary information on the Dashboard page
+
         36-- Acceptance Criteria
 
         * On the "https://qa.mealscenter.com/backoffice/admin/dashboard" page
