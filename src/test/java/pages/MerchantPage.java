@@ -20,7 +20,7 @@ public class MerchantPage {
     @FindBy(xpath= "//input[@type='submit']")
     public WebElement merchantSignIn;
 
-    //Merchant SubWay locators
+    //Merchant SubWay locators(Eyup)
     @FindBy(xpath = "(//h6[.='Subway'])[1]")
     public WebElement merchantSubwayLink;
 
@@ -32,6 +32,15 @@ public class MerchantPage {
 
     @FindBy(xpath = "//*[@class='mb-1']")
     public WebElement cartText;
+
+    @FindBy(xpath = "//*[.='Cash On delivery']")
+    public WebElement cashOnDeliveryLink;
+
+    @FindBy(xpath = "//*[.='Add Cash']")
+    public WebElement addCashButton;
+
+    @FindBy(xpath = "//*[.='Default']")
+    public WebElement paymentMethodDefault;
 
     //Bu method sizi merchant sayfasina login yapacak
     //restaurantName olarak configuration.propertiesdekini restaurant adini kullanin
