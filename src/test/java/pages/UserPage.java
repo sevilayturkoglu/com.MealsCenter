@@ -12,10 +12,13 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.List;
+
 public class UserPage {
     public UserPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
     //Login page locators
     @FindBy(xpath = "//a[.='Sign in']")
     public WebElement userSignIn;
@@ -57,9 +60,9 @@ public class UserPage {
     public WebElement addToCard;
     @FindBy(xpath = "//div[.='Go to checkout']")
     public WebElement userBagChecOutText;
-//User Favorites Locators
-@FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
-public WebElement favouriteTikStarBox;
+    //User Favorites Locators
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
+    public WebElement favouriteTikStarBox;
     @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[5]")
     public WebElement favouriteTikBurgerBox;
     @FindBy(xpath = "//h5[.='Burger King']")
@@ -70,21 +73,11 @@ public WebElement favouriteTikStarBox;
     public WebElement inFavouriteTikBox1;
 
 
-
-
-
-
-
-
-
-
-
-
     //Bu method sizi sayfaya login yapacak
     // Actiginiz Test altina Url yi yazdiktan sonra bu method cagrilacak
     public void userLoginBeing() {
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        UserPage userPage=new UserPage();
+        UserPage userPage = new UserPage();
         userPage.userCookies.click();
         userSignIn.click();
         Actions actions = new Actions(Driver.getDriver());
@@ -94,7 +87,7 @@ public WebElement favouriteTikStarBox;
         userSignInLogin.click();
         ReusableMethods.bekle(2);
         userPage.userAdresBox.sendKeys("100000");
-        ReusableMethods.waitForVisibility(userPage.userChooseAddres,10);
+        ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
         userPage.userChooseAddres.click();
         Driver.getDriver().navigate().back();
     }
@@ -114,7 +107,8 @@ public WebElement favouriteTikStarBox;
         Assert.assertTrue(actualUrl.contains(expecdUrl));
 
     }
-//Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
+
+    //Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
     //Method argumenti olarak sadece sayfada gorulen cuisine adi yazin "Mediterranean" gibi
     public void userChoseAppearCuisine(String cuisineName) {
@@ -123,6 +117,7 @@ public WebElement favouriteTikStarBox;
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
     }
+
     //Bu method sizi sayfada more drop downi altinda olan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
     //Method argumenti olarak sadece sayfada gorulen cuisine adi yazin "Kosher" gibi
@@ -135,35 +130,41 @@ public WebElement favouriteTikStarBox;
     }
 
     public void userChoseAppearCuisine02(String cuisineName) {
-        UserPage userPage=new UserPage();
+        UserPage userPage = new UserPage();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
-        Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + cuisineName + "']")).click();
-        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
-        String actCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
-        System.out.println(expCuisine);
-        System.out.println(actCuisine);
-        softAssert.assertTrue(actCuisine.contains(expCuisine));
         userPage.userLogo.click();
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.bekle(1);
+        Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + cuisineName + "']")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
+        for (WebElement store : Stores) {
+            String actCuisine = store.getText();
+            System.out.println(expCuisine);
+            System.out.println(actCuisine);
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+        }
     }
 
     public void UserChoseCuisineMore02(String cuisineName) {
-        UserPage userPage=new UserPage();
+        UserPage userPage = new UserPage();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
-        userPage.userCuisineMoreButton.click();
-        Driver.getDriver().findElement(By.xpath("(//a[.='" + cuisineName + "'])[1]")).click();
-        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
-        String actCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
-        System.out.println(expCuisine);
-        System.out.println(actCuisine);
-        softAssert.assertTrue(actCuisine.contains(expCuisine));
         userPage.userLogo.click();
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.bekle(1);
-    }
+        userPage.userCuisineMoreButton.click();
+        Driver.getDriver().findElement(By.xpath("(//a[.='" + cuisineName + "'])[1]")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        System.out.println(expCuisine);
 
+        List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
+        for (WebElement store : Stores) {
+            String actCuisine = store.getText();
+            System.out.println(actCuisine);
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+        }
+    }
 
 }
