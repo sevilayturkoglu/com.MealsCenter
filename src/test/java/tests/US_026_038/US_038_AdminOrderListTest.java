@@ -186,10 +186,11 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         extentTest.info("Download Sign links are clicked.");
         extentTest.info("Download documents are visible on the computer.");
         adminPage.orderDownloadSign.click();
-        String dynamicPathOfFile = "C:\\Users\\ebasm\\Downloads\\document.pdf";
+        String dynamicPathOfFile = "C:\\Users\\ebasm\\Downloads\\document(2).pdf";
         softAssert.assertTrue(Files.exists(Paths.get(dynamicPathOfFile)));
         extentTest.pass("Download documents were seen on the computer.");
         extentTest.info("The browser is closed.");
         Driver.getDriver().close();
+
     }
 }
