@@ -18,25 +18,16 @@ public class UserPage {
     //Login page locators
     @FindBy(xpath = "//a[.='Sign in']")
     public WebElement userSignIn;
-    //@FindBy(xpath = "//label[@for='username']")
-    @FindBy(xpath = "//input[@id='username']")
+    @FindBy(xpath = "//label[@for='username']")
     public WebElement userEmailLogin;
-    //@FindBy(xpath = "//label[@for='password']")
-    @FindBy(xpath = "(//input[@id='password'])[1]")
+    @FindBy(xpath = "//label[@for='password']")
     public WebElement userPasswordLogin;
-    //@FindBy(xpath = "//span[.='Sign in']")
-    @FindBy(css = "button[class='btn btn-green w-100'] span")
+    @FindBy(xpath = "//span[.='Sign in']")
     public WebElement userSignInLogin;
     @FindBy(xpath = "//span[.='Decline']")
     public WebElement userCookies;
     @FindBy(xpath = "//h5[.='Login']")
     public WebElement userLoginText;
-    @FindBy(css ="#dropdownMenuLink")
-    public WebElement userNameHeaderRight;
-    @FindBy(css = ".dropdown-item.with-icon-account")
-    public WebElement userManageMyAccount;
-    @FindBy(xpath = ("//h6[@class='m-0 p-2 pd-5 with-icon-account with-icon']"))
-    public WebElement userProfilePage;
     //User page locators
     @FindBy(xpath = "//a[@id='dropdownMenuLink']")
     public WebElement userUstDropDownButton;
@@ -65,9 +56,9 @@ public class UserPage {
     public WebElement addToCard;
     @FindBy(xpath = "//div[.='Go to checkout']")
     public WebElement userBagChecOutText;
-//User Favorites Locators
-@FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
-public WebElement favouriteTikStarBox;
+    //User Favorites Locators
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
+    public WebElement favouriteTikStarBox;
     @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[5]")
     public WebElement favouriteTikBurgerBox;
     @FindBy(xpath = "//h5[.='Burger King']")
@@ -104,7 +95,8 @@ public WebElement favouriteTikStarBox;
         userPage.userAdresBox.sendKeys("100000");
         ReusableMethods.waitForVisibility(userPage.userChooseAddres,10);
         userPage.userChooseAddres.click();
-        Driver.getDriver().navigate().back();
+        ReusableMethods.bekle(1);
+        userLogo.click();
     }
 
     //Bu method size  ust sagda hesabinizin ayrintilarinin oldugu dropDowni acacak sizi gitmek istediginiz yere goturecek ve
@@ -122,7 +114,7 @@ public WebElement favouriteTikStarBox;
         Assert.assertTrue(actualUrl.contains(expecdUrl));
 
     }
-//Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
+    //Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
     //Method argumenti olarak sadece sayfada gorulen cuisine adi yazin "Mediterranean" gibi
     public void userChoseAppearCuisine(String cuisineName) {
