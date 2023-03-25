@@ -45,7 +45,7 @@ public class MerchantPage {
 
 
 //Bu method dashboard haric merchant anasayfada solda bulunan menuye gidecek siz icine gitmek
-// istediginiz menunun adini yazacaksiniz Or:  Merchant  , Orders , Food , Attributes .... gibi
+// istediginiz menunun adini yazacaksiniz Or:  Merchant  , Orders , Food , Attributes .. gibi
     public void merchantMenuLeftSide(String menuName) {
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).click();
     }
