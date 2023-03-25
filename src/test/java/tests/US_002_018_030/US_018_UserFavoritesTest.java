@@ -52,7 +52,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         extentTest.info("Browseri baslatildi ,MealsCenter Url ye gidildi,login olundu ");
         ReusableMethods.bekle(1);
         userPage.userUstDDMenu("Saved Stores", "favourites");
-        extentTest.info("Account bolumunden Saved story kismina gidildi");
+        extentTest.info("Account bolumunden Saved story kismina gidildi,bu adrese gidildigi dogrulandi");
         ReusableMethods.bekle(2);
         softAssert.assertTrue(userPage.favouriteBurgerKing.isDisplayed());
         extentTest.info("Daha once secilen restaurantin sayfada oldugu verify edildi");
@@ -76,7 +76,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         extentTest.info("Browseri baslatildi ,MealsCenter Url ye gidildi,login olundu ");
         ReusableMethods.bekle(1);
         userPage.userUstDDMenu("Saved Stores", "favourites");
-        extentTest.info("Account bolumunden Saved story kismina gidildi");
+        extentTest.info("Account bolumunden Saved story kismina gidildi,bu adrese gidildigi dogrulandi");
         ReusableMethods.bekle(2);
         userPage.inFavouriteTikBox1.click();
         extentTest.info("Artik favorim olmasini istenilmeyen restaurant tiklandi");
