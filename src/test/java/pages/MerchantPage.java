@@ -22,7 +22,7 @@ public class MerchantPage {
 
     //Merchant SubWay locators
     @FindBy(xpath = "(//h6[.='Subway'])[1]")
-    public WebElement merchantMcDonaldsLink;
+    public WebElement merchantSubwayLink;
 
     @FindBy(xpath = "(//a[@class='btn btn-grey quantity-add-cart'])[1]")
     public WebElement addToCartButton;
