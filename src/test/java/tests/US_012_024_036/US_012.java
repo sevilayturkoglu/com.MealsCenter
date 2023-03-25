@@ -3,14 +3,11 @@ package tests.US_012_024_036;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.UserPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
-import java.util.Objects;
 
 public class US_012 {
 
@@ -54,35 +51,56 @@ public class US_012 {
         //cuisine tikla
 
         String[] appearCuisines = {"American","Mediterranean","Sandwiches","Italian","Mexican","Burgers","Japanese","Thai"};
-        for (int i = 0; i <= 7;) {
-            String type = appearCuisines[i];
-            Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + type + "']")).click();
-            String actCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
-            String expCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
-            System.out.println(actCuisine);
+
+        for (String cuisineName: appearCuisines) {
+
+            userPage.userChoseAppearCuisine02(cuisineName);
+        }
+
+        String[] moreCuisines = {"Chinese","Kosher","Halal","Vegetarian"};
+
+        for (String cuisineName: moreCuisines) {
+
+            userPage.UserChoseCuisineMore02(cuisineName);
+        }
+
+
+/*
+
+        String[] appearCuisines = {"American","Mediterranean","Sandwiches","Italian","Mexican","Burgers","Japanese","Thai"};
+
+        for (String appearCuisine: appearCuisines) {
+
+            Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + appearCuisine + "']")).click();
+            String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+            String actCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
             System.out.println(expCuisine);
-            softAssert.assertTrue(expCuisine.contains(actCuisine));
+            System.out.println(actCuisine);
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+            userPage.userLogo.click();
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            ReusableMethods.bekle(1);
+
+
+        }
+
+        String[] moreCuisines = {"Chinese","Kosher","Halal","Vegetarian"};
+
+        for (String appearCuisine: moreCuisines) {
+        userPage.userCuisineMoreButton.click();
+        Driver.getDriver().findElement(By.xpath("(//a[.='" + appearCuisine + "'])[1]")).click();
+            String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+            String actCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
+            System.out.println(expCuisine);
+            System.out.println(actCuisine);
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
             userPage.userLogo.click();
             actions.sendKeys(Keys.PAGE_DOWN).perform();
             ReusableMethods.bekle(1);
             i++;
         }
 
-        String[] moreCuisines = {"Chinese","Kosher","Halal","Vegetarian"};
-        for (int i = 0; i <= 3;) {
-            String type = moreCuisines[i];
-        userPage.userCuisineMoreButton.click();
-        Driver.getDriver().findElement(By.xpath("(//a[.='" + type + "'])[1]")).click();
-            String actCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
-            String expCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
-            System.out.println(actCuisine);
-            System.out.println(expCuisine);
-            softAssert.assertTrue(expCuisine.contains(actCuisine));
-            userPage.userLogo.click();
-            actions.sendKeys(Keys.PAGE_DOWN).perform();
-            ReusableMethods.bekle(1);
-            i++;
-        }
+ */
 
         softAssert.assertAll();
 

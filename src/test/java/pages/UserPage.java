@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -132,4 +133,37 @@ public WebElement favouriteTikStarBox;
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
     }
+
+    public void userChoseAppearCuisine02(String cuisineName) {
+        UserPage userPage=new UserPage();
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + cuisineName + "']")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        String actCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
+        System.out.println(expCuisine);
+        System.out.println(actCuisine);
+        softAssert.assertTrue(actCuisine.contains(expCuisine));
+        userPage.userLogo.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(1);
+    }
+
+    public void UserChoseCuisineMore02(String cuisineName) {
+        UserPage userPage=new UserPage();
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userCuisineMoreButton.click();
+        Driver.getDriver().findElement(By.xpath("(//a[.='" + cuisineName + "'])[1]")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        String actCuisine = Driver.getDriver().findElement(By.xpath("(//div[@class='row align-items-center'])[1]")).getText();
+        System.out.println(expCuisine);
+        System.out.println(actCuisine);
+        softAssert.assertTrue(actCuisine.contains(expCuisine));
+        userPage.userLogo.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(1);
+    }
+
+
 }
