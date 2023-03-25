@@ -30,7 +30,10 @@ public abstract class TestBaseReport {
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
         extentReports.setSystemInfo("Enviroment", "QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
+
+     
         extentReports.setSystemInfo("Automation Engineer", "Team8");
+
         extentHtmlReporter.config().setDocumentTitle("TestNG Test");
         extentHtmlReporter.config().setReportName("TestNG Reports");
     }
@@ -46,7 +49,7 @@ public abstract class TestBaseReport {
         } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
             extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
         }
-       // Driver.closeDriver();
+        Driver.closeDriver();
     }
 
     // Raporlandırmayı sonlandırmak icin
