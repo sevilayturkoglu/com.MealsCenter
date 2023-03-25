@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.ReusableMethods;
 
 import java.util.ArrayList;
@@ -51,18 +52,18 @@ public class AdminPage {
 
 
     @FindBy(xpath = "(//*[text()='Filters'])[1]")
-    public WebElement filtersButton;
+    public WebElement orderFiltersButton;
     @FindBy(xpath = "(//*[@aria-label='Order ID: activate to sort column ascending'])[1]")
-    public WebElement orderId;
+    public WebElement orderOrderId;
     @FindBy(xpath = "(//*[@class='zmdi zmdi-eye'])[1]")
-    public WebElement eyeSign;
+    public WebElement orderViewSign;
     @FindBy(xpath = "(//*[@class='zmdi zmdi-download'])[1]")
-    public WebElement downloadSign;
+    public WebElement orderDownloadSign;
     @FindBy(xpath = "(//div[@class='card-body'])[2]")
-    public WebElement filtersBody;
+    public WebElement orderFiltersBody;
 
 
-    //Bu methodla Order Id 'nin altindaki sayilari sirayla alabiliyorsunuz.
+    //This method is used to list  the items in the customer product categories.
     public List<Integer> orderIdElementsMethod() {
         //   //tbody/tr[3]/td[5]======>3.satir,  5.sutun
 
@@ -77,7 +78,8 @@ public class AdminPage {
         }
         return idElementsInt;
 
-    }
+        }
+
 
     //Earnings
 
