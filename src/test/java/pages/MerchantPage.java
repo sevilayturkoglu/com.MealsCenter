@@ -42,6 +42,24 @@ public class MerchantPage {
     @FindBy(xpath = "//*[.='Default']")
     public WebElement paymentMethodDefault;
 
+    @FindBy(xpath = "//*[.='Add new address']")
+    public WebElement addNewAddressLink;
+
+    @FindBy(xpath = "//*[@placeholder='Enter delivery address']")
+    public WebElement enterDeliveryAddressBox;
+
+    @FindBy(xpath = "(//*[.='Save'])[10]")
+    public WebElement newAddressSaveButton;
+
+    @FindBy(xpath = "(//*[@class='m-0 text-grey'])[5]")
+    public WebElement newSelectedAddress;
+
+    @FindBy(xpath = "(//*[@class='flexcol'])[5]")
+    public WebElement savedAddressBox;
+
+    @FindBy(xpath = "//*[.='Place Order']")
+    public WebElement placeOrderButton;
+
     //Bu method sizi merchant sayfasina login yapacak
     //restaurantName olarak configuration.propertiesdekini restaurant adini kullanin
     public void merchantLogin() {

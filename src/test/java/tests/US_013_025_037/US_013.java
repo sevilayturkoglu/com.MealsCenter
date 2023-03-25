@@ -56,4 +56,57 @@ public class US_013 extends TestBaseReport {
         softAssert.assertAll();
         Driver.closeDriver();
     }
+    @Test
+    public void addressTest(){
+        extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
+        userPage = new UserPage();
+        userPage.userLoginBeing();
+        extentTest.info("User signed in");
+        JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
+        extentTest.info("Subway link is clicked");
+        merchantPage.addToCartButton.click();
+        extentTest.info("Add to cart link is clicked");
+        merchantPage.checkoutButton.click();
+        extentTest.info("Checkout link is clicked");
+
+       JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.addNewAddressLink);
+        extentTest.info("Add new address link is clicked");
+
+        merchantPage.enterDeliveryAddressBox.sendKeys("11");
+        extentTest.info("Entered new address");
+        ReusableMethods.waitForVisibility(userPage.userChooseAddres,10);
+        JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.addNewAddressLink);
+        merchantPage.newSelectedAddress.click();
+        extentTest.info("Clicked new address");
+        merchantPage.newAddressSaveButton.click();
+        extentTest.info("New address save button is clicked");
+
+        String expectedNewAddressText = "11 Howard";
+        String actualNewAddressText = merchantPage.savedAddressBox.getText();
+        softAssert.assertTrue(actualNewAddressText.contains(expectedNewAddressText));
+        extentTest.pass("Verified that address is entered");
+        softAssert.assertAll();
+        Driver.closeDriver();
+    }
+    @Test
+    public void availableToPurchaseTest(){
+        extentTest = extentReports.createTest("availableToPurchaseTest"," the product is available for purchase");
+        userPage = new UserPage();
+        userPage.userLoginBeing();
+        extentTest.info("User signed in");
+        JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
+        extentTest.info("Subway link is clicked");
+        merchantPage.addToCartButton.click();
+        extentTest.info("Add to cart link is clicked");
+        merchantPage.checkoutButton.click();
+        extentTest.info("Checkout link is clicked");
+        JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.cashOnDeliveryLink);
+        extentTest.info("Cash On delivery link is clicked");
+        merchantPage.addCashButton.click();
+        extentTest.info("Add cash button is clicked");
+        softAssert.assertTrue(merchantPage.placeOrderButton.isDisplayed());
+        extentTest.pass("Verified that the product is available for purchase");
+        softAssert.assertAll();
+        Driver.closeDriver();
+    }
 }
