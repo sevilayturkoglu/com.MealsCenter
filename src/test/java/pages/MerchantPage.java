@@ -33,6 +33,12 @@ public class MerchantPage {
     @FindBy(xpath = "//*[@class='mb-1']")
     public WebElement cartText;
 
+
+
+
+
+
+
     //Bu method sizi merchant sayfasina login yapacak
     //restaurantName olarak configuration.propertiesdekini restaurant adini kullanin
     public void merchantLogin() {

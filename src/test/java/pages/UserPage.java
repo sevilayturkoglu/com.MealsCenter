@@ -76,9 +76,6 @@ public class UserPage {
 
 
 
-
-
-
     //Bu method sizi sayfaya login yapacak
     // Actiginiz Test altina Url yi yazdiktan sonra bu method cagrilacak
     public void userLoginBeing() {
