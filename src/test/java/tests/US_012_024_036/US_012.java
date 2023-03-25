@@ -10,12 +10,10 @@ public class US_012 {
         US_012  As a user, I would like to have a page with restaurants of different local cuisines.
 
         12-- Acceptance Criteria
-
         * Cuisine types on the "https://qa.mealscenter.com/" page should be clickable.
         * The descriptions of the stores on the opened page should include the cuisine name on the page.
 
         12-- Test Case
-
         * Follow the US_005 steps and
            The url "https://qa.mealscenter.com/" must be verified.
          * It should be verified that the name of the cuisine that appears on the page that comes up after clicking on the Cuisine type
