@@ -29,7 +29,7 @@ public class US_013 extends TestBaseReport {
         userPage = new UserPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
-        userPage.userLogo.click();
+        //userPage.userLogo.click();
 
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantMcDonaldsLink);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.addToCartButton);
