@@ -103,8 +103,11 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[.='Add Files'])[2]")
     public WebElement addFilesButtton;
 
-    @FindBy(xpath = "//*[@id='select2-AR_item_item_featured-container']")
+    @FindBy(xpath = "(//*[@class='selection'])[2]")
     public WebElement selectFeaturedBox;
+
+    @FindBy(xpath = "(//*[.='Trending'])[2]")
+    public WebElement selectTrendingFromFeaturedBox;
 
     @FindBy(xpath = "//*[@id='AR_item_color_hex']")
     public WebElement backgroundColorHexBox;
