@@ -7,7 +7,6 @@ import org.testng.asserts.SoftAssert;
 import pages.UserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-
 import utilities.ReusableMethods;
 
 

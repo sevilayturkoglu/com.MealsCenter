@@ -79,6 +79,7 @@ public class US_030_MerchantSheculdeTest {
         merchantPage = new MerchantPage();
         merchantSheculdePage = new MerchantSheculdePage();
         merchantPage.merchantLogin();
+
         merchantPage.merchantMenuLeftSide("Orders");
         merchantSheculdePage.merchantSheculdeButton.click();
         merchantSheculdePage.schuldeSortButton.click();
