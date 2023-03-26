@@ -16,10 +16,12 @@ public class US014_TC_001_UserProfile {
 
     UserPage userPage = new UserPage();
 
-    @Test
+
+    @Test (groups = "smoke")
     public void userProfileTest() {
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+
 
 
         if (userPage.userCookies.isDisplayed()) {

@@ -13,7 +13,7 @@ public class US_005_TC_001_UserLogin {
 
     UserPage userPage = new UserPage();
 
-    @Test
+    @Test (groups = "smoke")
     public void userLoginPozitifTest() {
 
         //https://qa.mealscenter.com/account/login

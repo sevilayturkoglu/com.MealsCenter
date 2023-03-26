@@ -12,7 +12,7 @@ import utilities.ReusableMethods;
 public class US_005_TC_002_NegatifLogin {
 
 
-    @Test
+    @Test(groups = "smoke")
     public void negatifLoginTest1() {
         UserPage userPage = new UserPage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
