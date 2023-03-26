@@ -83,6 +83,12 @@ public class US_024 {
         Driver.getDriver().findElement(By.cssSelector(".btn.btn-green.item_delete")).click(); // cookie deki delete butonunun locator u
 
 
+        //   extentTest.info("  ")
+
+        // Iceririk yazisi girilmesi gereken yerlerde faker yada Lorem ipsum kullanilmali
+
+
+
 
 
 
