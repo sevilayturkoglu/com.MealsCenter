@@ -39,7 +39,7 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         extentTest.info("Browser kapatildi");
         extentTest.pass("Schulded listenin musteri adina gore siralandigi goruldu");
         softAssert.assertAll();
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
     @DataProvider
     public static Object[][] orderType() {
