@@ -13,8 +13,11 @@ import utilities.ReusableMethods;
 
 public class UserPage {
     public UserPage() {
+
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
     //Login page locators
     @FindBy(xpath = "//a[.='Sign in']")
     public WebElement userSignIn;
@@ -56,9 +59,9 @@ public class UserPage {
     public WebElement addToCard;
     @FindBy(xpath = "//div[.='Go to checkout']")
     public WebElement userBagChecOutText;
-//User Favorites Locators
-@FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
-public WebElement favouriteTikStarBox;
+    //User Favorites Locators
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[3]")
+    public WebElement favouriteTikStarBox;
     @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite-outline'])[5]")
     public WebElement favouriteTikBurgerBox;
     @FindBy(xpath = "//h5[.='Burger King']")
@@ -67,15 +70,12 @@ public WebElement favouriteTikStarBox;
     public WebElement favouriteStarbucks;
     @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite text-green'])[1]")
     public WebElement inFavouriteTikBox1;
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-account']")
+    public WebElement userManageMyAccount;
 
-
-
-
-
-
-
-
-
+    // UserPage >> Privacy Policy Locator
+    @FindBy(xpath = "//*[text()='Privacy policy']")
+    public WebElement privacyPolicy;
 
 
 
@@ -83,7 +83,7 @@ public WebElement favouriteTikStarBox;
     // Actiginiz Test altina Url yi yazdiktan sonra bu method cagrilacak
     public void userLoginBeing() {
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        UserPage userPage=new UserPage();
+        UserPage userPage = new UserPage();
         userPage.userCookies.click();
         userSignIn.click();
         Actions actions = new Actions(Driver.getDriver());
@@ -93,9 +93,10 @@ public WebElement favouriteTikStarBox;
         userSignInLogin.click();
         ReusableMethods.bekle(2);
         userPage.userAdresBox.sendKeys("100000");
-        ReusableMethods.waitForVisibility(userPage.userChooseAddres,10);
+        ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
         userPage.userChooseAddres.click();
-        Driver.getDriver().navigate().back();
+        ReusableMethods.bekle(1);//bekleme varsa back olabilir
+        userLogo.click();
     }
 
     //Bu method size  ust sagda hesabinizin ayrintilarinin oldugu dropDowni acacak sizi gitmek istediginiz yere goturecek ve
@@ -113,7 +114,10 @@ public WebElement favouriteTikStarBox;
         Assert.assertTrue(actualUrl.contains(expecdUrl));
 
     }
-//Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
+
+
+
+    //Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
     //Method argumenti olarak sadece sayfada gorulen cuisine adi yazin "Mediterranean" gibi
     public void userChoseAppearCuisine(String cuisineName) {
@@ -122,6 +126,7 @@ public WebElement favouriteTikStarBox;
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
     }
+
     //Bu method sizi sayfada more drop downi altinda olan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
     //Method argumenti olarak sadece sayfada gorulen cuisine adi yazin "Kosher" gibi
@@ -132,4 +137,6 @@ public WebElement favouriteTikStarBox;
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
     }
+
+
 }

@@ -31,7 +31,7 @@ public class US_021_DashboardMenu {
         merchantPage=new MerchantPage();
         merchantDashboardPage=new MerchantDashboardPage();
         merchantPage.merchantLogin();
-        merchantDashboardPage.DashboardMenuListClick(option);
+        merchantDashboardPage.dashboardMenuListClick(option);
         softAssert.assertAll();
         Driver.closeDriver();
 

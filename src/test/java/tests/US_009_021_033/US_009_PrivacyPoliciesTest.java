@@ -24,7 +24,6 @@ public class US_009_PrivacyPoliciesTest {
         ReusableMethods.bekle(3);
         userPage.privacyPolicy.sendKeys(Keys.ENTER);
 
-        // softAssert.assertTrue(userPage.privacyPolicyYazisi.isDisplayed());
         String actualPrivacyPoliciesUrl = Driver.getDriver().getCurrentUrl();
         String expectPrivacyPoliciesUrl= "privacy-policy";
         softAssert.assertTrue(actualPrivacyPoliciesUrl.contains(expectPrivacyPoliciesUrl));

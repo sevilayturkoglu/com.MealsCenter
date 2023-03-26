@@ -20,16 +20,10 @@ public class MerchantDashboardPage {
     @FindBy (xpath = "(//*[@class='sidebar-nav-sub-menu'])[1]")
     public WebElement merchantBarMenu;
 
-    @FindBy(id = "//ul[@id='yw0']")
-    public WebElement daschboardMenuHepsi;
 
-    public void merchantMenuList(String menuName){
+    //MerchantPage >> Dashboard altindaki tum Menuleri "menuName" degistirerek hem tiklar hem goruntuler
+    public void dashboardMenuListClick(String menuName){
         Driver.getDriver().findElement(By.xpath("//a[.='"+menuName+"']")).click();
-
-    }
-    public void DashboardMenuListClick(String menuName){
-        Driver.getDriver().findElement(By.xpath("//a[.='"+menuName+"']")).click();
-
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).isDisplayed();
 
 
