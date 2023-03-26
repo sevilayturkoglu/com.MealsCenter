@@ -16,6 +16,8 @@ import java.util.List;
 
 public class UserPage {
     public UserPage() {
+
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -71,6 +73,15 @@ public class UserPage {
     public WebElement favouriteStarbucks;
     @FindBy(xpath = "(//i[@class='zmdi zmdi-favorite text-green'])[1]")
     public WebElement inFavouriteTikBox1;
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-account']")
+    public WebElement userManageMyAccount;
+
+
+    // UserPage >> Privacy Policy Locator
+    @FindBy(xpath = "//*[text()='Privacy policy']")
+    public WebElement privacyPolicy;
+
+
 
 
     //Bu method sizi sayfaya login yapacak
@@ -89,7 +100,8 @@ public class UserPage {
         userPage.userAdresBox.sendKeys("100000");
         ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
         userPage.userChooseAddres.click();
-        Driver.getDriver().navigate().back();
+        ReusableMethods.bekle(1);//bekleme varsa back olabilir
+        userLogo.click();
     }
 
     //Bu method size  ust sagda hesabinizin ayrintilarinin oldugu dropDowni acacak sizi gitmek istediginiz yere goturecek ve
