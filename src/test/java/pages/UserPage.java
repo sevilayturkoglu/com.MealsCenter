@@ -141,7 +141,7 @@ public class UserPage {
         Assert.assertEquals(actualPageText, expectedPageText);
     }
 
-    public void userChoseAppearCuisine02(String cuisineName) {
+    public void choseAppearedCuisine (String cuisineName) {
         UserPage userPage = new UserPage();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
@@ -153,13 +153,11 @@ public class UserPage {
         List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
         for (WebElement store : Stores) {
             String actCuisine = store.getText();
-            System.out.println(expCuisine);
-            System.out.println(actCuisine);
             softAssert.assertTrue(actCuisine.contains(expCuisine));
         }
     }
 
-    public void UserChoseCuisineMore02(String cuisineName) {
+    public void chooseCuisineAtMore (String cuisineName) {
         UserPage userPage = new UserPage();
         SoftAssert softAssert = new SoftAssert();
         Actions actions = new Actions(Driver.getDriver());
@@ -169,12 +167,9 @@ public class UserPage {
         userPage.userCuisineMoreButton.click();
         Driver.getDriver().findElement(By.xpath("(//a[.='" + cuisineName + "'])[1]")).click();
         String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
-        System.out.println(expCuisine);
-
         List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
         for (WebElement store : Stores) {
             String actCuisine = store.getText();
-            System.out.println(actCuisine);
             softAssert.assertTrue(actCuisine.contains(expCuisine));
         }
     }

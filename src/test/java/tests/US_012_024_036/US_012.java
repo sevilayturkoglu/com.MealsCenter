@@ -3,8 +3,9 @@ package tests.US_012_024_036;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.UserPage;
+import utilities.TestBaseReport;
 
-public class US_012 {
+public class US_012 extends TestBaseReport {
 
     /*
         US_012  As a user, I would like to have a page with restaurants of different local cuisines.
@@ -29,6 +30,9 @@ public class US_012 {
         UserPage userPage = new UserPage();
         userPage.userLoginBeing();
 
+        extentTest = extentReports.createTest("different local cuisines page test","Cuisine pages should include convenient stores");
+        extentTest.info("The user home page is accessible.");
+
         SoftAssert softAssert = new SoftAssert();
 
         // click appeared cuisines
@@ -36,7 +40,12 @@ public class US_012 {
 
         for (String cuisineName : appearCuisines) {
 
-            userPage.userChoseAppearCuisine02(cuisineName);
+            userPage.choseAppearedCuisine(cuisineName);
+
+            extentTest.info("On the user home page, The '" + cuisineName + " cuisine' item is clickable.");
+
+            extentTest.info("On the '" + cuisineName + " cuisine' page, The word '" + cuisineName + "' appears in the descriptions of the stores ");
+
         }
 
         // click more cuisines
@@ -44,7 +53,11 @@ public class US_012 {
 
         for (String cuisineName : moreCuisines) {
 
-            userPage.UserChoseCuisineMore02(cuisineName);
+            userPage.chooseCuisineAtMore(cuisineName);
+
+            extentTest.info("On the user home page, drop down 'More' and The '" + cuisineName + " cuisine' item is clickable.");
+
+            extentTest.info("On the '" + cuisineName + " cuisine' page, The word '" + cuisineName + "' appears in the descriptions of the stores ");
         }
 
         softAssert.assertAll();
