@@ -62,6 +62,7 @@ public class US_025 extends TestBaseReport {
         extentTest.info("Browse button is clicked");
         merchantPage.selectFileFromBrowse.click();
         extentTest.info("File is selected");
+        ReusableMethods.wait(3);
         merchantPage.addFilesButtton.click();
         extentTest.info("Add file button is clicked");
         //JSUtilities.scrollToElement(Driver.getDriver(),merchantPage.selectFeaturedBox);
@@ -71,24 +72,23 @@ public class US_025 extends TestBaseReport {
         merchantPage.backgroundColorButton.click();
         extentTest.info("backgroundColor is clicked");
         merchantPage.backgroundColorChoose.click();
-
-
-
-        //String expectedItemListText = "Item list";
-        String actualItemListText = merchantPage.itemListText.getText();
-        //softAssert.assertEquals(actualItemListText,expectedItemListText);
-        extentTest.pass("Verified that the Item list page is visible");
+        extentTest.info("backgroundColor is selected");
+        JSUtilities.scrollToElement(Driver.getDriver(),merchantPage.selectStatusBox);
+        ReusableMethods.selectAnItemFromDropdown(merchantPage.selectStatusBox,"Publish");
+        extentTest.info("Publish is selected");
+        merchantPage.saveButton.click();
+        extentTest.info("Save button is clicked");
+        String expectedText = "Succesfully created";
+        String actualText = merchantPage.succesfullyCreatedText.getText();
+        softAssert.assertEquals(actualText,expectedText);
+        extentTest.pass("Verified that the product Succesfully created");
         softAssert.assertAll();
         // Driver.closeDriver();
 
 
-
-
-
-
         //-Select Status Publish
         //-Click Save button
-        //-Verify that the product Succesfully created
+        //-Verify that
         //-Close browser
     }
 }
