@@ -20,6 +20,52 @@ public class MerchantPage {
     @FindBy(xpath= "//input[@type='submit']")
     public WebElement merchantSignIn;
 
+    //Merchant SubWay locators(Eyup)
+    @FindBy(xpath = "(//h6[.='Subway'])[1]")
+    public WebElement merchantSubwayLink;
+
+    @FindBy(xpath = "(//a[@class='btn btn-grey quantity-add-cart'])[1]")
+    public WebElement addToCartButton;
+
+    @FindBy(xpath = "//*[.='Checkout']")
+    public WebElement checkoutButton;
+
+    @FindBy(xpath = "//*[@class='mb-1']")
+    public WebElement cartText;
+
+
+    @FindBy(xpath = "//*[.='Cash On delivery']")
+    public WebElement cashOnDeliveryLink;
+
+    @FindBy(xpath = "//*[.='Add Cash']")
+    public WebElement addCashButton;
+
+    @FindBy(xpath = "//*[.='Default']")
+    public WebElement paymentMethodDefault;
+
+    @FindBy(xpath = "//*[.='Add new address']")
+    public WebElement addNewAddressLink;
+
+    @FindBy(xpath = "//*[@placeholder='Enter delivery address']")
+    public WebElement enterDeliveryAddressBox;
+
+    @FindBy(xpath = "(//*[.='Save'])[10]")
+    public WebElement newAddressSaveButton;
+
+    @FindBy(xpath = "(//*[@class='m-0 text-grey'])[5]")
+    public WebElement newSelectedAddress;
+
+    @FindBy(xpath = "(//*[@class='flexcol'])[5]")
+    public WebElement savedAddressBox;
+
+    @FindBy(xpath = "//*[.='Place Order']")
+    public WebElement placeOrderButton;
+
+
+
+
+
+
 
 
     //Bu method sizi merchant sayfasina login yapacak
@@ -34,7 +80,7 @@ public class MerchantPage {
 
 
 //Bu method dashboard haric merchant anasayfada solda bulunan menuye gidecek siz icine gitmek
-// istediginiz menunun adini yazacaksiniz Or:  Merchant  , Orders , Food , Attributes .... gibi
+// istediginiz menunun adini yazacaksiniz Or:  Merchant  , Orders , Food , Attributes .. gibi
     public void merchantMenuLeftSide(String menuName) {
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).click();
     }
