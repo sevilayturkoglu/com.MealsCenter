@@ -39,7 +39,7 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         extentTest.info("Browser kapatildi");
         extentTest.pass("Schulded listenin musteri adina gore siralandigi goruldu");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
     @DataProvider
     public static Object[][] orderType() {
@@ -74,7 +74,7 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         extentTest.info("Browser kapatildi");
         extentTest.pass("Schulded listenin order type gore siralandigi goruldu");
         softAssert.assertAll();
-        Driver.closeDriver();
+
 
     }@Test
     public void accordingToPaymentStatus() {
@@ -108,7 +108,11 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         merchantSheculdePage = new MerchantSheculdePage();
         extentTest=extentReports.createTest("Ileri tarihli sheculded sayfasi olusturma","Order tarhi ve order ID ye artan azalana gore orderslari siralayabilir");
         merchantPage.merchantLogin();
+
+
+
         extentTest.info("Browser baslatildi,gecerli credentials ile merchant sayfasina login olundu");
+
         merchantPage.merchantMenuLeftSide("Orders");
         extentTest.info("Sol taraftaki dashboard menuden Orders tilandi");
         merchantSheculdePage.merchantSheculdeButton.click();
@@ -120,7 +124,7 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         extentTest.info("Browser kapatildi");
         extentTest.fail("Schulded listenin Delivery Time Ascendinge uygun olarak siralanmadigi goruldu");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
 
 }
