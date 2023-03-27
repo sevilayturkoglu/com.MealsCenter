@@ -7,8 +7,9 @@ import org.testng.asserts.SoftAssert;
 import pages.AdminPage;
 import pages.UserPage;
 import utilities.Driver;
+import utilities.TestBaseReport;
 
-public class US_036 {
+public class US_036 extends TestBaseReport {
 
     /*
         US_036  As an admin, I should be able to see summary information on the Dashboard page
@@ -32,6 +33,10 @@ public class US_036 {
 
         // giris yap anasayfaya git
         AdminPage adminPage = new AdminPage();
+
+        extentTest = extentReports.createTest("Test of summary information on the admin dashboard page ","Summary information on the admin dashboard page must be visible");
+        extentTest.info("The admin dashboard page is accessible.");
+
         adminPage.adminLoginOl();
 
         // locater WebElement leri arraya atip foreach ile sirayla test et
@@ -45,11 +50,22 @@ public class US_036 {
 
         SoftAssert softAssert = new SoftAssert();
 
+        int countOfTitle = 0;
+
         for (WebElement each : elements) {
             softAssert.assertTrue(each.isDisplayed());
-            System.out.println(each.getText());
+            // System.out.println(each.getText());
+            extentTest.info("'" + each.getText() + "' item is visible on the admin dashboard page");
+            countOfTitle ++;
 
         }
+
+        int expCount = 18;
+
+        softAssert.assertEquals(countOfTitle,expCount);
+
+        extentTest.info("All 18 titles are visible on the admin dashboard page");
+
 
         softAssert.assertAll();
 

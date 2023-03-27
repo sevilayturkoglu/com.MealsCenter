@@ -24,37 +24,37 @@ public class AdminPage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement adminSignIn;
 
-    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[1]")
+    @FindBy(css = "div[class='rounded-status-report rounded r1'] h5")
     public WebElement totalSales;
 
-    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[2]")
+    @FindBy(css = "div[class='rounded-status-report rounded r2'] h5")
     public WebElement totalMerchant;
 
-    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[3]")
+    @FindBy(css = "div[class='rounded-status-report rounded r3'] h5")
     public WebElement totalCommission;
 
-    @FindBy(xpath = "(//div[@class='col p-0 col-lg-3 col-md-3 col-sm-6 col-6 mb-3 mb-xl-0'])[4]")
+    @FindBy(css = "div[class='rounded-status-report rounded r4'] h5")
     public WebElement totalSubscription;
 
-    @FindBy(xpath = "(//div[@class='card'])[1]")
+    @FindBy(xpath = "//h6[normalize-space()='Commission this week']")
     public WebElement comissionThisWeek;
 
-    @FindBy(xpath = "(//div[@class='card'])[2]")
+    @FindBy(xpath = "//h6[normalize-space()='Commission this month']")
     public WebElement comissionThisMonth;
 
-    @FindBy(xpath = "(//div[@class='card'])[3]")
+    @FindBy(xpath = "//h6[normalize-space()='Subscriptions this month']")
     public WebElement subscriptionsThisMonth;
 
-    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[1]")
+    @FindBy(xpath = "//h5[normalize-space()='Order received']")
     public WebElement orderReceived;
 
-    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[2]")
+    @FindBy(xpath = "//h5[normalize-space()='Today delivered']")
     public WebElement todayDelivered;
 
-    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[3]")
+    @FindBy(xpath = "//h5[normalize-space()='New customer']")
     public WebElement newCustomer;
 
-    @FindBy(xpath = "(//div[@class='col mb-2 mb-xl-0'])[4]")
+    @FindBy(xpath = "//h5[normalize-space()='Total refund']")
     public WebElement totalRefund;
 
     @FindBy(xpath = "(//h5[@class='m-0'])[1]")
