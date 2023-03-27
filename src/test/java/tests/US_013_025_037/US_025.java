@@ -96,7 +96,6 @@ public class US_025 extends TestBaseReport {
         merchantPage.merchantMenuLeftSide("Food");
         extentTest.info("Food link is clicked");
         merchantPage.itemLink.click();
-
         ReusableMethods.waitForClickablility(merchantPage.deleteItemButton,3);
         merchantPage.deleteItemButton.click();
         extentTest.info("Delete button is clicked");
