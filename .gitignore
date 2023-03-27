@@ -23,7 +23,7 @@
 
 **/target/
 /target/
-*/target/*
+
 .classpath
 .project
 .settings
@@ -33,6 +33,6 @@
 *.war
 *.ear
 
-*.iml
+
 
 *.png
