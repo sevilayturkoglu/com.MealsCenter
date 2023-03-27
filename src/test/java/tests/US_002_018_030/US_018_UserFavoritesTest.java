@@ -38,7 +38,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         ReusableMethods.bekle(2);
         extentTest.info("Sayfami kapattim");
         extentTest.pass("Favorim olmasi istenilen restaurantlar eklnedi");
-        Driver.closeDriver();
+
 
     }
 
@@ -62,7 +62,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         extentTest.info("Driver kapatildi");
         extentTest.pass("Favori olmasi istenilen restaurantlar sayfada goruldu");
         softAssert.assertAll();
-        Driver.closeDriver();
+
 
     }
 
@@ -93,7 +93,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         extentTest.info("Driveri kapatildi");
         extentTest.pass("Favorim olmasini istenmeyen restaurantlar silindi");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
 
 
