@@ -12,8 +12,9 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class UserPage {
-    public UserPage() {
 
+
+    public UserPage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -72,6 +73,20 @@ public class UserPage {
     public WebElement inFavouriteTikBox1;
     @FindBy(xpath = "//a[@class='dropdown-item with-icon-account']")
     public WebElement userManageMyAccount;
+    //User profile page locaters
+    @FindBy(xpath = "//*[@id=yw0]/li[2]/a/text()")
+    public WebElement userChangePasswordButton;
+    @FindBy(css = "a[href='/account/change_password']")
+    public WebElement userProfileChangePassword;
+    @FindBy(id = "//*[@id='old_password']")
+    public WebElement userOldPassword;
+    @FindBy(id = "//*[@id='new_password']")
+    public WebElement userNewPassword;
+    @FindBy(id = "//*[@id='confirm_password']")
+    public WebElement userConfirmPassword;
+    @FindBy(css = "#vue-update-password > form > button > span")
+    public WebElement userChangePasswordSubmit;
+
 
 
     //Bu method sizi sayfaya login yapacak
@@ -98,7 +113,7 @@ public class UserPage {
     // oraya gittiginizi dogrulayacak.Siz method argumenti olarak gitmek istediginiz yeri ve
     // URL nin sonunda yazan kismi ekleyeceksiniz, Or: menuName=" My orders "  ; expecdUrl="orders"  gibi
 
-    public void userUstDDMenu(String menuName, String expecdUrl) {
+    public By userUstDDMenu(String menuName, String expecdUrl) {
         ReusableMethods.bekle(1);
         userUstDropDownButton.click();
         ReusableMethods.bekle(1);
@@ -108,6 +123,7 @@ public class UserPage {
         System.out.println(expecdUrl);
         Assert.assertTrue(actualUrl.contains(expecdUrl));
 
+        return null;
     }
 
 
@@ -132,6 +148,9 @@ public class UserPage {
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
     }
+    public WebElement userChangePasswordMessage;
+    public WebElement userChangePasswordSuccessMessage;
+
 
 
 }
