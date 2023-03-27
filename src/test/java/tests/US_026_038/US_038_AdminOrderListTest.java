@@ -42,8 +42,6 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         extentTest.info("Expected Result and Actual result are compaired.");
         extentTest.pass("All orders are visible .");
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
 
     }
 
@@ -74,8 +72,6 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         extentTest.info("Total Orders text should be visible");
         extentTest.pass("Total Orders text is visible .");
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
     }
 
     @Test
@@ -102,8 +98,6 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         softAssert.assertTrue(allOptionsFilters.contains(expectedOption));
         extentTest.fail("By a specific Date Range select option is not visible");
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
     }
 
     @Test
@@ -127,8 +121,6 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         Collections.sort(sortedIdElements);
         softAssert.assertEquals(sortedIdElements, adminPage.orderIdElementsMethod());
         extentTest.pass("All products were sorted");
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
     }
 
     @Test
@@ -163,8 +155,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
             Driver.getDriver().navigate().back();
         }
         extentTest.pass("Any orders were seen as a document.");
-        extentTest.info("The browser is closed.");
-        Driver.getDriver().close();
+
     }
 
     @Test
@@ -189,8 +180,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         String dynamicPathOfFile = "C:\\Users\\ebasm\\Downloads\\document(2).pdf";
         softAssert.assertTrue(Files.exists(Paths.get(dynamicPathOfFile)));
         extentTest.pass("Download documents were seen on the computer.");
-        extentTest.info("The browser is closed.");
-        Driver.getDriver().close();
+
 
     }
 }
