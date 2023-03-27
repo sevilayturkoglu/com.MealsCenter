@@ -1,12 +1,9 @@
 package tests.US_012_024_036;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminPage;
-import pages.UserPage;
-import utilities.Driver;
 import utilities.TestBaseReport;
 
 public class US_036 extends TestBaseReport {
@@ -34,10 +31,10 @@ public class US_036 extends TestBaseReport {
         // giris yap anasayfaya git
         AdminPage adminPage = new AdminPage();
 
-        extentTest = extentReports.createTest("Test of summary information on the admin dashboard page ","Summary information on the admin dashboard page must be visible");
-        extentTest.info("The admin dashboard page is accessible.");
-
         adminPage.adminLoginOl();
+
+        extentTest = extentReports.createTest("Test of summary information on the admin dashboard page ", "Summary information on the admin dashboard page should be visible");
+        extentTest.info("The admin dashboard page is accessible.");
 
         // locater WebElement leri arraya atip foreach ile sirayla test et
         // calistigini gormek icin foreach icinde yazdir
@@ -56,16 +53,15 @@ public class US_036 extends TestBaseReport {
             softAssert.assertTrue(each.isDisplayed());
             // System.out.println(each.getText());
             extentTest.info("'" + each.getText() + "' item is visible on the admin dashboard page");
-            countOfTitle ++;
+            countOfTitle++;
 
         }
 
         int expCount = 18;
 
-        softAssert.assertEquals(countOfTitle,expCount);
+        softAssert.assertEquals(countOfTitle, expCount);
 
         extentTest.info("All 18 titles are visible on the admin dashboard page");
-
 
         softAssert.assertAll();
 

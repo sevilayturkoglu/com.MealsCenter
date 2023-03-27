@@ -30,7 +30,7 @@ public class US_012 extends TestBaseReport {
         UserPage userPage = new UserPage();
         userPage.userLoginBeing();
 
-        extentTest = extentReports.createTest("different local cuisines page test","Cuisine pages should include convenient stores");
+        extentTest = extentReports.createTest("different local cuisines page test", "Cuisine pages should include convenient stores");
         extentTest.info("The user home page is accessible.");
 
         SoftAssert softAssert = new SoftAssert();
