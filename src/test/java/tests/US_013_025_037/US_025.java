@@ -32,7 +32,7 @@ public class US_025 extends TestBaseReport {
         softAssert.assertAll();
         Driver.closeDriver();
     }
-    @Test(priority = 1)
+    @Test(priority = 10)
     public void addNewProductTest(){
         extentTest = extentReports.createTest("addNewProductTest","Add new product" );
         merchantPage = new MerchantPage();
@@ -84,7 +84,25 @@ public class US_025 extends TestBaseReport {
         softAssert.assertEquals(actualText,expectedText);
         extentTest.pass("Verified that the product Succesfully created");
         softAssert.assertAll();
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
+    }
+    @Test(priority = 20)
+    public void deleteNewProductTest(){
+        extentTest = extentReports.createTest("itemListPageVisibilityTest","Item list page must be able visible" );
+        merchantPage = new MerchantPage();
+        merchantPage.merchantLogin();
+        extentTest.info("Merchant signed in");
+        merchantPage.merchantMenuLeftSide("Food");
+        extentTest.info("Food link is clicked");
+        merchantPage.itemLink.click();
+
+        ReusableMethods.waitForClickablility(merchantPage.deleteItemButton,3);
+        merchantPage.deleteItemButton.click();
+        extentTest.info("Delete button is clicked");
+        softAssert.assertTrue(merchantPage.deleteItemButton.isSelected());
+        extentTest.pass("Verified that the Item is deleted");
+        softAssert.assertAll();
+        //Driver.closeDriver();
     }
 }
