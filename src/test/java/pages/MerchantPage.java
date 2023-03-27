@@ -100,11 +100,14 @@ public class MerchantPage {
     @FindBy(xpath = "(//img)[5]")
     public WebElement selectFileFromBrowse;
 
-    @FindBy(xpath = "(//*[@class='btn btn-green'])[2]")
+    @FindBy(xpath = "(//*[.='Add Files'])[2]")
     public WebElement addFilesButtton;
 
-    @FindBy(xpath = "//*[@id='select2-AR_item_item_featured-container']")
+    @FindBy(xpath = "(//*[@class='selection'])[2]")
     public WebElement selectFeaturedBox;
+
+    @FindBy(xpath = "(//*[.='Trending'])[2]")
+    public WebElement selectTrendingFromFeaturedBox;
 
     @FindBy(xpath = "//*[@id='AR_item_color_hex']")
     public WebElement backgroundColorHexBox;
@@ -114,6 +117,15 @@ public class MerchantPage {
 
     @FindBy(xpath = "//*[.='choose']")
     public WebElement backgroundColorChoose;
+
+    @FindBy(xpath = "//*[@id='AR_item_status']")
+    public WebElement selectStatusBox;
+
+    @FindBy(xpath = "//*[@value='Save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement succesfullyCreatedText;
 
 
 
