@@ -95,6 +95,27 @@ public class UserPage {
     public WebElement userOrderPageLeftMenuOrderText;
     @FindBy(xpath = "//li[@class='account active']//a[normalize-space()='Manage my account']")
     public WebElement userSidebarManageMyAccount;
+    //User payment Locators
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-payments']")
+    public WebElement userDDPaymentOptions;
+    @FindBy(xpath = "//div[@class='col-md-4 text-center']//a[@class='btn btn-green'][normalize-space()='Add new payment']")
+    public WebElement userAddNewPaymentButton;
+    @FindBy(xpath = "//span[normalize-space()='Cash On delivery']")
+    public WebElement userAddCashOnDeliveryButton;
+    @FindBy(xpath = "//*[@id='cashForm']/div/div/div[2]/button/span")
+    public WebElement userAddCashButton;
+    @FindBy(xpath = "//span[normalize-space()='Stripe']")
+    public WebElement userAddStripeButton;
+    //@FindBy(xpath = "")
+    @FindBy(xpath = "//input[@placeholder='Kart numarası']")
+    public WebElement userAddCardNumberPlaceHolder;
+    @FindBy(xpath = "//*[@id='cashForm']/div/div/div[1]/a/i")
+    public WebElement closeAddCashFrame;
+    @FindBy(xpath = "//a[normalize-space()='Delete']")
+    public WebElement userCashPaymentDelete;
+
+
+
 
 
 
