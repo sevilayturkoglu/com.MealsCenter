@@ -39,7 +39,7 @@ public class US_002_UserHomeHeadersTest extends TestBaseReport {
         extentTest.info("Driver kapatildi");
         extentTest.pass("Meals logo ve sign In goruldu islevsel olduklari dogrulandi");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
 
     @Test(priority = 10)
@@ -82,7 +82,7 @@ public class US_002_UserHomeHeadersTest extends TestBaseReport {
         extentTest.info("Driver kapatildi");
         extentTest.pass("Cart ve Bag goruldu islevsel olduklari dogrulandi");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
 
     @Test(priority = 15)
@@ -131,6 +131,6 @@ public class US_002_UserHomeHeadersTest extends TestBaseReport {
         extentTest.info("Driver kapatildi");
         extentTest.pass("Cart ve Bag goruldu islevsel olduklari dogrulandi");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
 }

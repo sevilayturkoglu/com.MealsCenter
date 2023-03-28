@@ -4,8 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.MerchantPage;
+import pages.UserPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
@@ -37,16 +40,19 @@ public class US_024 extends TestBaseReport {
         * "Delete" butonuna tikla ve listedeki ilk elemanin "yeni menu" icermedigini dogrula.
      */
 
+
+
+    MerchantPage merchantPage = new MerchantPage();
+    SoftAssert softAssert = new SoftAssert();
+    Actions actions = new Actions(Driver.getDriver());
     @Test
     public void addEditDeleteCategoriesTest() {
 
-        MerchantPage merchantPage = new MerchantPage();
         merchantPage.merchantLogin();
 
         extentTest = extentReports.createTest("Test of adding, editing and deleting retaurant ategories on the category list page", "I should be able to view, add, edit and delete categories of my restaurant.");
         extentTest.info("The merchant home page is accessible.");
 
-        Actions actions = new Actions(Driver.getDriver());
 
         Driver.getDriver().findElement(By.xpath("//li[@class='food']")).click();  // food un locator u
         extentTest.info("The food item below the dashboard is accessible.");
@@ -58,7 +64,8 @@ public class US_024 extends TestBaseReport {
         extentTest.info("The 'Add New' button on the 'Category List' page is accessible.");
 
         Driver.getDriver().findElement(By.xpath("//label[@class='required']")).click(); // nameBox in locatoru
-        actions.sendKeys("Kayseri").perform();
+        String storeName = "Kayseri";
+        actions.sendKeys(storeName).perform();
         extentTest.info("The 'Name' box on the 'All Category>>Add Category' page is accessible and writable.");
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
@@ -72,15 +79,17 @@ public class US_024 extends TestBaseReport {
         Driver.getDriver().findElement(By.xpath("//li[@class='position-relative food_category active']")).click(); //categorynin locator u
         extentTest.info("After try to adding new category, The category item below the food item is accessible.");
 
-
-        // burada yeni urunun eklendigini test et ilk urunun adi ile
+        String firstName = Driver.getDriver().findElement(By.cssSelector("tbody tr:nth-child(1) td:nth-child(2) h6:nth-child(1)")).getText();
+        System.out.println(firstName);
+        Assert.assertTrue(firstName.contains(storeName));
         extentTest.info("New item is added");
 
         Driver.getDriver().findElement(By.xpath("(//a[@data-toggle='tooltip'])[1]")).click(); // update button
         extentTest.info("On the 'Category List' page, next to added category item, The 'Update' button is accessible.");
 
         Driver.getDriver().findElement(By.xpath("//textarea[@placeholder='Description']")).click(); // description un locator u
-        actions.sendKeys("Manti").perform();
+        String description = "Manti";
+        actions.sendKeys(description).perform();
         extentTest.info("The 'Description' box on the 'All Category>>Update Category' page is accessible and writable.");
 
         actions.sendKeys(Keys.PAGE_DOWN).perform();
@@ -94,6 +103,9 @@ public class US_024 extends TestBaseReport {
         extentTest.info("After try to editing added category, The category item below the food item is accessible.");
 
 
+        String firstDescription = Driver.getDriver().findElement(By.xpath("//p[contains(text(),'0 Items')]")).getText();
+        System.out.println(firstDescription);
+        Assert.assertTrue(firstDescription.contains(description));
         // burada aciklama eklenerek editlendigini test et
         extentTest.info("The added item is editing");
 
@@ -107,9 +119,17 @@ public class US_024 extends TestBaseReport {
 
         Driver.getDriver().findElement(By.xpath("//li[@class='position-relative food_category active']")).click(); //categorynin locator u
         extentTest.info("After try to deleting added category, The category item below the food item is accessible.");
+        Driver.getDriver().navigate().refresh();
+
+        ReusableMethods.bekle(1);
 
         //burada eklenen itemin silindigini test et
+        Assert.assertTrue(firstName.contains(storeName));
+        System.out.println(firstName);
         extentTest.info("The added item is deleted");
+
+
+        //softAssert.assertAll();
 
     }
 
