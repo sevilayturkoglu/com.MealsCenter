@@ -76,8 +76,6 @@ public class UserPage {
     //User profile page locaters
     @FindBy(xpath = "//*[@id=yw0]/li[2]/a/text()")
     public WebElement userChangePasswordButton;
-    @FindBy(css = "a[href='/account/change_password']")
-    public WebElement userProfileChangePassword;
     @FindBy(id = "//*[@id='old_password']")
     public WebElement userOldPassword;
     @FindBy(id = "//*[@id='new_password']")
@@ -86,8 +84,6 @@ public class UserPage {
     public WebElement userConfirmPassword;
     @FindBy(css = "#vue-update-password > form > button > span")
     public WebElement userChangePasswordSubmit;
-    @FindBy(xpath = "//*[@id='sidebar']/div[2]/div[2]/h6")
-    public WebElement userNameSidebar;
     //User order page
     @FindBy(xpath = "//a[@class='dropdown-item with-icon-orders']")
     public WebElement userDDMMyOrders;
@@ -95,6 +91,25 @@ public class UserPage {
     public WebElement userOrderPageLeftMenuOrderText;
     @FindBy(xpath = "//li[@class='account active']//a[normalize-space()='Manage my account']")
     public WebElement userSidebarManageMyAccount;
+    //User payment Locators
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-payments']")
+    public WebElement userDDPaymentOptions;
+    @FindBy(xpath = "//div[@class='col-md-4 text-center']//a[@class='btn btn-green'][normalize-space()='Add new payment']")
+    public WebElement userAddNewPaymentButton;
+    @FindBy(xpath = "//span[normalize-space()='Cash On delivery']")
+    public WebElement userAddCashOnDeliveryButton;
+    @FindBy(xpath = "//*[@id='cashForm']/div/div/div[2]/button/span")
+    public WebElement userAddCashButton;
+    @FindBy(xpath = "//span[normalize-space()='Stripe']")
+    public WebElement userAddStripeButton;
+
+    @FindBy(xpath = "//*[@id='cashForm']/div/div/div[1]/a/i")
+    public WebElement closeAddCashFrame;
+    @FindBy(xpath = "//a[normalize-space()='Delete']")
+    public WebElement userCashPaymentDelete;
+
+
+
 
 
     // UserPage >> Privacy Policy Locator
@@ -181,7 +196,7 @@ public class UserPage {
         ReusableMethods.bekle(2);
         userPage.userUstDropDownButton.isDisplayed();
     }
-    public WebElement userChangePasswordMessage;
+
     public WebElement userChangePasswordSuccessMessage;
 
 

@@ -1,20 +1,12 @@
 package tests.US_005_014_015_017_029;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.UserPage;
-import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US_015_TC_001_UserAccountOrders extends TestBaseReport {
-    /*
-    As a user, I would like to have a page on
-    the site where I can view the orders of my account.
-     */
 
     UserPage userPage = new UserPage();
     SoftAssert softAssert = new SoftAssert();
