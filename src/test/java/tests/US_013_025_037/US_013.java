@@ -1,5 +1,8 @@
 package tests.US_013_025_037;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.MerchantPage;
@@ -45,7 +48,6 @@ public class US_013 extends TestBaseReport {
         extentTest.info("Add to cart link is clicked");
         merchantPage.checkoutButton.click();
         extentTest.info("Checkout link is clicked");
-
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.cashOnDeliveryLink);
         extentTest.info("Cash On delivery link is clicked");
         merchantPage.addCashButton.click();
@@ -69,10 +71,8 @@ public class US_013 extends TestBaseReport {
         extentTest.info("Add to cart link is clicked");
         merchantPage.checkoutButton.click();
         extentTest.info("Checkout link is clicked");
-
-       JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.addNewAddressLink);
+        JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.addNewAddressLink);
         extentTest.info("Add new address link is clicked");
-
         merchantPage.enterDeliveryAddressBox.sendKeys("11");
         extentTest.info("Entered new address");
         ReusableMethods.waitForVisibility(userPage.userChooseAddres,10);
@@ -111,3 +111,4 @@ public class US_013 extends TestBaseReport {
         Driver.closeDriver();
     }
 }
+
