@@ -118,6 +118,11 @@ public class UserPage {
 
 
 
+    // UserPage >> Privacy Policy Locator
+    @FindBy(xpath = "//*[text()='Privacy policy']")
+    public WebElement privacyPolicy;
+
+
 
     //Bu method sizi sayfaya login yapacak
     // Actiginiz Test altina Url yi yazdiktan sonra bu method cagrilacak

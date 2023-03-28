@@ -26,7 +26,12 @@ public class AdminPage {
 
 
     //Merchant
-
+    @FindBy(xpath = "//*[.='List']")
+    public WebElement listlink;
+    @FindBy(xpath = "(//*[.='All Merchant'])[2]")
+    public WebElement allMerchantText;
+    @FindBy(xpath = "(//*[@class='sorting_1'])[2]")
+    public WebElement merchantFromAllMerchant;
 
 
 
@@ -82,6 +87,7 @@ public class AdminPage {
 
 
     //Earnings
+
 
 
 

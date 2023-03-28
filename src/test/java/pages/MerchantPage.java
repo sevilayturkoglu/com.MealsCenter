@@ -55,17 +55,80 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[@class='m-0 text-grey'])[5]")
     public WebElement newSelectedAddress;
 
-    @FindBy(xpath = "(//*[@class='flexcol'])[5]")
+    @FindBy(xpath = "//*[@class='bold mr-1']")
     public WebElement savedAddressBox;
 
     @FindBy(xpath = "//*[.='Place Order']")
     public WebElement placeOrderButton;
 
+    @FindBy(xpath = "//*[@class='dropdown show']")
+    public WebElement cashOnDeliveryDefaultButton;
 
+    @FindBy(xpath = "(//*[.='Delete'])[2]")
+    public WebElement cashOnDeliveryDefaultButtonDelete;
 
+    @FindBy(xpath = "//*[.='Items']")
+    public WebElement itemLink;
 
+    @FindBy(xpath = "(//*[.='Item list'])[2]")
+    public WebElement itemListText;
 
+    @FindBy(xpath = "(//*[@type='button'])[4]")
+    public WebElement addNewProductButton;
 
+    @FindBy(xpath = "//*[@id='AR_item_item_name']")
+    public WebElement newItemNameBox;
+
+    @FindBy(xpath = "//*[@id='AR_item_item_short_description']")
+    public WebElement shortDescriptionBox;
+
+    @FindBy(xpath = "//*[@class='note-editable card-block']")
+    public WebElement longDescriptionBox;
+
+    @FindBy(xpath = "//*[@id='AR_item_item_price']")
+    public WebElement itemPriceBox;
+
+    @FindBy(xpath = "//*[@id='AR_item_item_unit']")
+    public WebElement selectUnitBox;
+
+    @FindBy(xpath = "//*[@id='AR_item_category_selected']")
+    public WebElement selectCategoryBox;
+
+    @FindBy(xpath = "(//*[.='Browse'])[2]")
+    public WebElement browseButtton;
+
+    @FindBy(xpath = "(//img)[18]")
+    public WebElement selectFileFromBrowse;
+
+    @FindBy(xpath = "(//*[.='Add Files'])[2]")
+    public WebElement addFilesButtton;
+
+    @FindBy(xpath = "(//*[@class='selection'])[2]")
+    public WebElement selectFeaturedBox;
+
+    @FindBy(xpath = "(//*[.='Trending'])[2]")
+    public WebElement selectTrendingFromFeaturedBox;
+
+    @FindBy(xpath = "//*[@id='AR_item_color_hex']")
+    public WebElement backgroundColorHexBox;
+
+    @FindBy(xpath = "(//*[@class='sp-thumb-el sp-thumb-dark'])[9]")
+    public WebElement backgroundColorButton;
+
+    @FindBy(xpath = "//*[.='choose']")
+    public WebElement backgroundColorChoose;
+
+    @FindBy(xpath = "//*[@id='AR_item_status']")
+    public WebElement selectStatusBox;
+
+    @FindBy(xpath = "//*[@value='Save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement succesfullyCreatedText;
+
+    @FindBy(xpath = "(//*[@class='ref_delete normal btn btn-light tool_tips'])[1]")
+    public WebElement deleteItemButton;
 
 
     //Bu method sizi merchant sayfasina login yapacak
