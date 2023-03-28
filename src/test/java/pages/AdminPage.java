@@ -24,9 +24,71 @@ public class AdminPage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement adminSignIn;
 
+    @FindBy(css = "div[class='rounded-status-report rounded r1'] h5")
+    public WebElement totalSales;
+
+    @FindBy(css = "div[class='rounded-status-report rounded r2'] h5")
+    public WebElement totalMerchant;
+
+    @FindBy(css = "div[class='rounded-status-report rounded r3'] h5")
+    public WebElement totalCommission;
+
+    @FindBy(css = "div[class='rounded-status-report rounded r4'] h5")
+    public WebElement totalSubscription;
+
+    @FindBy(xpath = "//h6[normalize-space()='Commission this week']")
+    public WebElement comissionThisWeek;
+
+    @FindBy(xpath = "//h6[normalize-space()='Commission this month']")
+    public WebElement comissionThisMonth;
+
+    @FindBy(xpath = "//h6[normalize-space()='Subscriptions this month']")
+    public WebElement subscriptionsThisMonth;
+
+    @FindBy(xpath = "//h5[normalize-space()='Order received']")
+    public WebElement orderReceived;
+
+    @FindBy(xpath = "//h5[normalize-space()='Today delivered']")
+    public WebElement todayDelivered;
+
+    @FindBy(xpath = "//h5[normalize-space()='New customer']")
+    public WebElement newCustomer;
+
+    @FindBy(xpath = "//h5[normalize-space()='Total refund']")
+    public WebElement totalRefund;
+
+    @FindBy(xpath = "(//h5[@class='m-0'])[1]")
+    public WebElement lastOrders;
+
+    @FindBy(xpath = "(//h5[@class='m-0'])[2]")
+    public WebElement popularItems;
+
+    @FindBy(xpath = "(//h5[@class='m-0'])[3]")
+    public WebElement popularMerchants;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[1]")
+    public WebElement salesOverview;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[2]")
+    public WebElement topCustomers;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[3]")
+    public WebElement overviewOfReviev;
+
+    @FindBy(xpath = "(//h5[@class='m-0 mb-3'])[4]")
+    public WebElement recentPayout;
+
+
+
+
 
     //Merchant
-
+    @FindBy(xpath = "//*[.='List']")
+    public WebElement listlink;
+    @FindBy(xpath = "(//*[.='All Merchant'])[2]")
+    public WebElement allMerchantText;
+    @FindBy(xpath = "(//*[@class='sorting_1'])[2]")
+    public WebElement merchantFromAllMerchant;
 
 
 
@@ -82,7 +144,12 @@ public class AdminPage {
 
 
 
+
         //Earnings
+
+
+    //Promo
+
 
 
         //Promo

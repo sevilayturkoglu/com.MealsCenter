@@ -97,7 +97,7 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[.='Browse'])[2]")
     public WebElement browseButtton;
 
-    @FindBy(xpath = "(//img)[5]")
+    @FindBy(xpath = "(//img)[18]")
     public WebElement selectFileFromBrowse;
 
     @FindBy(xpath = "(//*[.='Add Files'])[2]")
@@ -127,12 +127,10 @@ public class MerchantPage {
     @FindBy(xpath = "//*[@class='alert alert-success']")
     public WebElement succesfullyCreatedText;
 
+    @FindBy(xpath = "(//*[@class='ref_delete normal btn btn-light tool_tips'])[1]")
+    public WebElement deleteItemButton;
 
-
-
-
-
-
+    //merchant Order
 
 
 
@@ -151,5 +149,15 @@ public class MerchantPage {
 // istediginiz menunun adini yazacaksiniz Or:  Merchant  , Orders , Food , Attributes .. gibi
     public void merchantMenuLeftSide(String menuName) {
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).click();
+    }
+
+    public void MerchantPageLoginSry(){
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        MerchantPage merchantPage = new MerchantPage();
+        merchantPage.merchantUserName.sendKeys(ConfigReader.getProperty("subwayUsername"));
+        ReusableMethods.bekle(1);
+        merchantPage.merchantUserPassword.sendKeys(ConfigReader.getProperty("subwayPassword"));
+        merchantPage.merchantSignIn.click();
+
     }
 }

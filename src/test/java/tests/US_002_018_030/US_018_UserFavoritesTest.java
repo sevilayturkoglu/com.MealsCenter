@@ -1,5 +1,9 @@
 package tests.US_002_018_030;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -21,7 +25,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
     public void favoriteRestaurantMake() {
 
         userPage = new UserPage();
-        extentTest=extentReports.createTest("Favori restaurant ekleme","Favori sayfama restaurant ekleme");
+        extentTest = extentReports.createTest("Favori restaurant ekleme", "Favori sayfama restaurant ekleme");
         ReusableMethods.bekle(1);
         userPage.userLoginBeing();
         extentTest.info("Browseri baslatildi ,MealsCenter Url ye gidildi,login olundu ");
@@ -46,7 +50,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
     public void checkYourFavoriteRestaurants() {
 
         userPage = new UserPage();
-        extentTest=extentReports.createTest("Favori restaurant gorme","Favori sayfama ekledigim restaurantlari gorebilirim");
+        extentTest = extentReports.createTest("Favori restaurant gorme", "Favori sayfama ekledigim restaurantlari gorebilirim");
         ReusableMethods.bekle(1);
         userPage.userLoginBeing();
         extentTest.info("Browseri baslatildi ,MealsCenter Url ye gidildi,login olundu ");
@@ -63,14 +67,13 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         extentTest.pass("Favori olmasi istenilen restaurantlar sayfada goruldu");
         softAssert.assertAll();
 
-
     }
 
     @Test(priority = 25)
     public void eraseYourFavoriteRestaurant() {
 
         userPage = new UserPage();
-        extentTest=extentReports.createTest("Favori restaurant silme","Favori sayfamadan restaurant kaldirma ");
+        extentTest = extentReports.createTest("Favori restaurant silme", "Favori sayfamadan restaurant kaldirma ");
         ReusableMethods.bekle(1);
         userPage.userLoginBeing();
         extentTest.info("Browseri baslatildi ,MealsCenter Url ye gidildi,login olundu ");
@@ -96,9 +99,6 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
 
     }
 
-
 }
-
-
 
 
