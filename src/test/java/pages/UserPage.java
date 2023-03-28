@@ -86,6 +86,15 @@ public class UserPage {
     public WebElement userConfirmPassword;
     @FindBy(css = "#vue-update-password > form > button > span")
     public WebElement userChangePasswordSubmit;
+    @FindBy(xpath = "//*[@id='sidebar']/div[2]/div[2]/h6")
+    public WebElement userNameSidebar;
+    //User order page
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-orders']")
+    public WebElement userDDMMyOrders;
+    @FindBy(xpath = "//a[normalize-space()='Orders']")
+    public WebElement userOrderPageLeftMenuOrderText;
+    @FindBy(xpath = "//li[@class='account active']//a[normalize-space()='Manage my account']")
+    public WebElement userSidebarManageMyAccount;
 
 
 
@@ -147,6 +156,25 @@ public class UserPage {
         String actualPageText = Driver.getDriver().findElement(By.xpath("//h4[.='" + cuisineName + "']")).getText();
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
+    }
+
+    // Sariye Methods
+    public void userLoginSariye() {
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        UserPage userPage = new UserPage();
+        userPage.userCookies.click();
+        userPage.userSignIn.click();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userEmailLogin.click();
+        actions.sendKeys(ConfigReader.getProperty("userLoginEmailSariye")).sendKeys(Keys.TAB)
+                .sendKeys(ConfigReader.getProperty("userLoginPasswordSariye")).perform();
+        userPage.userSignInLogin.click();
+        ReusableMethods.bekle(2);
+        userPage.userAdresBox.sendKeys("1000");
+        ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
+        userPage.userChooseAddres.click();
+        ReusableMethods.bekle(2);
+        userPage.userUstDropDownButton.isDisplayed();
     }
     public WebElement userChangePasswordMessage;
     public WebElement userChangePasswordSuccessMessage;
