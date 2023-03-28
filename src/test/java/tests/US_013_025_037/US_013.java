@@ -13,13 +13,15 @@ public class US_013 extends TestBaseReport {
     MerchantPage merchantPage = new MerchantPage();
 
 
-    @Test(priority = 1)
+    @Test(priority = 20)
     public void productAddtoCartTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("productAddtoCartTest","A product must be able to be added to \n" +
                 "the cart" );
         userPage = new UserPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.wait(5);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();
@@ -33,8 +35,9 @@ public class US_013 extends TestBaseReport {
         softAssert.assertAll();
         Driver.closeDriver();
     }
-    @Test(priority = 20)
+    @Test(priority = 1)
     public void paymentTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("paymentTest"," the payment must be able to be made");
         userPage = new UserPage();
         userPage.userLoginBeing();
@@ -58,6 +61,7 @@ public class US_013 extends TestBaseReport {
     }
     @Test(priority = 10)
     public void addressTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
         userPage = new UserPage();
         userPage.userLoginBeing();
@@ -86,12 +90,14 @@ public class US_013 extends TestBaseReport {
         softAssert.assertAll();
         Driver.closeDriver();
     }
-    @Test(priority = 30)
+    @Test(priority = 5)
     public void availableToPurchaseTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("availableToPurchaseTest"," the product is available for purchase");
         userPage = new UserPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.wait(5);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();

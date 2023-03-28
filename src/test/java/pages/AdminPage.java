@@ -33,6 +33,11 @@ public class AdminPage {
     @FindBy(xpath = "(//*[@class='sorting_1'])[2]")
     public WebElement merchantFromAllMerchant;
 
+    @FindBy(xpath = "(//*[@data-original-title='Auto Login'])[1]")
+    public WebElement autoLoginButton;
+    @FindBy(xpath = "(//*[@class='btn btn-light tool_tips'])[1]")
+    public WebElement editMerchantButton;
+
 
 
 

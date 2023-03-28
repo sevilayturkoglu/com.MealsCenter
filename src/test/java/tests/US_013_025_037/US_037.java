@@ -1,10 +1,15 @@
 package tests.US_013_025_037;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminPage;
 import pages.MerchantPage;
 import pages.UserPage;
+import utilities.Driver;
+import utilities.JSUtilities;
+import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US_037 extends TestBaseReport {
@@ -13,9 +18,10 @@ public class US_037 extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
     AdminPage adminPage = new AdminPage();
     MerchantPage merchantPage = new MerchantPage();
-
+    Actions actions = new Actions(Driver.getDriver());
     @Test(priority = 1)
     public void viewMerchantsListTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("viewMerchantsListTest","An admin should be able to view\n" +
                 "Merchants List" );
         adminPage = new AdminPage();
@@ -34,6 +40,8 @@ public class US_037 extends TestBaseReport {
     }
     @Test(priority = 10)
     public void changeInfoMerchantTest(){
+        merchantPage = new MerchantPage();
+        actions= new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("changeInfoMerchantTest","An admin should be able to change\n" +
                 "information about merchants" );
         adminPage = new AdminPage();
@@ -43,6 +51,10 @@ public class US_037 extends TestBaseReport {
         extentTest.info("Merchant link is clicked");
         adminPage.listlink.click();
         extentTest.info("List link is clicked");
+        actions.moveToElement(adminPage.autoLoginButton).perform();
+        ReusableMethods.wait(3);
+        adminPage.editMerchantButton.click();
+
         adminPage.merchantFromAllMerchant.click();
         extentTest.info("merchantFromAllMerchant link is clicked");
         softAssert.assertTrue(adminPage.merchantFromAllMerchant.isSelected());
