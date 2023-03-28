@@ -133,12 +133,6 @@ public class MerchantPage {
 
 
 
-
-
-
-
-
-
     //Bu method sizi merchant sayfasina login yapacak
     //restaurantName olarak configuration.propertiesdekini restaurant adini kullanin
     public void merchantLogin() {
