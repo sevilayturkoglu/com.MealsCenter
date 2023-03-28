@@ -55,7 +55,7 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[@class='m-0 text-grey'])[5]")
     public WebElement newSelectedAddress;
 
-    @FindBy(xpath = "//*[@class='bold mr-1']")
+    @FindBy(xpath = "(//*[@class='d-block chevron-section promo-section d-flex align-items-center rounded mb-2'])[3]")
     public WebElement savedAddressBox;
 
     @FindBy(xpath = "//*[.='Place Order']")
