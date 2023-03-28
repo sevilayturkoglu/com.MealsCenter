@@ -1,5 +1,8 @@
 package tests.US_013_025_037;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.MerchantPage;
@@ -31,14 +34,15 @@ public class US_013 extends TestBaseReport {
         softAssert.assertEquals(actualProductText,expectedProductText);
         extentTest.pass("Verified  that the product appears on the cart");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
-    @Test(priority = 20)
+    @Test(priority = 15)
     public void paymentTest(){
         extentTest = extentReports.createTest("paymentTest"," the payment must be able to be made");
         userPage = new UserPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.bekle(2);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();
@@ -52,16 +56,24 @@ public class US_013 extends TestBaseReport {
         String expectedPaymentMethodText = "Default";
         String actualPaymentMethodText = merchantPage.paymentMethodDefault.getText();
         softAssert.assertTrue(actualPaymentMethodText.contains(expectedPaymentMethodText));
+       Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(3);
+        Driver.getDriver().findElement(By.xpath("(//a[@id='dropdownMenuLink'])[1]")).click();
+        ReusableMethods.bekle(2);
+        Driver.getDriver().findElement(By.xpath("(//a[.='Delete'])[1]")).click();
+        ReusableMethods.bekle(2);
         extentTest.pass("Verified  that Cash On delivery is default");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
-    @Test(priority = 10)
+    @Test(priority = 20)
     public void addressTest(){
         extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
         userPage = new UserPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.bekle(2);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();
@@ -82,9 +94,10 @@ public class US_013 extends TestBaseReport {
         String expectedNewAddressText = "11 Howard";
         String actualNewAddressText = merchantPage.savedAddressBox.getText();
         softAssert.assertTrue(actualNewAddressText.contains(expectedNewAddressText));
+        ReusableMethods.bekle(2);
         extentTest.pass("Verified that address is entered");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
     @Test(priority = 30)
     public void availableToPurchaseTest(){
@@ -92,6 +105,7 @@ public class US_013 extends TestBaseReport {
         userPage = new UserPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.bekle(2);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();
@@ -100,11 +114,20 @@ public class US_013 extends TestBaseReport {
         extentTest.info("Checkout link is clicked");
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.cashOnDeliveryLink);
         extentTest.info("Cash On delivery link is clicked");
+
         merchantPage.addCashButton.click();
         extentTest.info("Add cash button is clicked");
         softAssert.assertTrue(merchantPage.placeOrderButton.isDisplayed());
         extentTest.pass("Verified that the product is available for purchase");
+        ReusableMethods.bekle(2);
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(3);
+        Driver.getDriver().findElement(By.xpath("(//a[@id='dropdownMenuLink'])[1]")).click();
+        ReusableMethods.bekle(2);
+        Driver.getDriver().findElement(By.xpath("(//a[.='Delete'])[1]")).click();
+        ReusableMethods.bekle(2);
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
 }
