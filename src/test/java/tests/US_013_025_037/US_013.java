@@ -13,7 +13,7 @@ public class US_013 extends TestBaseReport {
     MerchantPage merchantPage = new MerchantPage();
 
 
-    @Test(priority = 20)
+    @Test
     public void productAddtoCartTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("productAddtoCartTest","A product must be able to be added to \n" +
@@ -35,7 +35,7 @@ public class US_013 extends TestBaseReport {
         softAssert.assertAll();
         Driver.closeDriver();
     }
-    @Test(priority = 1)
+    @Test
     public void paymentTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("paymentTest"," the payment must be able to be made");
@@ -59,7 +59,7 @@ public class US_013 extends TestBaseReport {
         softAssert.assertAll();
         Driver.closeDriver();
     }
-    @Test(priority = 10)
+    @Test
     public void addressTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
@@ -85,12 +85,13 @@ public class US_013 extends TestBaseReport {
         JSUtilities.scrollToElement(Driver.getDriver(), merchantPage.savedAddressBox);
         String expectedNewAddressText = "11 Howard";
         String actualNewAddressText = merchantPage.savedAddressBox.getText();
+        System.out.println(actualNewAddressText);
         softAssert.assertTrue(actualNewAddressText.contains(expectedNewAddressText));
         extentTest.pass("Verified that address is entered");
         softAssert.assertAll();
         Driver.closeDriver();
     }
-    @Test(priority = 5)
+    @Test
     public void availableToPurchaseTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("availableToPurchaseTest"," the product is available for purchase");

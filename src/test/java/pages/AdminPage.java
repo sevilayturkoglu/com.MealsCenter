@@ -37,9 +37,42 @@ public class AdminPage {
     public WebElement autoLoginButton;
     @FindBy(xpath = "(//*[@class='btn btn-light tool_tips'])[1]")
     public WebElement editMerchantButton;
-
-
-
+    @FindBy(id = "AR_merchant_restaurant_name")
+    public WebElement restaurantNameBox;
+    @FindBy(id = "AR_merchant_restaurant_slug")
+    public WebElement restaurantSlugBox;
+    @FindBy(id = "AR_merchant_contact_name")
+    public WebElement contactNameBox;
+    @FindBy(id = "AR_merchant_contact_phone")
+    public WebElement contactPhoneBox;
+    @FindBy(id = "AR_merchant_contact_email")
+    public WebElement contactEmailBox;
+    @FindBy(xpath = "//*[@class='note-editable card-block']")
+    public WebElement aboutBox;
+    @FindBy(xpath = "//*[@class='form-control form-control-text textarea_min']")
+    public WebElement shortAboutBox;
+    @FindBy(xpath = "(//*[@class='selection'])[1]")
+    public WebElement cuisineBox;
+    @FindBy(xpath = "(//*[.='Burgers'])[2]")
+    public WebElement BurgersLink;
+    @FindBy(xpath = "(//*[@class='selection'])[2]")
+    public WebElement servicesBox;
+    @FindBy(xpath = "(//*[.='Pickup'])[2]")
+    public WebElement pickupLink;
+    @FindBy(xpath = "(//*[@class='selection'])[3]")
+    public WebElement tagsBox;
+    @FindBy(xpath = "(//*[@class='selection'])[4]")
+    public WebElement featuredBox;
+    @FindBy(xpath = "(//*[.='Popular'])[1]")
+    public WebElement popularLink;
+    @FindBy(id = "AR_merchant_delivery_distance_covered")
+    public WebElement deliveryDistanceBox;
+    @FindBy(id = "AR_merchant_status")
+    public WebElement statusBox;
+    @FindBy(xpath = "//*[@value='Save']")
+    public WebElement saveButton;
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement succesfullyUptadeText;
 
     //Orders
 

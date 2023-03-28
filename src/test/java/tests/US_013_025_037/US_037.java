@@ -54,13 +54,74 @@ public class US_037 extends TestBaseReport {
         actions.moveToElement(adminPage.autoLoginButton).perform();
         ReusableMethods.wait(3);
         adminPage.editMerchantButton.click();
+        extentTest.info("Edit link is clicked");
+        adminPage.restaurantNameBox.clear();
+        extentTest.info("Restaurant name box is cleaned");
+        adminPage.restaurantNameBox.sendKeys("New Name");
+        extentTest.info("New name is entered");
+        adminPage.restaurantSlugBox.clear();
+        extentTest.info("Restaurant slug box is cleaned");
+        adminPage.restaurantSlugBox.sendKeys("New slug");
+        extentTest.info("New slug is entered");
+        adminPage.contactNameBox.clear();
+        extentTest.info("contactNameBox is cleaned");
+        adminPage.contactNameBox.sendKeys("New contact name");
+        extentTest.info("New contact name is entered");
+        adminPage.contactPhoneBox.clear();
+        extentTest.info("contactPhoneBox is cleaned");
+        adminPage.contactPhoneBox.sendKeys("+111123456789");
+        extentTest.info("New contact phone is entered");
+        adminPage.contactEmailBox.clear();
+        extentTest.info("contactEmailBox is cleaned");
+        adminPage.contactEmailBox.sendKeys("newemail@gmail.com");
+        extentTest.info("New contact email is entered");
+        adminPage.aboutBox.clear();
+        extentTest.info("aboutBox is cleaned");
+        adminPage.aboutBox.sendKeys("about");
+        extentTest.info("New about is entered");
+        adminPage.shortAboutBox.clear();
+        extentTest.info("shortAboutBox is cleaned");
+        adminPage.shortAboutBox.sendKeys("shortAboutBox");
+        extentTest.info("shortAboutBox is entered");
+        JSUtilities.scrollToElement(Driver.getDriver(),adminPage.shortAboutBox);
+        ReusableMethods.wait(3);
+        adminPage.cuisineBox.click();
+        adminPage.cuisineBox.click();
+        extentTest.info("cuisineBox is clicked");
+        //ReusableMethods.wait(3);
+        adminPage.BurgersLink.click();
+        adminPage.BurgersLink.click();
+        extentTest.info("BurgersLink is clicked");
 
-        adminPage.merchantFromAllMerchant.click();
-        extentTest.info("merchantFromAllMerchant link is clicked");
-        softAssert.assertTrue(adminPage.merchantFromAllMerchant.isSelected());
-        extentTest.pass("merchantFromAllMerchant link is selected");
+
+        adminPage.servicesBox.click();
+        extentTest.info("servicesBox is clicked");
+        adminPage.pickupLink.click();
+        extentTest.info("pickupLink is clicked");
+
+        JSUtilities.scrollToBottom(Driver.getDriver());
+        adminPage.featuredBox.click();
+        extentTest.info("featuredBox is clicked");
+        adminPage.popularLink.click();
+        extentTest.info("popularLink is clicked");
+        adminPage.deliveryDistanceBox.sendKeys("1123456789");
+        extentTest.info("Delivery Distance is entered");
+        ReusableMethods.selectAnItemFromDropdown(adminPage.statusBox,"active");
+        ReusableMethods.wait(3);
+        adminPage.saveButton.click();
+        extentTest.info("saveButton is clicked");
+        String expectedtext = "Succesfully updated";
+        String actualText = adminPage.succesfullyUptadeText.getText();
+        softAssert.assertEquals(actualText,expectedtext);
+        extentTest.pass("Verified that merchant informations were succesfully updated");
         softAssert.assertAll();
         //Driver.closeDriver();
+
+
+
+
+
+        //-
     }
     @Test(priority = 20)
     public void deleteInfoMerchantTest(){
