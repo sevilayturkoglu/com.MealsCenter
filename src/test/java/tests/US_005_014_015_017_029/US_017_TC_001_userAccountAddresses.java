@@ -1,8 +1,11 @@
 package tests.US_005_014_015_017_029;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -57,52 +60,37 @@ public class US_017_TC_001_userAccountAddresses extends TestBaseReport {
         extentTest.info("cash payment option frame is closed");
         ReusableMethods.bekle(3);
 
-        // adding stripe payment
-        userPage.userAddStripeButton.click();
-        actions.sendKeys(userPage.userAddCardNumberPlaceHolder);
-        actions.sendKeys(ConfigReader.getProperty("validCardNumber")+ Keys.TAB);
-        //Form body locatte kaldimgit branch
-
-
-
-
-
-
-
-
-
-
         // deleting cash payment method from account
-        userPage.userCashPaymentDelete.click();
+        //userPage.userCashPaymentDelete.click();
+        ReusableMethods.bekle(5);
+
+        // adding stripe payment
+
+        userPage.userAddStripeButton.click();
+        WebElement framem=Driver.getDriver().findElement(By.xpath("//iframe[@title='Secure card payment input frame']"));
+        Driver.getDriver().switchTo().frame(framem);
+        ReusableMethods.bekle(3);
+        Driver.getDriver().findElement(By.xpath("//input[@name='cardnumber']")).sendKeys("4242 4242 4242 4242");
+        Driver.getDriver().findElement(By.xpath("//input[@name='exp-date']")).sendKeys("04 / 24");
+        Driver.getDriver().findElement(By.xpath("//input[@name='cvc']")).sendKeys("242");
+        Driver.getDriver().findElement(By.xpath("//input[@name='postal']")).sendKeys("42424");
+        Driver.getDriver().switchTo().parentFrame();
+        Driver.getDriver().findElement(By.xpath("//span[.='Add Stripe']")).click();
 
 
+        ReusableMethods.bekle(5);
 
-
-
-
-
-
-        // adding kaart
-        //userPage.userAddNewPaymentButton.click();
-        //ReusableMethods.bekle(3);
-
-
-
-
-
-
-
-        /*
-        String expectedPaymentMethodText = "Default";
-        String actualPaymentMethodText = merchantPage.paymentMethodDefault.getText();
-        softAssert.assertTrue(actualPaymentMethodText.contains(expectedPaymentMethodText));
-        extentTest.pass("Verified  that Cash On delivery is default");
-        softAssert.assertAll();
-
-         */
+        // deleting stripe
+       //actions.sendKeys(Keys.PAGE_UP).perform();
+       //actions.sendKeys(Keys.PAGE_UP).perform();
+       //Driver.getDriver().findElement(By.xpath("(//a[@id='dropdownMenuLink'])[1]")).click();
+       //ReusableMethods.bekle(5);
+       //Driver.getDriver().findElement(By.xpath("(//a[.='Delete'])[1]")).click();
 
 
     }
 
-
 }
+
+
+
