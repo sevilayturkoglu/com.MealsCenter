@@ -7,9 +7,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.util.List;
 
 public class UserPage {
 
@@ -112,9 +115,11 @@ public class UserPage {
 
 
 
+
     // UserPage >> Privacy Policy Locator
     @FindBy(xpath = "//*[text()='Privacy policy']")
     public WebElement privacyPolicy;
+
 
 
 
@@ -155,8 +160,6 @@ public class UserPage {
         return null;
     }
 
-
-
     //Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
     //Method argumenti olarak sadece sayfada gorulen cuisine adi yazin "Mediterranean" gibi
@@ -177,6 +180,8 @@ public class UserPage {
         String expectedPageText = cuisineName;
         Assert.assertEquals(actualPageText, expectedPageText);
     }
+
+
 
     // Sariye Methods
     public void userLoginSariye() {
@@ -200,5 +205,37 @@ public class UserPage {
     public WebElement userChangePasswordSuccessMessage;
 
 
+    public void choseAppearedCuisine (String cuisineName) {
+        UserPage userPage = new UserPage();
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userLogo.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(1);
+        Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + cuisineName + "']")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
+        for (WebElement store : Stores) {
+            String actCuisine = store.getText();
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+        }
+    }
+
+    public void chooseCuisineAtMore (String cuisineName) {
+        UserPage userPage = new UserPage();
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userLogo.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(1);
+        userPage.userCuisineMoreButton.click();
+        Driver.getDriver().findElement(By.xpath("(//a[.='" + cuisineName + "'])[1]")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
+        for (WebElement store : Stores) {
+            String actCuisine = store.getText();
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+        }
+    }
 
 }
