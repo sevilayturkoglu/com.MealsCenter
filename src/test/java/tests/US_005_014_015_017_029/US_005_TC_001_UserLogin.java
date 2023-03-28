@@ -16,10 +16,6 @@ public class US_005_TC_001_UserLogin {
     @Test (groups = "smoke")
     public void userLoginPozitifTest() {
 
-        //https://qa.mealscenter.com/account/login
-        // accept cookies
-        //Verify  login page:
-        //userLoginPage.usernameEmailBox.click();
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         if (userPage.userCookies.isDisplayed()) {
@@ -34,7 +30,7 @@ public class US_005_TC_001_UserLogin {
 
             actions.click(userPage.userSignInLogin).perform();
 
-            Driver.closeDriver();
+            //Driver.closeDriver();
 
 
             //if no cookies
