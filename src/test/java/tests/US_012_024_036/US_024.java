@@ -5,7 +5,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.AdminPage;
 import pages.MerchantPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -72,6 +71,7 @@ public class US_024 extends TestBaseReport {
 
         Driver.getDriver().findElement(By.xpath("//li[@class='position-relative food_category active']")).click(); //categorynin locator u
         extentTest.info("After try to adding new category, The category item below the food item is accessible.");
+
 
         // burada yeni urunun eklendigini test et ilk urunun adi ile
         extentTest.info("New item is added");
