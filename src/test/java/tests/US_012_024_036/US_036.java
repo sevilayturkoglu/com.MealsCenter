@@ -52,7 +52,7 @@ public class US_036 extends TestBaseReport {
         for (WebElement each : elements) {
             softAssert.assertTrue(each.isDisplayed());
             // System.out.println(each.getText());
-            extentTest.info("'" + each.getText() + "' item is visible on the admin dashboard page");
+            extentTest.info("Confirmed that '" + each.getText() + "' item is visible on the admin dashboard page");
             countOfTitle++;
 
         }
@@ -61,7 +61,7 @@ public class US_036 extends TestBaseReport {
 
         softAssert.assertEquals(countOfTitle, expCount);
 
-        extentTest.info("All 18 titles are visible on the admin dashboard page");
+        extentTest.info("Confirmed that All 18 titles are visible on the admin dashboard page");
 
         softAssert.assertAll();
 

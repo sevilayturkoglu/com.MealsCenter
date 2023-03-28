@@ -42,9 +42,9 @@ public class US_012 extends TestBaseReport {
 
             userPage.choseAppearedCuisine(cuisineName);
 
-            extentTest.info("On the user home page, The '" + cuisineName + " cuisine' item is clickable.");
+            extentTest.info("On the user home page, The '" + cuisineName + " cuisine' item is seen and clicked.");
 
-            extentTest.info("On the '" + cuisineName + " cuisine' page, The word '" + cuisineName + "' appears in the descriptions of the stores ");
+            extentTest.info("Confirmed that On the '" + cuisineName + " cuisine' page, The word '" + cuisineName + "' appears at the descriptions of the all visible stores.");
 
         }
 
@@ -55,9 +55,10 @@ public class US_012 extends TestBaseReport {
 
             userPage.chooseCuisineAtMore(cuisineName);
 
-            extentTest.info("On the user home page, drop down 'More' and The '" + cuisineName + " cuisine' item is clickable.");
+            extentTest.info("On the user home page, drop down menu 'More' is seen and clicked.");
+            extentTest.info("'" + cuisineName + " cuisine' item is seen and clicked.");
 
-            extentTest.info("On the '" + cuisineName + " cuisine' page, The word '" + cuisineName + "' appears in the descriptions of the stores ");
+            extentTest.info("Confirmed that On the '" + cuisineName + " cuisine' page, The word '" + cuisineName + "' appears at the descriptions of the all visible stores.");
         }
 
         softAssert.assertAll();
