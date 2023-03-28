@@ -1,10 +1,16 @@
 package tests.US_026_038;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.MerchantPage;
 import pages.Merchant_US_026_Page;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 

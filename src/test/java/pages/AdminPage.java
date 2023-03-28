@@ -78,33 +78,26 @@ public class AdminPage {
         }
         return idElementsInt;
 
-        }
-
-
-    //Earnings
 
 
 
 
-    //Promo
+        //Earnings
 
 
+        //Promo
 
 
-    //Buyers
+        //Buyers
 
 
+        //Records
 
 
-    //Records
+        //Media Library
 
-
-
-
-    //Media Library
-
-    //Admin Login Method
-    public void adminLoginOl() {
+        //Admin Login Method
+    } public void adminLoginOl() {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
         adminUserName.sendKeys(ConfigReader.getProperty("adminSevilay"));
         adminPassword.sendKeys("123456");
