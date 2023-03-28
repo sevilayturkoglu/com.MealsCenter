@@ -167,6 +167,29 @@ public class UserPage {
     }
 
 
+
+    // Sariye Methods
+    public void userLoginSariye() {
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        UserPage userPage = new UserPage();
+        userPage.userCookies.click();
+        userPage.userSignIn.click();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userEmailLogin.click();
+        actions.sendKeys(ConfigReader.getProperty("userLoginEmailSariye")).sendKeys(Keys.TAB)
+                .sendKeys(ConfigReader.getProperty("userLoginPasswordSariye")).perform();
+        userPage.userSignInLogin.click();
+        ReusableMethods.bekle(2);
+        userPage.userAdresBox.sendKeys("1000");
+        ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
+        userPage.userChooseAddres.click();
+        ReusableMethods.bekle(2);
+        userPage.userUstDropDownButton.isDisplayed();
+    }
+    public WebElement userChangePasswordMessage;
+    public WebElement userChangePasswordSuccessMessage;
+
+
     public void choseAppearedCuisine (String cuisineName) {
         UserPage userPage = new UserPage();
         SoftAssert softAssert = new SoftAssert();
@@ -199,29 +222,5 @@ public class UserPage {
             softAssert.assertTrue(actCuisine.contains(expCuisine));
         }
     }
-
-    // Sariye Methods
-    public void userLoginSariye() {
-        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
-        UserPage userPage = new UserPage();
-        userPage.userCookies.click();
-        userPage.userSignIn.click();
-        Actions actions = new Actions(Driver.getDriver());
-        userPage.userEmailLogin.click();
-        actions.sendKeys(ConfigReader.getProperty("userLoginEmailSariye")).sendKeys(Keys.TAB)
-                .sendKeys(ConfigReader.getProperty("userLoginPasswordSariye")).perform();
-        userPage.userSignInLogin.click();
-        ReusableMethods.bekle(2);
-        userPage.userAdresBox.sendKeys("1000");
-        ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
-        userPage.userChooseAddres.click();
-        ReusableMethods.bekle(2);
-        userPage.userUstDropDownButton.isDisplayed();
-    }
-    public WebElement userChangePasswordMessage;
-    public WebElement userChangePasswordSuccessMessage;
-
-
-
 
 }

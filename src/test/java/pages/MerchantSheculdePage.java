@@ -52,11 +52,12 @@ public void accordingToCustomName(String customerName){
     for (WebElement each : customElementList) {
         allChooseCustomerNameList.add( each.getText());
     }
+    System.out.println(allChooseCustomerNameList);
+    System.out.println(customElementList.size());
     for (int i = 0; i < allChooseCustomerNameList.size()-1; i++) {
         softAssert.assertTrue(allChooseCustomerNameList.get(i).equals(customerName));
     }
     softAssert.assertAll();
-
 }
     public void orderTypeList(String orderTypes) {//bunun yerine data provider kullandim
         orderTypeButton.click();
