@@ -12,7 +12,7 @@ import utilities.Driver;
 
 import java.time.Duration;
 
-public class UserPageTests {
+public class US_014_TC_001_UserProfilePage {
 
     UserPage userPage = new UserPage();
 
@@ -38,8 +38,7 @@ public class UserPageTests {
         // Wait for the dropdown menu to be displayed
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOf(userPage.userUstDropDownButton));
-
-        actions.moveToElement(userPage.userUstDropDownButton).click();
+        userPage.userUstDropDownButton.click();
         actions.sendKeys(Keys.ARROW_DOWN)
                 .sendKeys(Keys.ENTER)
                 .perform();
@@ -47,6 +46,8 @@ public class UserPageTests {
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "https://qa.mealscenter.com/account/profile";
         Assert.assertEquals(actualUrl, expectedUrl, "Profile page is not active");
+
+
     }
 
     @Test
@@ -68,19 +69,29 @@ public class UserPageTests {
                 .sendKeys(Keys.ENTER)
                 .perform();
 
+        // Wait for the dropdown menu to be displayed
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(userPage.userUstDropDownButton));
-
-        actions.moveToElement(userPage.userUstDropDownButton).click();
+        //wait.until(ExpectedConditions.visibilityOf(userPage.userUstDropDownButton));
+        userPage.userUstDropDownButton.click();
         actions.sendKeys(Keys.ARROW_DOWN)
                 .sendKeys(Keys.ENTER)
                 .perform();
 
-        userPage.userManageMyAccount.click();
 
         wait.until(ExpectedConditions.visibilityOf(userPage.userChangePasswordButton));
 
-        userPage.userChangePasswordButton.click();
+        actions.sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB).click();
 
         wait.until(ExpectedConditions.visibilityOf(userPage.userOldPassword));
 
