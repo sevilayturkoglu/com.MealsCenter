@@ -1,5 +1,8 @@
 package tests.US_013_025_037;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.MerchantPage;
@@ -19,6 +22,7 @@ public class US_013 extends TestBaseReport {
         extentTest = extentReports.createTest("productAddtoCartTest","A product must be able to be added to \n" +
                 "the cart" );
         userPage = new UserPage();
+        merchantPage = new MerchantPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
         ReusableMethods.wait(5);
@@ -41,6 +45,7 @@ public class US_013 extends TestBaseReport {
         extentTest = extentReports.createTest("paymentTest"," the payment must be able to be made");
         userPage = new UserPage();
         userPage.userLoginBeing();
+        merchantPage=new MerchantPage();
         extentTest.info("User signed in");
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
@@ -64,6 +69,7 @@ public class US_013 extends TestBaseReport {
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
         userPage = new UserPage();
+        merchantPage = new MerchantPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
@@ -96,6 +102,7 @@ public class US_013 extends TestBaseReport {
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("availableToPurchaseTest"," the product is available for purchase");
         userPage = new UserPage();
+        merchantPage = new MerchantPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
         ReusableMethods.wait(5);
@@ -115,3 +122,4 @@ public class US_013 extends TestBaseReport {
         Driver.closeDriver();
     }
 }
+
