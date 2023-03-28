@@ -130,9 +130,6 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[@class='ref_delete normal btn btn-light tool_tips'])[1]")
     public WebElement deleteItemButton;
 
-    //merchant Order
-
-
 
     //Bu method sizi merchant sayfasina login yapacak
     //restaurantName olarak configuration.propertiesdekini restaurant adini kullanin
