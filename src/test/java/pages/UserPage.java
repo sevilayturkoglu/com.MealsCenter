@@ -7,13 +7,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class UserPage {
-    public UserPage() {
+import java.util.List;
 
+public class UserPage {
+
+
+    public UserPage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -72,10 +76,50 @@ public class UserPage {
     public WebElement inFavouriteTikBox1;
     @FindBy(xpath = "//a[@class='dropdown-item with-icon-account']")
     public WebElement userManageMyAccount;
+    //User profile page locaters
+    @FindBy(xpath = "//*[@id=yw0]/li[2]/a/text()")
+    public WebElement userChangePasswordButton;
+    @FindBy(id = "//*[@id='old_password']")
+    public WebElement userOldPassword;
+    @FindBy(id = "//*[@id='new_password']")
+    public WebElement userNewPassword;
+    @FindBy(id = "//*[@id='confirm_password']")
+    public WebElement userConfirmPassword;
+    @FindBy(css = "#vue-update-password > form > button > span")
+    public WebElement userChangePasswordSubmit;
+    //User order page
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-orders']")
+    public WebElement userDDMMyOrders;
+    @FindBy(xpath = "//a[normalize-space()='Orders']")
+    public WebElement userOrderPageLeftMenuOrderText;
+    @FindBy(xpath = "//li[@class='account active']//a[normalize-space()='Manage my account']")
+    public WebElement userSidebarManageMyAccount;
+    //User payment Locators
+    @FindBy(xpath = "//a[@class='dropdown-item with-icon-payments']")
+    public WebElement userDDPaymentOptions;
+    @FindBy(xpath = "//div[@class='col-md-4 text-center']//a[@class='btn btn-green'][normalize-space()='Add new payment']")
+    public WebElement userAddNewPaymentButton;
+    @FindBy(xpath = "//span[normalize-space()='Cash On delivery']")
+    public WebElement userAddCashOnDeliveryButton;
+    @FindBy(xpath = "//*[@id='cashForm']/div/div/div[2]/button/span")
+    public WebElement userAddCashButton;
+    @FindBy(xpath = "//span[normalize-space()='Stripe']")
+    public WebElement userAddStripeButton;
+
+    @FindBy(xpath = "//*[@id='cashForm']/div/div/div[1]/a/i")
+    public WebElement closeAddCashFrame;
+    @FindBy(xpath = "//a[normalize-space()='Delete']")
+    public WebElement userCashPaymentDelete;
+
+
+
+
+
 
     // UserPage >> Privacy Policy Locator
     @FindBy(xpath = "//*[text()='Privacy policy']")
     public WebElement privacyPolicy;
+
 
 
 
@@ -103,7 +147,7 @@ public class UserPage {
     // oraya gittiginizi dogrulayacak.Siz method argumenti olarak gitmek istediginiz yeri ve
     // URL nin sonunda yazan kismi ekleyeceksiniz, Or: menuName=" My orders "  ; expecdUrl="orders"  gibi
 
-    public void userUstDDMenu(String menuName, String expecdUrl) {
+    public By userUstDDMenu(String menuName, String expecdUrl) {
         ReusableMethods.bekle(1);
         userUstDropDownButton.click();
         ReusableMethods.bekle(1);
@@ -113,9 +157,8 @@ public class UserPage {
         System.out.println(expecdUrl);
         Assert.assertTrue(actualUrl.contains(expecdUrl));
 
+        return null;
     }
-
-
 
     //Bu methoda sayfada acik olanlardan gitmek istediginiz cuisine nameini yazacaksiniz
 // ,sizi oraya goturecek oradaki texti alip sizi oraya goturdugunu dogrulayacak
@@ -138,5 +181,61 @@ public class UserPage {
         Assert.assertEquals(actualPageText, expectedPageText);
     }
 
+
+
+    // Sariye Methods
+    public void userLoginSariye() {
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
+        UserPage userPage = new UserPage();
+        userPage.userCookies.click();
+        userPage.userSignIn.click();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userEmailLogin.click();
+        actions.sendKeys(ConfigReader.getProperty("userLoginEmailSariye")).sendKeys(Keys.TAB)
+                .sendKeys(ConfigReader.getProperty("userLoginPasswordSariye")).perform();
+        userPage.userSignInLogin.click();
+        ReusableMethods.bekle(2);
+        userPage.userAdresBox.sendKeys("1000");
+        ReusableMethods.waitForVisibility(userPage.userChooseAddres, 10);
+        userPage.userChooseAddres.click();
+        ReusableMethods.bekle(2);
+        userPage.userUstDropDownButton.isDisplayed();
+    }
+
+    public WebElement userChangePasswordSuccessMessage;
+
+
+    public void choseAppearedCuisine (String cuisineName) {
+        UserPage userPage = new UserPage();
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userLogo.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(1);
+        Driver.getDriver().findElement(By.xpath("//div[@class='col cuisineMainPage']/a[.='" + cuisineName + "']")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
+        for (WebElement store : Stores) {
+            String actCuisine = store.getText();
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+        }
+    }
+
+    public void chooseCuisineAtMore (String cuisineName) {
+        UserPage userPage = new UserPage();
+        SoftAssert softAssert = new SoftAssert();
+        Actions actions = new Actions(Driver.getDriver());
+        userPage.userLogo.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.bekle(1);
+        userPage.userCuisineMoreButton.click();
+        Driver.getDriver().findElement(By.xpath("(//a[.='" + cuisineName + "'])[1]")).click();
+        String expCuisine = Driver.getDriver().findElement(By.xpath("//h4[@class='m-0']")).getText(); // cuisine sayfasindaki buyuk baslik
+        List<WebElement> Stores = Driver.getDriver().findElements(By.xpath("//div[@class='col-lg-4 mb-3 col-md-6 list-items']")); //div[@class='position-relative']
+        for (WebElement store : Stores) {
+            String actCuisine = store.getText();
+            softAssert.assertTrue(actCuisine.contains(expCuisine));
+        }
+    }
 
 }
