@@ -6,14 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.JSUtilities;
 import utilities.ReusableMethods;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminPage {
-    public AdminPage() {
+public class AdminLoginPage {
+    public AdminLoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     //Admin login locators  https://qa.mealscenter.com/account/login
