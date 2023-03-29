@@ -1,10 +1,16 @@
 package tests.US_026_038;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.MerchantPage;
 import pages.Merchant_US_026_Page;
 import utilities.Driver;
+import utilities.JSUtilities;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
@@ -27,8 +33,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
         extentTest.pass("New Orders are visible .");
         softAssert.assertTrue(merchant_us_026_page.newOrderText.isDisplayed());
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
+
     }
 
     @Test(priority = 10)
@@ -75,8 +80,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
         extentTest.pass("Total account is bigger than before total account.");
         softAssert.assertTrue(afterPrice>beforePrice);
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
+
     }
 
     @Test(priority = 15)
@@ -97,8 +101,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
         extentTest.fail("Edit buttons to click the product is invalid.");
         softAssert.assertTrue(allBodyElements.contains(expectedElement));
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
+
     }
     @Test(priority = 20)
 
@@ -120,8 +123,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
         extentTest.fail("Delete it button to click the product is invalid.");
         softAssert.assertTrue(allBodyTexts.contains(expectedText));
         softAssert.assertAll();
-        Driver.closeDriver();
-        extentTest.info("The browser is closed.");
+
 
 
 

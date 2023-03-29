@@ -55,7 +55,7 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[@class='m-0 text-grey'])[5]")
     public WebElement newSelectedAddress;
 
-    @FindBy(xpath = "//*[@class='bold mr-1']")
+    @FindBy(xpath = "(//*[@class='d-block chevron-section promo-section d-flex align-items-center rounded mb-2'])[3]")
     public WebElement savedAddressBox;
 
     @FindBy(xpath = "//*[.='Place Order']")
@@ -97,7 +97,7 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[.='Browse'])[2]")
     public WebElement browseButtton;
 
-    @FindBy(xpath = "(//img)[5]")
+    @FindBy(xpath = "(//img)[18]")
     public WebElement selectFileFromBrowse;
 
     @FindBy(xpath = "(//*[.='Add Files'])[2]")
@@ -127,13 +127,8 @@ public class MerchantPage {
     @FindBy(xpath = "//*[@class='alert alert-success']")
     public WebElement succesfullyCreatedText;
 
-
-
-
-
-
-
-
+    @FindBy(xpath = "(//*[@class='ref_delete normal btn btn-light tool_tips'])[1]")
+    public WebElement deleteItemButton;
 
 
     //Bu method sizi merchant sayfasina login yapacak
@@ -151,5 +146,15 @@ public class MerchantPage {
 // istediginiz menunun adini yazacaksiniz Or:  Merchant  , Orders , Food , Attributes .. gibi
     public void merchantMenuLeftSide(String menuName) {
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).click();
+    }
+
+    public void MerchantPageLoginSry(){
+        Driver.getDriver().get(ConfigReader.getProperty("merchantUrl"));
+        MerchantPage merchantPage = new MerchantPage();
+        merchantPage.merchantUserName.sendKeys(ConfigReader.getProperty("subwayUsername"));
+        ReusableMethods.bekle(1);
+        merchantPage.merchantUserPassword.sendKeys(ConfigReader.getProperty("subwayPassword"));
+        merchantPage.merchantSignIn.click();
+
     }
 }
