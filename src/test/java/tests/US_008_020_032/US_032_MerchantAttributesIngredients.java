@@ -297,7 +297,7 @@ public class US_032_MerchantAttributesIngredients extends TestBaseReport {
         softAssert.assertTrue(merchantPage.saveButton.isEnabled());
         extentTest.info("Save button is enabled");
         ReusableMethods.bekle(2);
-        merchantPage.saveButton.click();
+        merchantPage.attSaveButton.click();
         extentTest.info("Save button is clicked");
 
         // 14-Verify the new item visible in the “ingredients_list” page
@@ -463,7 +463,7 @@ public class US_032_MerchantAttributesIngredients extends TestBaseReport {
         extentTest.info("Save button is enabled");
         ReusableMethods.bekle(2);
 
-        merchantPage.saveButton.click();
+        merchantPage.attSaveButton.click();
         extentTest.info("Save button is clicked");
         ReusableMethods.bekle(2);
 
@@ -609,7 +609,7 @@ public class US_032_MerchantAttributesIngredients extends TestBaseReport {
         extentTest.info("the save button is enabled");
         ReusableMethods.bekle(2);
 
-        merchantPage.saveButton.click();
+        merchantPage.attSaveButton.click();
         ReusableMethods.bekle(2);
 
         // 13-Verify the updated is not successful
