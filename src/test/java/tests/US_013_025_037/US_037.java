@@ -88,17 +88,13 @@ public class US_037 extends TestBaseReport {
         adminPage.cuisineBox.click();
         adminPage.cuisineBox.click();
         extentTest.info("cuisineBox is clicked");
-        //ReusableMethods.wait(3);
         adminPage.BurgersLink.click();
         adminPage.BurgersLink.click();
         extentTest.info("BurgersLink is clicked");
-
-
         adminPage.servicesBox.click();
         extentTest.info("servicesBox is clicked");
         adminPage.pickupLink.click();
         extentTest.info("pickupLink is clicked");
-
         JSUtilities.scrollToBottom(Driver.getDriver());
         adminPage.featuredBox.click();
         extentTest.info("featuredBox is clicked");
@@ -117,11 +113,6 @@ public class US_037 extends TestBaseReport {
         softAssert.assertAll();
         //Driver.closeDriver();
 
-
-
-
-
-        //-
     }
     @Test(priority = 20)
     public void deleteInfoMerchantTest(){
