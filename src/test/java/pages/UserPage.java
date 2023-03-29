@@ -120,6 +120,15 @@ public class UserPage {
     @FindBy(xpath = "//*[text()='Privacy policy']")
     public WebElement privacyPolicy;
 
+    // ============ Nesibe =========
+
+    @FindBy(linkText = "Terms and conditions")
+    public WebElement termsAndConditions;
+
+    @FindBy(xpath = "//*[text()='info@mealscenter.com']")
+    public WebElement contactUs;
+
+
 
 
 
