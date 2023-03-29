@@ -3,7 +3,7 @@ package tests.US_013_025_037;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.AdminLoginPage;
+import pages.AdminPage;
 import pages.MerchantPage;
 import pages.UserPage;
 import utilities.Driver;
@@ -15,7 +15,7 @@ public class US_037 extends TestBaseReport {
 
     UserPage userPage = new UserPage();
     SoftAssert softAssert = new SoftAssert();
-    AdminLoginPage adminPage = new AdminLoginPage();
+    AdminPage adminPage = new AdminPage();
     MerchantPage merchantPage = new MerchantPage();
     Actions actions = new Actions(Driver.getDriver());
     @Test(priority = 1)
@@ -23,7 +23,7 @@ public class US_037 extends TestBaseReport {
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("viewMerchantsListTest","An admin should be able to view\n" +
                 "Merchants List" );
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         adminPage.adminLoginOl();
         extentTest.info("Admin signed in");
         merchantPage.merchantMenuLeftSide("Merchant");
@@ -43,7 +43,7 @@ public class US_037 extends TestBaseReport {
         actions= new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("changeInfoMerchantTest","An admin should be able to change\n" +
                 "information about merchants" );
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         adminPage.adminLoginOl();
         extentTest.info("Admin signed in");
         merchantPage.merchantMenuLeftSide("Merchant");
@@ -117,7 +117,7 @@ public class US_037 extends TestBaseReport {
     public void deleteInfoMerchantTest(){
         extentTest = extentReports.createTest("deleteInfoMerchantTest","An admin should be able to delete\n" +
                 "information about merchants" );
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         adminPage.adminLoginOl();
         extentTest.info("Admin signed in");
         merchantPage.merchantMenuLeftSide("Merchant");

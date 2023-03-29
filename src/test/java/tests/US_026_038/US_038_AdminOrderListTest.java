@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.AdminLoginPage;
+import pages.AdminPage;
 import utilities.Driver;
 import utilities.JSUtilities;
 import utilities.ReusableMethods;
@@ -16,12 +16,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class US_038_AdminOrderListTest extends TestBaseReport {
-    AdminLoginPage adminPage = new AdminLoginPage();
+    AdminPage adminPage = new AdminPage();
     SoftAssert softAssert = new SoftAssert();
 
     @Test
     public void testTC_03801() {
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03801", "Orders option should be clicked, All orders text should be visible.");
         adminPage.adminLoginOl();
         extentTest.info("Browser is opened ,admin page is opened");
@@ -46,7 +46,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
 
     @Test
     public void testTC_03802() {
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03802", "Cancel, Total refund, Total Orders should be visible");
         extentTest.info("Browser is opened ,admin page is opened");
         adminPage.adminLoginOl();
@@ -76,7 +76,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     @Test
     public void test_TC_03803() {
 
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03803", "By a specific Date Range select option is should be visible");
         ReusableMethods.bekle(5);
         adminPage.adminLoginOl();
@@ -101,7 +101,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
 
     @Test
     public void testTC_03804() {
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03804", "All products should be sorted bi ID Element");
         adminPage.adminLoginOl();
         extentTest.info("Browser is opened ,admin page is opened");
@@ -128,7 +128,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     @Test
     public void testTC_03805() {
 
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         softAssert = new SoftAssert();
         extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
         adminPage.adminLoginOl();
@@ -162,7 +162,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
 
     @Test
     public void testTC_03806() {
-        adminPage = new AdminLoginPage();
+        adminPage = new AdminPage();
         softAssert = new SoftAssert();
         extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
         ReusableMethods.bekle(10);

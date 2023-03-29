@@ -15,7 +15,7 @@ public class US_002_UserHomeHeadersTest extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
 
     @Test(priority = 5)
-    public void mealsLogoSignInTest() {
+    public void TC_00201_mealsLogoSignInTest() {
         userPage = new UserPage();
         extentTest=extentReports.createTest("Headers basliklari kontrol","MealsLogo ve SignIn basliklar gorulebilir ve click yapilabilir");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));

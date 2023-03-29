@@ -3,7 +3,7 @@
     <test name="Demo">
         <classes>
             <class name="tests.US_002_018_030.US_030_MerchantSheculdeTest"></class>
-
+            <class name=""></class>
         </classes>
     </test>
 </suite>

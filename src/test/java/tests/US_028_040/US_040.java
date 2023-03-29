@@ -4,14 +4,14 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminCouponPage;
 import pages.AdminCoupon_List_Delete_UpdatePage;
-import pages.AdminLoginPage;
+import pages.AdminPage;
 import pages.AdminSearchPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US_040 extends TestBaseReport {
-    AdminLoginPage adminPage=new AdminLoginPage();
+    AdminPage adminPage=new AdminPage();
     AdminCouponPage adminCouponPage=new AdminCouponPage();
 
     @Test
@@ -23,12 +23,12 @@ public class US_040 extends TestBaseReport {
         adminCouponPage.couponMake("NewCoupons20");
     }
     SoftAssert softAssert = new SoftAssert();
-    AdminLoginPage adminLoginPage = new AdminLoginPage();
+    AdminPage adminLoginPage = new AdminPage();
     AdminCoupon_List_Delete_UpdatePage adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
 
     @Test(priority = 5)
     public void test4001_kuponOlusturma() {
-        adminLoginPage = new AdminLoginPage();
+        adminLoginPage = new AdminPage();
         adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
         adminLoginPage.adminLoginOl();
         adminCoupon_List_Delete_UpdatePage.promoButton.click();
@@ -42,7 +42,7 @@ public class US_040 extends TestBaseReport {
     }
     @Test(priority = 10)
     public void test4003kuponSilme() {
-        adminLoginPage = new AdminLoginPage();
+        adminLoginPage = new AdminPage();
         adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
         adminLoginPage.adminLoginOl();
         adminCoupon_List_Delete_UpdatePage.promoButton.click();
@@ -61,7 +61,7 @@ public class US_040 extends TestBaseReport {
     }
     @Test(priority = 15)
     public void test4002upDate() {
-        adminLoginPage = new AdminLoginPage();
+        adminLoginPage = new AdminPage();
         adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
         adminLoginPage.adminLoginOl();
         adminCoupon_List_Delete_UpdatePage.promoButton.click();
@@ -76,7 +76,7 @@ public class US_040 extends TestBaseReport {
     }
     @Test(priority = 20)
     public void test4004isimSirasinaGoreCouponList() {
-        adminLoginPage = new AdminLoginPage();
+        adminLoginPage = new AdminPage();
         adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
         adminLoginPage.adminLoginOl();
         adminCoupon_List_Delete_UpdatePage.promoButton.click();
@@ -86,7 +86,7 @@ public class US_040 extends TestBaseReport {
     }
     @Test(priority = 25)
     public void test4004CouponkullanılmaSayısınaGoreList() {
-        adminLoginPage = new AdminLoginPage();
+        adminLoginPage = new AdminPage();
         adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
         adminLoginPage.adminLoginOl();
         adminCoupon_List_Delete_UpdatePage.promoButton.click();
@@ -96,7 +96,7 @@ public class US_040 extends TestBaseReport {
     AdminSearchPage adminSearchPage = new AdminSearchPage();
     @Test()
     public void test4005searchBox() {
-        adminLoginPage = new AdminLoginPage();
+        adminLoginPage = new AdminPage();
         adminSearchPage = new AdminSearchPage();
         adminLoginPage.adminLoginOl();
         adminSearchPage.promoButton.click();
