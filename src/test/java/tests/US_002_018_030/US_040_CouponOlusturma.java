@@ -2,11 +2,11 @@ package tests.US_002_018_030;
 
 import org.testng.annotations.Test;
 import pages.AdminCouponPage;
-import pages.AdminPage;
+import pages.AdminLoginPage;
 import utilities.TestBaseReport;
 
 public class US_040_CouponOlusturma extends TestBaseReport {
-    AdminPage adminPage= new AdminPage();
+    AdminLoginPage adminPage= new AdminLoginPage();
     AdminCouponPage adminCouponPage=new AdminCouponPage();
 
     @Test
