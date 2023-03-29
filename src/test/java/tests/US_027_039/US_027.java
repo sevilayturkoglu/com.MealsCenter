@@ -1,5 +1,6 @@
 package tests.US_027_039;
 
+
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -39,7 +40,7 @@ public class US_027 extends TestBaseReport {
         extentTest.info("The order processing's  button is clicked.");
         Assert.assertTrue(merchantOrderProcessing.merchantOrderProcessingText.isDisplayed());
         extentTest.pass("Verified that the order processing's list is visible.");
-}
+    }
 
     @Test
     public void test2702(){
@@ -56,7 +57,7 @@ public class US_027 extends TestBaseReport {
         merchantOrderProcessing.merchantNewOrdersAcceptedButonu.click();
         extentTest.info("Orders Accepted button is clicked.");
         Driver.getDriver().navigate().refresh();
-        extentTest.info("It is refreshed.gi");
+        extentTest.info("It is refreshed");
         merchantOrderProcessing.merchantOrdersProcessingButton.click();
         extentTest.info("Orders processing button is clicked.");
 
@@ -99,27 +100,27 @@ public class US_027 extends TestBaseReport {
         merchantPage=new MerchantPage();
         merchantOrderProcessing=new MerchantOrderProcessing();
         merchantPage.merchantLogin();
-        extentTest=extentReports.createTest("test2704","the ready to pick button can be clicked.");
+        extentTest=extentReports.createTest("test2704","the ready to pick button is clickabled.");
         merchantPage.merchantMenuLeftSide("Orders");
         extentTest.info("Orders button is clicked.");
         merchantOrderProcessing.merchantOrdersProcessingButton.click();
         extentTest.info("Orders Processing button is clicked.");
         Assert.assertTrue(merchantOrderProcessing.menchantReadyforPick.isDisplayed());
-        extentTest.pass("Verified that ready to pick button is visible");
+        extentTest.pass("Verified that ready to pick button is visible.");
         Assert.assertTrue(merchantOrderProcessing.menchantReadyforPick.isEnabled());
         extentTest.pass("Verified that ready to pick button is enabled.");
     }
     @Test
-    public void test2705(){
-        merchantPage=new MerchantPage();
+    public void test2705() {
+        merchantPage = new MerchantPage();
         merchantPage.merchantLogin();
-        extentTest=extentReports.createTest("test2705","When the ready to pick button is pressed, the product should drop from the order processing list.");
+        extentTest = extentReports.createTest("test2705", "When the ready to pick button is pressed, the product should drop from the order processing list.");
         merchantPage.merchantMenuLeftSide("Orders");
         extentTest.info("Orders button is clicked.");
-        merchantOrderProcessing=new MerchantOrderProcessing();
+        merchantOrderProcessing = new MerchantOrderProcessing();
         merchantOrderProcessing.merchantOrdersProcessingButton.click();
         extentTest.info("Orders Processing button is clicked.");
-        String acceptedOrderName=merchantOrderProcessing.orderNumber.getText();
+        String acceptedOrderName = merchantOrderProcessing.orderNumber.getText();
         System.out.println(acceptedOrderName);
 
         merchantOrderProcessing.menchantReadyforPick.click();
@@ -128,13 +129,13 @@ public class US_027 extends TestBaseReport {
         extentTest.info("It is waited for 3 seconds.");
         Driver.getDriver().navigate().refresh();
         extentTest.info("It is refreshed.");
-        List<WebElement> orderprocessinglistesi=merchantOrderProcessing.merchantOrdersProcessingList;
+        List<WebElement> orderprocessinglistesi = merchantOrderProcessing.merchantOrdersProcessingList;
         extentTest.info("Orders processing list is created.");
-        List<String> orderPro=new ArrayList<>();
+        List<String> orderPro = new ArrayList<>();
 
-        for (WebElement each:orderprocessinglistesi
+        for (WebElement each : orderprocessinglistesi
         ) {
-            String element=each.getText();
+            String element = each.getText();
             orderPro.add(element);
         }
         System.out.println(orderPro);
@@ -142,15 +143,9 @@ public class US_027 extends TestBaseReport {
         ReusableMethods.bekle(3);
         extentTest.info("It is waited for 3 seconds.");
         Assert.assertFalse(orderPro.contains(acceptedOrderName));
-        extentTest.pass("Verified that the selected product has been removed from the list.");
-
-
-
-
+        extentTest.pass("Verify that the selected product has been removed from the list.");
 
 
     }
 
-
-
-}
+    }
