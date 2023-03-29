@@ -11,8 +11,8 @@ import utilities.ReusableMethods;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminLoginPage {
-    public AdminLoginPage() {
+public class AdminPage {
+    public AdminPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     //Admin login locators  https://qa.mealscenter.com/account/login
