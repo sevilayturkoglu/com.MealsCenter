@@ -21,7 +21,7 @@ public class US_027 extends TestBaseReport {
     MerchantOrderProcessing merchantOrderProcessing;
 
     @Test
-    public void test2701(){
+    public void TC_02701_OrderProcessing(){
         merchantPage=new MerchantPage();
         merchantPage.merchantLogin();
         extentTest = extentReports.createTest("test2701", "the order processing's list should be visible.");
@@ -43,7 +43,7 @@ public class US_027 extends TestBaseReport {
     }
 
     @Test
-    public void test2702(){
+    public void TC_02702_OrderProcessingList(){
         merchantPage=new MerchantPage();
         merchantPage.merchantLogin();
         extentTest=extentReports.createTest("test2702","The Orders Processing page list all the  orders that are accepted.");
@@ -81,7 +81,7 @@ public class US_027 extends TestBaseReport {
     }
 
     @Test
-    public void test2703(){
+    public void TC_02703_OrderProcessingInformation(){
         merchantPage=new MerchantPage();
         merchantPage.merchantLogin();
         extentTest=extentReports.createTest("test2703","The Orders Processing page should display the order details such as order number, customer name, delivery address, and order items.");
@@ -96,7 +96,7 @@ public class US_027 extends TestBaseReport {
     }
 
     @Test
-    public void test2704(){
+    public void TC_02704_ReadyToPickButton(){
         merchantPage=new MerchantPage();
         merchantOrderProcessing=new MerchantOrderProcessing();
         merchantPage.merchantLogin();
@@ -111,7 +111,7 @@ public class US_027 extends TestBaseReport {
         extentTest.pass("Verified that ready to pick button is enabled.");
     }
     @Test
-    public void test2705() {
+    public void TC_02705_ReadyToPickButton() {
         merchantPage = new MerchantPage();
         merchantPage.merchantLogin();
         extentTest = extentReports.createTest("test2705", "When the ready to pick button is pressed, the product should drop from the order processing list.");

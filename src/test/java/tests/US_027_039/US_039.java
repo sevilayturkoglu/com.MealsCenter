@@ -16,7 +16,7 @@ public class US_039 extends TestBaseReport {
 
 
     @Test
-    public void TC_3901(){
+    public void TC_3901_MerchantBalance(){
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
    extentTest=extentReports.createTest("TC_3901","The Merchant balances should be visible to the Admin.");
@@ -36,7 +36,7 @@ public class US_039 extends TestBaseReport {
         softAssert.assertAll();
     }
     @Test
-    public void TC_3902(){
+    public void TC_3902_TotalSales(){
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
         extentTest=extentReports.createTest("TC_3902","The total values of the Merchant balances should be displayed.");
@@ -47,7 +47,7 @@ public class US_039 extends TestBaseReport {
     }
 
     @Test
-    public void TC_3903(){
+    public void TC_3903_BalanceList(){
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
         extentTest=extentReports.createTest("TC_3903","The Merchant balances should be visible as a list.");
@@ -77,7 +77,7 @@ public class US_039 extends TestBaseReport {
 
     }
     @Test
-    public void TC_3904(){
+    public void TC_3904_SortedBalance(){
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
         extentTest=extentReports.createTest("TC_3904","The merchants listed should be sortable by balance.");
@@ -108,7 +108,7 @@ public class US_039 extends TestBaseReport {
 
     }
     @Test
-    public void TC_3905(){
+    public void TC_3905_SortedName(){
         //simdi de merchanta basinca esit mi diye bakacagiz.
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
@@ -140,7 +140,7 @@ public class US_039 extends TestBaseReport {
 
     }
     @Test
-    public void TC_3906(){
+    public void TC_3906_TotalBalance(){
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
         extentTest=extentReports.createTest("TC_3906"," The Admin should be able to select a specific merchant from the list to view their details.");
@@ -165,7 +165,7 @@ public class US_039 extends TestBaseReport {
 
     }
     @Test
-    public void TC_3907(){
+    public void TC_3907_SearchButton(){
         //search butonu
         adminPage=new AdminPage();
         adminPage.adminLoginOl();
