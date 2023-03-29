@@ -1,7 +1,6 @@
 package tests.US_027_039;
 
 
-import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -16,7 +15,7 @@ import utilities.TestBaseReport;
 import java.util.ArrayList;
 import java.util.List;
 
-public class US_027 extends TestBaseReport {
+public class US_027_MerchantBalance extends TestBaseReport {
     MerchantPage merchantPage;
     MerchantOrderProcessing merchantOrderProcessing;
 

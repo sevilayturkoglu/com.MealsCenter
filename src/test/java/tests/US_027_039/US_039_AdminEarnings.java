@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class US_039 extends TestBaseReport {
+public class US_039_AdminEarnings extends TestBaseReport {
     AdminPage adminPage=new AdminPage();
 
 
