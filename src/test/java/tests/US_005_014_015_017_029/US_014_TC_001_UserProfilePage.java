@@ -37,7 +37,6 @@ public class US_014_TC_001_UserProfilePage extends TestBaseReport {
         String expectedResult = " Manage my account ";
         String actualResult = userPage.userManageMyAccount.getText();
 
-
         userPage.userSidebarManageMyAccount.click();
         extentTest.info("Order page is visible and clickable");
 

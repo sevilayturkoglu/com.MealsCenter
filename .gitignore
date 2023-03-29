@@ -3,25 +3,11 @@
 */target/*
 *.iml
 *.xml
+
+
 *.png
+
 *.html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 **/target/
 /target/
@@ -37,4 +23,4 @@
 
 
 
-*.png
+

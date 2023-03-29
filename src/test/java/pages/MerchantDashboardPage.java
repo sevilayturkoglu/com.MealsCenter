@@ -22,12 +22,28 @@ public class MerchantDashboardPage {
     public WebElement merchantBarMenu;
 
 
+
+    //US019(Ali) MerchantPage >> Merchant >> Information
+    @FindBy(xpath = "//a[.='Information']")
+    public WebElement merchantMenuLeftInformation;
+
+    //US019(Ali) MerchantPage >> Merchant >> Information >> Merchant Information
+    @FindBy(xpath = "//a[.='Update Information']")
+    public WebElement merchantInformationText;
+
+    //US031(Ali) MerchantPage >> Merchant >> Orders >> All Orders
+    @FindBy(xpath = "//a[@href='/backoffice/orders/history']")
+    public WebElement merchantAllOrders;
+
+    //US031(Ali) MerchantPage >> Merchant >> Orders >> All Orders >> Order history
+    @FindBy(xpath = "//h5[.='Order history']")
+    public WebElement merchantOrderHistoryText;
+
+
     //MerchantPage >> Dashboard altindaki tum Menuleri "menuName" degistirerek hem tiklar hem goruntuler
     public void dashboardMenuListClick(String menuName){
         Driver.getDriver().findElement(By.xpath("//a[.='"+menuName+"']")).click();
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).isDisplayed();
-
-
         }
     }
 
