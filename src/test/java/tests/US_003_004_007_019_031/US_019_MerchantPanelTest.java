@@ -14,7 +14,7 @@ public class US_019_MerchantPanelTest extends TestBaseReport {
     MerchantDashboardPage merchantDashboardPage;
 
     @Test
-    public void MercantInfoTest(){
+    public void TC_019_MercantInfoTest(){
         merchantPage=new MerchantPage();
         merchantDashboardPage=new MerchantDashboardPage();
         extentTest=extentReports.createTest("Merchant Information Test","A restaurant manager could access information about his/her restaurant");

@@ -294,12 +294,12 @@ public class US_032_MerchantAttributesSize extends TestBaseReport {
 
         actions.click(merchantPage.arabicTranslation).sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB).perform();
-        softAssert.assertTrue(merchantPage.saveButton.isDisplayed());
+        softAssert.assertTrue(merchantPage.attSaveButton.isDisplayed());
         ReusableMethods.bekle(2);
-        softAssert.assertTrue(merchantPage.saveButton.isEnabled());
+        softAssert.assertTrue(merchantPage.attSaveButton.isEnabled());
         extentTest.info("Save button is enabled");
         ReusableMethods.bekle(2);
-        merchantPage.saveButton.click();
+        merchantPage.attSaveButton.click();
         extentTest.info("Save button is clicked");
 
         // 14-Verify the new item visible in the “Size_list” page
@@ -459,13 +459,13 @@ public class US_032_MerchantAttributesSize extends TestBaseReport {
 
         //12- Verify the “Save” button is visible and active
 
-        softAssert.assertTrue(merchantPage.saveButton.isDisplayed());
+        softAssert.assertTrue(merchantPage.attSaveButton.isDisplayed());
         ReusableMethods.bekle(2);
-        softAssert.assertTrue(merchantPage.saveButton.isEnabled());
+        softAssert.assertTrue(merchantPage.attSaveButton.isEnabled());
         extentTest.info("Save button is enabled");
         ReusableMethods.bekle(2);
 
-        merchantPage.saveButton.click();
+        merchantPage.attSaveButton.click();
         extentTest.info("Save button is clicked");
         ReusableMethods.bekle(2);
 
@@ -607,12 +607,12 @@ public class US_032_MerchantAttributesSize extends TestBaseReport {
 
         // 12 Verify the “Save” button is visible and active
 
-        softAssert.assertTrue(merchantPage.saveButton.isDisplayed());
-        softAssert.assertTrue(merchantPage.saveButton.isEnabled());
+        softAssert.assertTrue(merchantPage.attSaveButton.isDisplayed());
+        softAssert.assertTrue(merchantPage.attSaveButton.isEnabled());
         extentTest.info("the save button is enabled");
         ReusableMethods.bekle(2);
 
-        merchantPage.saveButton.click();
+        merchantPage.attSaveButton.click();
         ReusableMethods.bekle(2);
 
         // 13-Verify the updated is not successful
