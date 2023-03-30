@@ -30,7 +30,6 @@ public class US_007_ContuctUsTest extends TestBaseReport {
         String actualText=userPageBodyFooter.UserPageContuctUsText.getText();
         Assert.assertEquals(expectedText,actualText);
         extentTest.pass("Expected contuct us text is same with actual contuct us text");
-
         userPageBodyFooter.UserPageContuctUsPhone.isDisplayed();
         extentTest.info("Call us Phone Number is visible");
         userPageBodyFooter.UserPageContuctUsEmail.isDisplayed();

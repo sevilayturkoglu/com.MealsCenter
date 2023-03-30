@@ -51,7 +51,7 @@ public class AdminCouponPage {
     @FindBy(xpath = "//td//h6")
     public List<WebElement> couponIsThereTest;
 
-    public void couponMake(String couponName) {
+  /*  public void couponMake(String couponName) {
         couponAddButton.click();
         voucherName.click();
 
@@ -88,5 +88,5 @@ public class AdminCouponPage {
         Assert.assertTrue(couponList.contains(couponName + " Pending for review"));
 
 
-    }
+    }*/
 }

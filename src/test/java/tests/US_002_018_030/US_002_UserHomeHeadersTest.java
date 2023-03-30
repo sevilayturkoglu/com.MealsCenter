@@ -43,7 +43,7 @@ public class US_002_UserHomeHeadersTest extends TestBaseReport {
     }
 
     @Test(priority = 10)
-    public void BeforeOrderCartBagTest() {
+    public void TC_00202_BeforeOrderCartBagTest() {
         userPage = new UserPage();
         extentTest=extentReports.createTest("Headers basliklari kontrol","Header Cart ve Bag basliklar gorulebilir ve click yapilabilir");
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
@@ -86,7 +86,7 @@ public class US_002_UserHomeHeadersTest extends TestBaseReport {
     }
 
     @Test(priority = 15)
-    public void AfterOrderCartBagTest() {
+    public void TC_00203_AfterOrderCartBagTest() {
 
         userPage = new UserPage();
         extentTest=extentReports.createTest("Headers basliklari kontrol","Header Cart ve Bag order sonrasi degisiklikler,");
