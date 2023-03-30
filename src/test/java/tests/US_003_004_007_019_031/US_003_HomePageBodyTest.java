@@ -24,17 +24,17 @@ public class US_003_HomePageBodyTest extends TestBaseReport {
     }
 
     @Test(dataProvider = "readBlock")
-    public void visibilityOfProfilePageTest(String sayi) {
+    public void TC_00301_VisibilityOfProfilePageTest(String sayi) {
         userPage = new UserPage();
         userPageBody=new UserPageBodyFooter();
         extentTest=extentReports.createTest("Read Blog Test","Read buttons should be active and when clicked executes intented action");
         userPageBody.readBlog(sayi);
         extentTest.pass("Active read buttons executes intented action");
-        Driver.closeDriver();
+
     }
 
     @Test
-    public void cousineSelect(){
+    public void TC_00302_CousineSelect(){
         userPage=new UserPage();
         userPageBody=new UserPageBodyFooter();
         extentTest=extentReports.createTest("Body Cousine Select Test","Cousines should be selected");
@@ -52,7 +52,7 @@ public class US_003_HomePageBodyTest extends TestBaseReport {
         extentTest.pass("cousine selected");
     }
     @Test
-    public void userBodyTest(){
+    public void TC_00303_UserBodyTest(){
         userPage=new UserPage();
         userPageBody=new UserPageBodyFooter();
         extentTest=extentReports.createTest("Body basliklari kontrol","Is body functions visible and active");
