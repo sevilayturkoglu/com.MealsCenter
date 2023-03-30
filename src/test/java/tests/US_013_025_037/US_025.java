@@ -16,7 +16,7 @@ public class US_025 extends TestBaseReport {
 
 
     @Test(priority = 1)
-    public void itemListPageVisibilityTest(){
+    public void TC_02501_ItemListPageVisibilityTest(){
         extentTest = extentReports.createTest("itemListPageVisibilityTest","Item list page must be able visible" );
         merchantPage = new MerchantPage();
         merchantPage.merchantLogin();
@@ -33,7 +33,7 @@ public class US_025 extends TestBaseReport {
         Driver.closeDriver();
     }
     @Test(priority = 10)
-    public void addNewProductTest(){
+    public void TC_02502_addNewProductTest(){
         extentTest = extentReports.createTest("addNewProductTest","Add new product" );
         merchantPage = new MerchantPage();
         merchantPage.merchantLogin();
@@ -88,7 +88,7 @@ public class US_025 extends TestBaseReport {
 
     }
     @Test(priority = 20)
-    public void deleteNewProductTest(){
+    public void TC_02503_deleteNewProductTest(){
         extentTest = extentReports.createTest("itemListPageVisibilityTest","Item list page must be able visible" );
         merchantPage = new MerchantPage();
         merchantPage.merchantLogin();

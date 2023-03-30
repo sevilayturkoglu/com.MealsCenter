@@ -16,14 +16,16 @@ public class US_013 extends TestBaseReport {
     MerchantPage merchantPage = new MerchantPage();
 
 
-    @Test(priority = 1)
-    public void productAddtoCartTest(){
+    @Test
+    public void TC_01301_ProductAddtoCartTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("productAddtoCartTest","A product must be able to be added to \n" +
                 "the cart" );
         userPage = new UserPage();
         merchantPage = new MerchantPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.wait(5);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();
@@ -35,10 +37,11 @@ public class US_013 extends TestBaseReport {
         softAssert.assertEquals(actualProductText,expectedProductText);
         extentTest.pass("Verified  that the product appears on the cart");
         softAssert.assertAll();
-        Driver.closeDriver();
+         //Driver.closeDriver();
     }
-    @Test(priority = 20)
-    public void paymentTest(){
+    @Test
+    public void TC_01302_PaymentTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("paymentTest"," the payment must be able to be made");
         userPage = new UserPage();
         userPage.userLoginBeing();
@@ -57,12 +60,14 @@ public class US_013 extends TestBaseReport {
         String expectedPaymentMethodText = "Default";
         String actualPaymentMethodText = merchantPage.paymentMethodDefault.getText();
         softAssert.assertTrue(actualPaymentMethodText.contains(expectedPaymentMethodText));
+        ReusableMethods.bekle(1);
         extentTest.pass("Verified  that Cash On delivery is default");
         softAssert.assertAll();
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
-    @Test(priority = 10)
-    public void addressTest(){
+    @Test
+    public void TC_01303_addressTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
         userPage = new UserPage();
         merchantPage = new MerchantPage();
@@ -87,18 +92,21 @@ public class US_013 extends TestBaseReport {
         JSUtilities.scrollToElement(Driver.getDriver(), merchantPage.savedAddressBox);
         String expectedNewAddressText = "11 Howard";
         String actualNewAddressText = merchantPage.savedAddressBox.getText();
+        System.out.println(actualNewAddressText);
         softAssert.assertTrue(actualNewAddressText.contains(expectedNewAddressText));
         extentTest.pass("Verified that address is entered");
         softAssert.assertAll();
-        Driver.closeDriver();
+      // Driver.closeDriver();
     }
-    @Test(priority = 30)
-    public void availableToPurchaseTest(){
+    @Test
+    public void TC_01304_AvailableToPurchaseTest(){
+        merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("availableToPurchaseTest"," the product is available for purchase");
         userPage = new UserPage();
         merchantPage = new MerchantPage();
         userPage.userLoginBeing();
         extentTest.info("User signed in");
+        ReusableMethods.wait(5);
         JSUtilities.clickWithJS(Driver.getDriver(),merchantPage.merchantSubwayLink);
         extentTest.info("Subway link is clicked");
         merchantPage.addToCartButton.click();
@@ -111,8 +119,9 @@ public class US_013 extends TestBaseReport {
         extentTest.info("Add cash button is clicked");
         softAssert.assertTrue(merchantPage.placeOrderButton.isDisplayed());
         extentTest.pass("Verified that the product is available for purchase");
+        ReusableMethods.bekle(1);
         softAssert.assertAll();
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }
 

@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.JSUtilities;
 import utilities.ReusableMethods;
 
 import java.util.ArrayList;
@@ -90,8 +89,46 @@ public class AdminPage {
     @FindBy(xpath = "(//*[@class='sorting_1'])[2]")
     public WebElement merchantFromAllMerchant;
 
-
-
+    @FindBy(xpath = "(//*[@data-original-title='Auto Login'])[1]")
+    public WebElement autoLoginButton;
+    @FindBy(xpath = "(//*[@class='btn btn-light tool_tips'])[1]")
+    public WebElement editMerchantButton;
+    @FindBy(id = "AR_merchant_restaurant_name")
+    public WebElement restaurantNameBox;
+    @FindBy(id = "AR_merchant_restaurant_slug")
+    public WebElement restaurantSlugBox;
+    @FindBy(id = "AR_merchant_contact_name")
+    public WebElement contactNameBox;
+    @FindBy(id = "AR_merchant_contact_phone")
+    public WebElement contactPhoneBox;
+    @FindBy(id = "AR_merchant_contact_email")
+    public WebElement contactEmailBox;
+    @FindBy(xpath = "//*[@class='note-editable card-block']")
+    public WebElement aboutBox;
+    @FindBy(xpath = "//*[@class='form-control form-control-text textarea_min']")
+    public WebElement shortAboutBox;
+    @FindBy(xpath = "(//*[@class='selection'])[1]")
+    public WebElement cuisineBox;
+    @FindBy(xpath = "(//*[.='Burgers'])[2]")
+    public WebElement BurgersLink;
+    @FindBy(xpath = "(//*[@class='selection'])[2]")
+    public WebElement servicesBox;
+    @FindBy(xpath = "(//*[.='Pickup'])[2]")
+    public WebElement pickupLink;
+    @FindBy(xpath = "(//*[@class='selection'])[3]")
+    public WebElement tagsBox;
+    @FindBy(xpath = "(//*[@class='selection'])[4]")
+    public WebElement featuredBox;
+    @FindBy(xpath = "(//*[.='Popular'])[1]")
+    public WebElement popularLink;
+    @FindBy(id = "AR_merchant_delivery_distance_covered")
+    public WebElement deliveryDistanceBox;
+    @FindBy(id = "AR_merchant_status")
+    public WebElement statusBox;
+    @FindBy(xpath = "//*[@value='Save']")
+    public WebElement saveButton;
+    @FindBy(xpath = "//*[@class='alert alert-success']")
+    public WebElement succesfullyUptadeText;
 
     //Orders
 
@@ -123,6 +160,57 @@ public class AdminPage {
     public WebElement orderDownloadSign;
     @FindBy(xpath = "(//div[@class='card-body'])[2]")
     public WebElement orderFiltersBody;
+//Earnings
+
+    @FindBy(xpath = "(//div[@class='report-inner'])[1]")
+    public WebElement adminTotalSales;
+
+    @FindBy(xpath = "//*[text()='Earnings']")
+    public WebElement adminEarningsButton;
+
+    @FindBy(xpath = "//*[text()='Merchant Earnings']")
+    public WebElement adminMerchantEarningsButton;
+
+    @FindBy(xpath = "//h5[text()='Merchant Earnings']")
+    public WebElement adminMerchantEarningsText;
+    //Merchant sayfasi gorunuyor mu test etmek icin kullanilabilir.
+    // admin >earnings>merchantearning> body deki text
+
+    @FindBy(xpath = "//th[text()='Merchant']")
+    public WebElement adminMerchantEarningsMerchantText;
+    // admin >earnings>merchantearning> body deki text
+
+
+    @FindBy(xpath = "//th[text()='Balance']")
+    public WebElement adminMerchantEarningBalanceText;
+
+    // @FindBy(xpath = "//td[@class='sorting_1']")
+    // public List<WebElement> adminBalanceList;
+    @FindBy(xpath = "//td//b")
+    public List<WebElement> adminBalanceList;
+
+    @FindBy(xpath = "//tbody/tr/td[2]")
+    public List<WebElement> adminMerchantNameList;
+
+
+
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-eye'])[1]")
+    public WebElement adminMerchantEarningActionIcon;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[1]")
+    public WebElement adminActionIconOrder;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[2]")
+    public WebElement adminActionIconCancel;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[3]")
+    public WebElement adminActionIconRefund;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[4]")
+    public WebElement adminActionIconTotal;
+
+    @FindBy(id="DataTables_Table_0_filter")
+    public WebElement adMinEarningsSearchButton;
 
 
     //This method is used to list  the items in the customer product categories.
@@ -140,34 +228,31 @@ public class AdminPage {
         }
         return idElementsInt;
 
-        }
-
-
-    //Earnings
 
 
 
+
+
+        //Earnings
 
 
     //Promo
 
 
 
-
-    //Buyers
-
+        //Promo
 
 
-
-    //Records
-
+        //Buyers
 
 
+        //Records
 
-    //Media Library
 
-    //Admin Login Method
-    public void adminLoginOl() {
+        //Media Library
+
+        //Admin Login Method
+    } public void adminLoginOl() {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
         adminUserName.sendKeys(ConfigReader.getProperty("adminSevilay"));
         adminPassword.sendKeys("123456");
