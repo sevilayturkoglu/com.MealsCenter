@@ -37,7 +37,7 @@ public class US_013 extends TestBaseReport {
         softAssert.assertEquals(actualProductText,expectedProductText);
         extentTest.pass("Verified  that the product appears on the cart");
         softAssert.assertAll();
-        Driver.closeDriver();
+         //Driver.closeDriver();
     }
     @Test
     public void TC_01302_PaymentTest(){
@@ -60,9 +60,10 @@ public class US_013 extends TestBaseReport {
         String expectedPaymentMethodText = "Default";
         String actualPaymentMethodText = merchantPage.paymentMethodDefault.getText();
         softAssert.assertTrue(actualPaymentMethodText.contains(expectedPaymentMethodText));
+        ReusableMethods.bekle(1);
         extentTest.pass("Verified  that Cash On delivery is default");
         softAssert.assertAll();
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }
     @Test
     public void TC_01303_addressTest(){
@@ -95,7 +96,7 @@ public class US_013 extends TestBaseReport {
         softAssert.assertTrue(actualNewAddressText.contains(expectedNewAddressText));
         extentTest.pass("Verified that address is entered");
         softAssert.assertAll();
-        Driver.closeDriver();
+      // Driver.closeDriver();
     }
     @Test
     public void TC_01304_AvailableToPurchaseTest(){
@@ -118,8 +119,9 @@ public class US_013 extends TestBaseReport {
         extentTest.info("Add cash button is clicked");
         softAssert.assertTrue(merchantPage.placeOrderButton.isDisplayed());
         extentTest.pass("Verified that the product is available for purchase");
+        ReusableMethods.bekle(1);
         softAssert.assertAll();
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }
 
