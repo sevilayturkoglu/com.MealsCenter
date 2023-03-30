@@ -150,6 +150,8 @@ public class US_033_Promo_Coupon extends TestBaseReport {
         //softAssert.assertTrue(merchant_promoPage.searcBoxClose.isEnabled());
         softAssert.assertTrue(merchant_promoPage.searcBoxClose.isDisplayed());
         extentTest.pass("Coupon List seen back");
+
+        System.out.println("Merhaba");
     }
 
 }
