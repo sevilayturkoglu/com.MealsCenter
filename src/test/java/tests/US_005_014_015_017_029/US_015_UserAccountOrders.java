@@ -6,13 +6,13 @@ import pages.UserPage;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
-public class US_015_TC_001_UserAccountOrders extends TestBaseReport {
+public class US_015_UserAccountOrders extends TestBaseReport {
 
     UserPage userPage = new UserPage();
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void userAccountOrderPageTest() {
+    public void TC_01501_UserAccountOrderPageTest() {
         userPage=new UserPage();
         userPage.userLoginSariye();
         extentTest = extentReports.createTest("User  Page Visibility Test", "User page of the user,should be visible.");

@@ -7,13 +7,26 @@ import org.testng.annotations.Test;
 import pages.UserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
+import utilities.TestBaseReport;
 
-public class US_005_TC_002_NegatifLogin {
+public class US_005_UserLogin extends TestBaseReport {
 
+    UserPage userPage = new UserPage();
+
+
+    @Test (groups = "smoke")
+    public void TC_00501_UserLoginPozitifTest() {
+
+        userPage.userLoginSariye();
+        extentTest = extentReports.createTest("User  Page Visibility Test", "User page of the user,should be visible.");
+        extentTest.info("chrome browser and user page is active");
+
+
+
+    }
 
     @Test(groups = "smoke")
-    public void negatifLoginTest1() {
+    public void TC_00502_NegatifLoginTest1() {
         UserPage userPage = new UserPage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         if (userPage.userCookies.isDisplayed()) {
@@ -56,7 +69,7 @@ public class US_005_TC_002_NegatifLogin {
 
 
     @Test
-    public void negatifLoginTest2() {
+    public void TC_00503_NegatifLoginTest2() {
         UserPage userPage = new UserPage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         if (userPage.userCookies.isDisplayed()) {
@@ -98,7 +111,7 @@ public class US_005_TC_002_NegatifLogin {
     }
 
     @Test
-    public void negatifLoginTest3() {
+    public void TC_00504_NegatifLoginTest3() {
         UserPage userPage = new UserPage();
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         if (userPage.userCookies.isDisplayed()) {
@@ -116,7 +129,6 @@ public class US_005_TC_002_NegatifLogin {
             Assert.assertTrue(userPage.userEmailLogin.isEnabled());
 
             Driver.closeDriver();
-
 
 
             //if no cookies
@@ -140,7 +152,6 @@ public class US_005_TC_002_NegatifLogin {
 
 
         }
-
     }
 
-}
+    }
