@@ -27,7 +27,7 @@ public class US_021_DashboardMenu extends TestBaseReport {
     }
 
     @Test(dataProvider = "dashboardListesi")
-    public void dashboardListesiTest(String option){
+    public void TC_02101_dashboardListesiTest(String option){
         merchantPage=new MerchantPage();
         merchantDashboardPage=new MerchantDashboardPage();
         extentTest=extentReports.createTest("Existence and verification of a Dashboard Menu in the Merchant Panel");

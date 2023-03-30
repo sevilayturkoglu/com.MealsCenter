@@ -18,7 +18,7 @@ public class US_009_PrivacyPoliciesTest extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void privacyPoliciesTest(){
+    public void TC_00901_privacyPoliciesTest(){
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
         UserPage userPage= new UserPage();
         userPage=new UserPage();
