@@ -21,6 +21,13 @@ public class MerchantDashboardPage {
     @FindBy (xpath = "(//*[@class='sidebar-nav-sub-menu'])[1]")
     public WebElement merchantBarMenu;
 
+    //US029 Merchant page - order - completed
+    @FindBy(xpath = "")
+    public WebElement orderCompleted;
+
+
+
+
 
 
     //US019(Ali) MerchantPage >> Merchant >> Information
@@ -40,9 +47,11 @@ public class MerchantDashboardPage {
     public WebElement merchantOrderHistoryText;
 
 
-    //MerchantPage >> Dashboard altindaki tum Menuleri "menuName" degistirerek hem tiklar hem goruntuler
+    //MerchantPage >> By changing "menuName" all Menus under Dashboard both click and display
+
     public void dashboardMenuListClick(String menuName){
         Driver.getDriver().findElement(By.xpath("//a[.='"+menuName+"']")).click();
+
         Driver.getDriver().findElement(By.xpath("//a[.='" + menuName + "']")).isDisplayed();
         }
     }
