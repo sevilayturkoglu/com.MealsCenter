@@ -1,5 +1,6 @@
 package pages;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -7,12 +8,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Merchant_PromoPage {
 
@@ -64,6 +67,9 @@ public class Merchant_PromoPage {
     @FindBy(xpath = "//li[@class='position-relative merchant_coupon active']")
     public WebElement allCuponMenuden;
 
+    @FindBy(xpath = "//div[@class='breadcrumbs']")
+    public WebElement updateAllCoupon;
+
     //Merchant>> Promo>>Coupon>>Add New>>Coupon List>>Actions>>Delete
     @FindBy(xpath = "(//i[@class='zmdi zmdi-delete'])[1]")
     public WebElement promoFirstCouponDelete;
@@ -80,6 +86,30 @@ public class Merchant_PromoPage {
     @FindBy(xpath = "(//i[@class='zmdi zmdi-border-color'])[1]")
     public WebElement promoCouponUpdate;
 
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> Update
+    @FindBy(id ="AR_voucher_voucher_name")
+    public WebElement promoCouponNameUpdate;
+
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> Name
+    @FindBy(xpath = "//th[.='Name']")
+    public WebElement isimListesi;
+
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> Used
+    @FindBy(xpath = "//th[@aria-sort='descending']")
+    public WebElement usedListesi;
+
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> SearchBox
+    @FindBy(xpath = "//input[@class='form-control rounded search w-25']")
+    public WebElement searchbox;
+
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> SearchBoxBuyutec
+    @FindBy(xpath = "//i[@class='zmdi zmdi-search']")
+    public WebElement searchBoxBuyutec;
+
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> SearcBoxClose
+    @FindBy(xpath = "//i[@class='zmdi zmdi-close']")
+    public WebElement searcBoxClose;
+
     //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> Update>> Save>>Succesfully
     @FindBy(xpath = "//div[@class='alert alert-success']")
     public WebElement promoCouponSuccesfullyUpdate;
@@ -87,6 +117,10 @@ public class Merchant_PromoPage {
     //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> Update>>AllCoupon
     @FindBy(xpath = "//a[.='All Coupon']")
     public WebElement promoCouponUpdateAllCoupon;
+
+    //Merchant>> Promo>>Coupon>>Add New>>Coupon List>> All CouponUsed
+    @FindBy (xpath ="//th[.='#Used']")
+    public List<WebElement>promoAllUsedCoupunNo;
 
     //Dashboard >> Promo>>Coupon>> Add new (To create a new coupon)
     public void merchantCouponMake(String merchantCouponName) {
@@ -123,13 +157,13 @@ public class Merchant_PromoPage {
         //promoCouponSaveButton.click();
         System.out.println(Driver.getDriver().findElement(By.xpath("//td//h6")).getText());
         List<String> merchantCouponList = new ArrayList<>();
-       for (WebElement element : allCouponList) {
-           merchantCouponList.add(element.getText());
+        for (WebElement element : allCouponList) {
+            merchantCouponList.add(element.getText());
         }
         System.out.println(merchantCouponList);
-       ReusableMethods.bekle(1);
-       SoftAssert softAssert= new SoftAssert();
-       softAssert.assertFalse(merchantCouponList.contains(merchantCouponName));
+        ReusableMethods.bekle(1);
+        SoftAssert softAssert= new SoftAssert();
+        softAssert.assertFalse(merchantCouponList.contains(merchantCouponName));
 
     }
     //Bu methodla bir onceki method ile olusturdugum kuponu siliyorum ve sildigimi assert ediyorum
@@ -143,10 +177,61 @@ public class Merchant_PromoPage {
         ReusableMethods.bekle(1);
         promoDeleteScript.click();
 
+    }
+    // Bu methodla olusturulan kupon uzerinde degisiklik yapilabilir ve kaydedilebilir. Yeni hali ile Kupon Listesinde gorulur.
+    // Changes can be made and saved on the coupon created with this method. It appears in the Coupon List in its new state.
+    public void couponUpdate(){
+        promoCouponUpdate.click();
+        ReusableMethods.bekle(1);
+        promoCouponNameUpdate.clear();
+        ReusableMethods.bekle(1);
+        promoCouponNameUpdate.sendKeys("Afiyetli Kupon !");
+        ReusableMethods.bekle(2);
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.PAGE_DOWN).build().perform();
+        ReusableMethods.bekle(1);
+        promoCouponSaveButton.click();
+        String actualUpdateText = promoCouponSuccesfullyUpdate.getText();
+        String expectedUpdateText = "Succesfully updated";
+        Assert.assertEquals(actualUpdateText,expectedUpdateText);
+        ReusableMethods.bekle(1);
+        //promoCouponUpdateAllCoupon.click();
+        updateAllCoupon.click();
+    }
+
+    // Bu metod ile Isim Listesi Siralanir
+    // Name List Sorted With This Method
+    public void isimList(){
+        List<String>allCoupon1 = new ArrayList<>();
+        for (WebElement each : allCouponList){
+            allCoupon1.add(each.getText());
+        }
+        ReusableMethods.bekle(2);
+        isimListesi.click();
+        ReusableMethods.bekle(1);
+
+        List<String>allCoupon2= new ArrayList<>();
+        for (WebElement each : allCouponList){
+            allCoupon2.add(each.getText());
         }
 
+        Assert.assertTrue(allCoupon1 != allCoupon2);
+    }
 
-
+    // Bu metod ile Used Listesi Siralanir
+    //With this method, the Used List is Sorted
+    public void usedList(){
+        usedListesi.click();
+        usedListesi.click();
+        List<Integer>allUsedNo =new ArrayList<>();
+        for (WebElement each : promoAllUsedCoupunNo){
+            allUsedNo.add(Integer.parseInt(each.getText()));
+        }
+        ReusableMethods.bekle(1);
+        for(int i= 0; i <allUsedNo.size()-1;i++){
+            Assert.assertTrue(allUsedNo.get(i)>=allUsedNo.get(i+1));
+        }
+    }
 
 
 
