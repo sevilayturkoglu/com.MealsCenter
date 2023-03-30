@@ -5,7 +5,7 @@ import org.testng.asserts.SoftAssert;
 import pages.UserPage;
 import utilities.TestBaseReport;
 
-public class US_012 extends TestBaseReport {
+public class US_012_UserPage_CuisinePageTest extends TestBaseReport {
 
     @Test
     public void CuisineTypeCheckTest01() {

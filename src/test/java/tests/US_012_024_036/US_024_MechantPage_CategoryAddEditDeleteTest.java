@@ -11,7 +11,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
-public class US_024 extends TestBaseReport {
+public class US_024_MechantPage_CategoryAddEditDeleteTest extends TestBaseReport {
 
     MerchantPage merchantPage = new MerchantPage();
     SoftAssert softAssert = new SoftAssert();

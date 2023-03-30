@@ -6,10 +6,10 @@ import org.testng.asserts.SoftAssert;
 import pages.AdminPage;
 import utilities.TestBaseReport;
 
-public class US_036 extends TestBaseReport {
+public class US_036_AdminPage_SummaryInfoTest extends TestBaseReport {
 
     @Test
-    public void Test01() {
+    public void AdminPageSummaryInfoTest() {
 
         // giris yap anasayfaya git
         AdminPage adminPage = new AdminPage();
