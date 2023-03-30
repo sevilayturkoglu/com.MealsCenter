@@ -21,6 +21,10 @@ public class MerchantDashboardPage {
     @FindBy (xpath = "(//*[@class='sidebar-nav-sub-menu'])[1]")
     public WebElement merchantBarMenu;
 
+    //US029 Merchant page - order - completed
+    @FindBy(xpath = "")
+    public WebElement orderCompleted;
+
 
 
 
