@@ -11,8 +11,8 @@ import utilities.ReusableMethods;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminLoginPage {
-    public AdminLoginPage() {
+public class AdminPage {
+    public AdminPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     //Admin login locators  https://qa.mealscenter.com/account/login
@@ -160,6 +160,57 @@ public class AdminLoginPage {
     public WebElement orderDownloadSign;
     @FindBy(xpath = "(//div[@class='card-body'])[2]")
     public WebElement orderFiltersBody;
+//Earnings
+
+    @FindBy(xpath = "(//div[@class='report-inner'])[1]")
+    public WebElement adminTotalSales;
+
+    @FindBy(xpath = "//*[text()='Earnings']")
+    public WebElement adminEarningsButton;
+
+    @FindBy(xpath = "//*[text()='Merchant Earnings']")
+    public WebElement adminMerchantEarningsButton;
+
+    @FindBy(xpath = "//h5[text()='Merchant Earnings']")
+    public WebElement adminMerchantEarningsText;
+    //Merchant sayfasi gorunuyor mu test etmek icin kullanilabilir.
+    // admin >earnings>merchantearning> body deki text
+
+    @FindBy(xpath = "//th[text()='Merchant']")
+    public WebElement adminMerchantEarningsMerchantText;
+    // admin >earnings>merchantearning> body deki text
+
+
+    @FindBy(xpath = "//th[text()='Balance']")
+    public WebElement adminMerchantEarningBalanceText;
+
+    // @FindBy(xpath = "//td[@class='sorting_1']")
+    // public List<WebElement> adminBalanceList;
+    @FindBy(xpath = "//td//b")
+    public List<WebElement> adminBalanceList;
+
+    @FindBy(xpath = "//tbody/tr/td[2]")
+    public List<WebElement> adminMerchantNameList;
+
+
+
+    @FindBy(xpath = "(//i[@class='zmdi zmdi-eye'])[1]")
+    public WebElement adminMerchantEarningActionIcon;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[1]")
+    public WebElement adminActionIconOrder;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[2]")
+    public WebElement adminActionIconCancel;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[3]")
+    public WebElement adminActionIconRefund;
+
+    @FindBy(xpath = "(//div[@class='card rounded text-center'])[4]")
+    public WebElement adminActionIconTotal;
+
+    @FindBy(id="DataTables_Table_0_filter")
+    public WebElement adMinEarningsSearchButton;
 
 
     //This method is used to list  the items in the customer product categories.
