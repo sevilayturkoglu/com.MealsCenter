@@ -2,109 +2,98 @@ package tests.US_028_040;
 
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.AdminCouponPage;
-import pages.AdminCoupon_List_Delete_UpdatePage;
-import pages.AdminLoginPage;
-import pages.AdminSearchPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
 
 public class US_040 extends TestBaseReport {
-    AdminLoginPage adminPage=new AdminLoginPage();
-    AdminCouponPage adminCouponPage=new AdminCouponPage();
-
-    @Test
-    public void test4001() {
-        adminPage.adminLoginOl();
-        adminCouponPage = new AdminCouponPage();
-        adminCouponPage.promoButton.click();
-        adminCouponPage.couponButton.click();
-        adminCouponPage.couponMake("NewCoupons20");
-    }
+    /*
+    Admin olarak Kupon oluşturabilmeli,
+     listeleyebilmeli, update edebilmeli ve silebilmeliyim.
+      Kupon listesini isme ve kullanılma sayısına göre listeleyebilmeliyim.
+       Kuponlar arasında arama da yapabilmeliyim
+     */
     SoftAssert softAssert = new SoftAssert();
-    AdminLoginPage adminLoginPage = new AdminLoginPage();
-    AdminCoupon_List_Delete_UpdatePage adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
+    AdminPage adminPage = new AdminPage();
+    AdminCoupon adminCoupon = new AdminCoupon();
 
     @Test(priority = 5)
-    public void test4001_kuponOlusturma() {
-        adminLoginPage = new AdminLoginPage();
-        adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
-        adminLoginPage.adminLoginOl();
-        adminCoupon_List_Delete_UpdatePage.promoButton.click();
-        adminCoupon_List_Delete_UpdatePage.couponButton.click();
+    public void TC04001_kuponOlusturma() {
+        adminPage = new AdminPage();
+        adminCoupon = new AdminCoupon();
+        adminPage.adminLoginOl();
+        adminCoupon.promoButton.click();
+        adminCoupon.couponButton.click();
         //kupon olusturdum
-        adminCoupon_List_Delete_UpdatePage.couponMake("ikinciCoupons");
+        adminCoupon.couponMake("ikinciCoupons");
         //testim sonradan saglikli calissin diye kuponu sildim,cunki tekrar ayni isimli kupon olusturmama izin vermiyor
-        adminCoupon_List_Delete_UpdatePage.couponDelete();
+        adminCoupon.couponDelete();
         softAssert.assertAll();
         Driver.closeDriver();
     }
     @Test(priority = 10)
-    public void test4003kuponSilme() {
-        adminLoginPage = new AdminLoginPage();
-        adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
-        adminLoginPage.adminLoginOl();
-        adminCoupon_List_Delete_UpdatePage.promoButton.click();
-        adminCoupon_List_Delete_UpdatePage.couponButton.click();
+    public void TC04002_kuponSilme() {
+        adminPage = new AdminPage();
+        adminCoupon = new AdminCoupon();
+        adminPage.adminLoginOl();
+        adminCoupon.promoButton.click();
+        adminCoupon.couponButton.click();
         //silebildigimi gostermek icin kupon olusturdum
-        adminCoupon_List_Delete_UpdatePage.couponMake("SilmeCouponu");
-        String enteryCountBeforeDelete = adminCoupon_List_Delete_UpdatePage.enteryCount.getText();
+        adminCoupon.couponMake("SilmeCouponu");
+        String enteryCountBeforeDelete = adminCoupon.enteryCount.getText();
         ReusableMethods.bekle(1);
         //kuponu sildim
-        adminCoupon_List_Delete_UpdatePage.couponDelete();
-        String enteryCountAfterDelete = adminCoupon_List_Delete_UpdatePage.enteryCount.getText();
+        adminCoupon.couponDelete();
+        String enteryCountAfterDelete = adminCoupon.enteryCount.getText();
         //kuponu sildigimi dogruladim
         softAssert.assertNotEquals(enteryCountAfterDelete, enteryCountBeforeDelete);
         softAssert.assertAll();
         Driver.closeDriver();
     }
     @Test(priority = 15)
-    public void test4002upDate() {
-        adminLoginPage = new AdminLoginPage();
-        adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
-        adminLoginPage.adminLoginOl();
-        adminCoupon_List_Delete_UpdatePage.promoButton.click();
-        adminCoupon_List_Delete_UpdatePage.couponButton.click();
+    public void TC04003_upDate() {
+        adminPage = new AdminPage();
+        adminCoupon = new AdminCoupon();
+        adminPage.adminLoginOl();
+        adminCoupon.promoButton.click();
+        adminCoupon.couponButton.click();
         //update edebilmek icin kupon yaptim
-        adminCoupon_List_Delete_UpdatePage.couponMake("UpdateEdilecekCoupons");
+        adminCoupon.couponMake("UpdateEdilecekCoupons");
         // yaptigimiz kuponun adini update ettim,update ettigimi dogruladim
-        adminCoupon_List_Delete_UpdatePage.updateCoupon();
+        adminCoupon.updateCoupon();
         //testim sonradan saglikli calissin diye kuponu sildim
-        adminCoupon_List_Delete_UpdatePage. couponDelete();
+        adminCoupon. couponDelete();
         Driver.closeDriver();
     }
     @Test(priority = 20)
-    public void test4004isimSirasinaGoreCouponList() {
-        adminLoginPage = new AdminLoginPage();
-        adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
-        adminLoginPage.adminLoginOl();
-        adminCoupon_List_Delete_UpdatePage.promoButton.click();
-        adminCoupon_List_Delete_UpdatePage.couponButton.click();
-        adminCoupon_List_Delete_UpdatePage.sortName();
+    public void TC04004_isimSirasinaGoreCouponList() {
+        adminPage = new AdminPage();
+        adminCoupon = new AdminCoupon();
+        adminPage.adminLoginOl();
+        adminCoupon.promoButton.click();
+        adminCoupon.couponButton.click();
+        adminCoupon.sortName();
         Driver.closeDriver();
     }
     @Test(priority = 25)
-    public void test4004CouponkullanılmaSayısınaGoreList() {
-        adminLoginPage = new AdminLoginPage();
-        adminCoupon_List_Delete_UpdatePage = new AdminCoupon_List_Delete_UpdatePage();
-        adminLoginPage.adminLoginOl();
-        adminCoupon_List_Delete_UpdatePage.promoButton.click();
-        adminCoupon_List_Delete_UpdatePage.couponButton.click();
-        adminCoupon_List_Delete_UpdatePage.usedCoupon();
+    public void TC04004_CouponkullanılmaSayısınaGoreList() {
+        adminPage = new AdminPage();
+        adminCoupon = new AdminCoupon();
+        adminPage.adminLoginOl();
+        adminCoupon.promoButton.click();
+        adminCoupon.couponButton.click();
+        adminCoupon.usedCoupon();
     }
-    AdminSearchPage adminSearchPage = new AdminSearchPage();
-    @Test()
-    public void test4005searchBox() {
-        adminLoginPage = new AdminLoginPage();
-        adminSearchPage = new AdminSearchPage();
-        adminLoginPage.adminLoginOl();
-        adminSearchPage.promoButton.click();
-        adminSearchPage.couponButton.click();
-        adminSearchPage.searchbox.click();
-        softAssert.assertTrue(adminSearchPage.searchbox.isDisplayed());
-        softAssert.assertFalse(adminSearchPage.searchbox.isEnabled());
+    @Test(priority=30)
+    public void TC04004_searchBox() {
+        adminPage = new AdminPage();
+        adminCoupon = new AdminCoupon();
+        adminPage.adminLoginOl();
+        adminCoupon.promoButton.click();
+        adminCoupon.couponButton.click();
+        adminCoupon.searchbox.click();
+        softAssert.assertTrue(adminCoupon.searchbox.isDisplayed());
+        softAssert.assertFalse(adminCoupon.searchbox.isEnabled());
         Driver.closeDriver();
     }
-
 }
