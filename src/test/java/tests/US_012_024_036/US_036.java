@@ -23,6 +23,8 @@ public class US_036 extends TestBaseReport {
         * On the page; Verify that Order received is visible.			//h5[@class="m-0 text-secondary"]
         * On the page; Verify that the Last Orders item is visible.		//h5[@class="m-0"]
         * On the page; Verify that the Sales overview item is visible.		//h5[@class="m-0 mb-3"]
+
+        TC_00203_AfterOrderCartBagTest()
      */
 
     @Test

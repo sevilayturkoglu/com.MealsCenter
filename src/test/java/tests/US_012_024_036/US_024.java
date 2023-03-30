@@ -36,6 +36,8 @@ public class US_024 extends TestBaseReport {
         * "Description" kutusuna "aciklama" yaz ve "Save" butonuna bas sonrasinda "Category" ogesine tikla ve listedeki ilk elemanin "aciklama" icerdigini dogrula.
         * "yeni menu" ogesinin yaninda bulunan "Delete" butonuna tikla ve "Delete Confirmation" ogesinin gorunur oldugunu dogrula.
         * "Delete" butonuna tikla ve listedeki ilk elemanin "yeni menu" icermedigini dogrula.
+
+        TC_00203_AfterOrderCartBagTest()
      */
 
     MerchantPage merchantPage = new MerchantPage();
