@@ -12,7 +12,7 @@ public class US_031_AllOrdersTest extends TestBaseReport {
     MerchantPage merchantPage;
     MerchantDashboardPage merchantDashboardPage;
     @Test
-    public void allOrdersTest(){
+    public void TC_031_AllOrdersTest(){
         merchantPage=new MerchantPage();
         merchantDashboardPage=new MerchantDashboardPage();
         extentTest=extentReports.createTest("All Orders Test","All orders shoul be listed in 'All Orders Page'");
@@ -21,14 +21,13 @@ public class US_031_AllOrdersTest extends TestBaseReport {
         merchantDashboardPage.dashboardMenuListClick("Orders");
         extentTest.info("Orders menu is displayed and clicked");
         merchantDashboardPage.merchantAllOrders.isDisplayed();
-        extentTest.pass("All Orders menu is visible");
+        extentTest.info("All Orders menu is visible");
         merchantDashboardPage.merchantAllOrders.click();
         extentTest.info("All Orders menu is clicked");
         String expectedText="Order history";
         String actualText=merchantDashboardPage.merchantOrderHistoryText.getText();
         Assert.assertEquals(actualText,expectedText);
         extentTest.pass("All Orders Test PASSED");
-        Driver.closeDriver();
 
-    }
+        }
 }
