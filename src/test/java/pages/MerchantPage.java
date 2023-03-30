@@ -4,9 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MerchantPage {
     public MerchantPage() {
@@ -55,7 +59,7 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[@class='m-0 text-grey'])[5]")
     public WebElement newSelectedAddress;
 
-    @FindBy(xpath = "//*[@class='bold mr-1']")
+    @FindBy(xpath = "(//*[@class='d-block chevron-section promo-section d-flex align-items-center rounded mb-2'])[3]")
     public WebElement savedAddressBox;
 
     @FindBy(xpath = "//*[.='Place Order']")
@@ -130,7 +134,114 @@ public class MerchantPage {
     @FindBy(xpath = "(//*[@class='ref_delete normal btn btn-light tool_tips'])[1]")
     public WebElement deleteItemButton;
 
-    //merchant Order
+    // ========= Nesibe =============
+
+    @FindBy(xpath = "//a[@class='dim underline']")
+    public WebElement forgotPassword;
+
+    @FindBy(id = "AR_merchant_login_email_address")
+    public WebElement merchantEmailAddress;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement requestEmailbutton;
+
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement requestedMail;
+
+    @FindBy(xpath = "//*[text()='Email address not found']")
+    public WebElement mailErrorMessage1;
+
+    @FindBy(xpath = "//*[text()='Email Address is not a valid email address.']")
+    public WebElement mailErrormessage2;
+
+    @FindBy(xpath = "//*[text()='Attributes']")
+    public WebElement attributes;
+
+    @FindBy(xpath = "//*[text()='Size']")
+    public WebElement size;
+
+    @FindBy(xpath = "//*[text()='Ingredients']")
+    public WebElement ingredients;
+
+    @FindBy(xpath = "//*[text()='Cooking Reference ']")
+    public WebElement cookingref;
+
+    @FindBy(xpath = "//a[@type='button']")
+    public WebElement plusSymbol;
+
+
+    @FindBy(xpath = "//div[@class='p-2']")
+    public WebElement itemTranslation;
+
+    @FindBy(xpath = "(//input[@class='form-control form-control-text'])[2]")
+    public WebElement japaneseTranslation;
+
+    @FindBy(xpath = "(//input[@class='form-control form-control-text'])[3]")
+    public WebElement arabicTranslation;
+
+    @FindBy(xpath = "//input[@value='Save']")
+    public WebElement attSaveButton;
+
+    @FindBy(xpath = "//select[@class='form-control custom-select form-control-select']")
+    public WebElement statusElementleri;
+
+    @FindBy(xpath = "//option[@value='draft']")
+    public WebElement draft;
+
+    @FindBy(xpath = "//option[@value='pending']")
+    public WebElement pending;
+
+    @FindBy(xpath = "//option[@value='publish']")
+    public WebElement publish;
+
+    @FindBy(xpath = "(//a[@class='btn btn-light tool_tips'])[1]")
+    public WebElement updateButonu1;
+
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement updated;
+
+    @FindBy(xpath = "//div[@class='errorMessage']")
+    public WebElement notUpdated;
+
+    @FindBy(xpath = "(//a[@class='btn btn-light datatables_delete tool_tips'])[1]")
+    public WebElement deleteButton1;
+
+    @FindBy(xpath = "//h5[text()='Delete Confirmation']")
+    public WebElement deleteConfirmationMessage;
+
+    @FindBy(xpath = "//a[@class='btn btn-green item_delete']")
+    public WebElement deleteConfirmButton;
+
+    @FindBy(xpath = "(//tr/th)[1]")
+    public WebElement sortingNumber;
+
+    @FindBy(xpath = "(//tr/th)[2]")
+    public WebElement sortingName;
+
+    @FindBy(xpath = "(//tr/th)[3]")
+    public WebElement sortingAction;
+
+    @FindBy(xpath = "//tbody/tr/td[1]")
+    public List<WebElement> sortingNumberList;
+
+    @FindBy(xpath = "//tbody/tr/td[2]")
+    public List<WebElement> sortingNameList;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement searchBox;
+
+    @FindBy(xpath = "(//button[@type='submit'])[3]")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "//*[@id='AR_ingredients_ingredients_name']")
+    public WebElement ingredientsNameElementi;
+
+    @FindBy(xpath = "//*[@id='AR_cookingref_cooking_name']")
+    public WebElement cookingrefNameElementi;
+
+    @FindBy(xpath = "//*[@id='AR_size_size_name']")
+    public WebElement sizeNameElementi;
+
 
 
 
@@ -159,5 +270,62 @@ public class MerchantPage {
         merchantPage.merchantUserPassword.sendKeys(ConfigReader.getProperty("subwayPassword"));
         merchantPage.merchantSignIn.click();
 
+    }
+
+    public void sortForNumber() {
+        sortingNumber.click();
+        ReusableMethods.bekle(2);
+        List<Integer> numaralar = new ArrayList<>();
+        for (WebElement each : sortingNumberList) {
+            numaralar.add(Integer.parseInt(each.getText()));
+        }
+        ReusableMethods.bekle(1);
+
+        for (int i = 0; i < numaralar.size() - 1; i++) {
+            if (numaralar.get(i) <= numaralar.get(i + 1)) {
+                Assert.assertTrue(true);
+            } else {
+                Assert.assertTrue(false);
+            }
+        }
+    }
+
+    public void sortForName() {
+        sortingName.click();
+        ReusableMethods.bekle(2);
+        List<String> names = new ArrayList<>();
+        for (WebElement each : sortingNameList) {
+            names.add(each.getText().substring(0, 1).toLowerCase());
+        }
+        ReusableMethods.bekle(1);
+
+        for (int i = 0; i < names.size() - 1; i++) {
+            if (names.get(i).charAt(0) <= names.get(i + 1).charAt(0)) {
+                Assert.assertTrue(true);
+            } else {
+                Assert.assertTrue(false);
+            }
+
+        }
+
+        System.out.println(names);
+    }
+
+    public void sortFoActions() {
+        sortingAction.click();
+        ReusableMethods.bekle(2);
+        List<Integer> numaralar = new ArrayList<>();
+        for (WebElement each : sortingNumberList) {
+            numaralar.add(Integer.parseInt(each.getText()));
+        }
+        ReusableMethods.bekle(1);
+
+        for (int i = 0; i < numaralar.size() - 1; i++) {
+            if (numaralar.get(i) <= numaralar.get(i + 1)) {
+                Assert.assertTrue(true);
+            } else {
+                Assert.assertTrue(false);
+            }
+        }
     }
 }

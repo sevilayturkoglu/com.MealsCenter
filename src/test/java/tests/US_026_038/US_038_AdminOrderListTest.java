@@ -1,6 +1,5 @@
 package tests.US_026_038;
 
-import net.bytebuddy.build.Plugin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -21,8 +20,12 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
+
     public void TC_03801_AllOrdersLinkTest() {
         adminPage = new AdminPage();
+
+
+
         extentTest = extentReports.createTest("testTC_03801", "Orders option should be clicked, All orders text should be visible.");
         adminPage.adminLoginOl();
         extentTest.info("Browser is opened ,admin page is opened");
@@ -46,8 +49,12 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
+
     public void TC_03802_CancelTotalrefundTest() {
         adminPage = new AdminPage();
+
+
+
         extentTest = extentReports.createTest("testTC_03802", "Cancel, Total refund, Total Orders should be visible");
         extentTest.info("Browser is opened ,admin page is opened");
         adminPage.adminLoginOl();
@@ -100,89 +107,96 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
+
     public void TC_03804_AllProductsSortedTest() {
-        adminPage = new AdminPage();
-        extentTest = extentReports.createTest("testTC_03804", "All products should be sorted bi ID Element");
-        adminPage.adminLoginOl();
-        extentTest.info("Browser is opened ,admin page is opened");
-        ReusableMethods.bekle(4);
-        extentTest.info("It is waited 4 seconds.");
-        adminPage.ordersLink.click();
-        extentTest.info("Orders Link is clicked.");
-        adminPage.allOrderLink.click();
-        extentTest.info("All order Link is clicked.");
-        ReusableMethods.waitForVisibility(adminPage.orderOrderId, 3);
-        extentTest.info("It should be waited until Order ID link is visible.");
-        adminPage.orderOrderId.click();
-        extentTest.info("Order ID Link is clicked.");
-        adminPage.orderIdElementsMethod();
-        List<Integer> sortedIdElements = adminPage.orderIdElementsMethod();
-        Collections.sort(sortedIdElements);
-        softAssert.assertEquals(sortedIdElements, adminPage.orderIdElementsMethod());
-        extentTest.pass("All products were sorted");
+                adminPage = new AdminPage();
 
 
 
-    }
-
-    @Test
-    public void TC_03805_AProductSignTest() {
-
-        adminPage = new AdminPage();
-        softAssert = new SoftAssert();
-        extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
-        adminPage.adminLoginOl();
-        extentTest.info("Browser is opened ,admin page is opened");
-        extentTest.info("It is waited for 4 seconds.");
-        ReusableMethods.bekle(4);
-        adminPage.ordersLink.click();
-        extentTest.info("Orders Link is clicked.");
-        adminPage.allOrderLink.click();
-        extentTest.info("All Order Link is clicked.");
-        ReusableMethods.waitForVisibility(adminPage.orderViewSign, 3);
-        extentTest.info("It should be waited until View Sign is visible.");
-        extentTest.info("View Sign links are clicked.");
-        extentTest.info("Summary texts are visible.");
-
-        for (int i = 1; i <= 10; i++) {
-            ReusableMethods.bekle(3);
-            WebElement viewSign = Driver.getDriver().findElement(By.xpath("(//a[@class='ref_view_order normal btn btn-light tool_tips'])[" + i + "]"));
-            JSUtilities.scrollToElement(Driver.getDriver(), viewSign);
-            ReusableMethods.bekle(3);
-            viewSign.click();
-            ReusableMethods.bekle(3);
-            WebElement summaryText = Driver.getDriver().findElement(By.xpath("//h5[text()='Summary']"));
-            softAssert.assertTrue(summaryText.isDisplayed());
-            ReusableMethods.bekle(3);
-            Driver.getDriver().navigate().back();
-        }
-        extentTest.pass("Any orders were seen as a document.");
-
-    }
-
-    @Test
-    public void TC_03806_DownloadSignTest() {
-        adminPage = new AdminPage();
-        softAssert = new SoftAssert();
-        extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
-        ReusableMethods.bekle(10);
-        adminPage.adminLoginOl();
-        extentTest.info("Browser is opened ,admin page is opened");
-        extentTest.info("It is waited for 4 seconds.");
-        ReusableMethods.bekle(4);
-        adminPage.ordersLink.click();
-        extentTest.info("Orders Link is clicked.");
-        adminPage.allOrderLink.click();
-        extentTest.info("All Order Link is clicked.");
-        ReusableMethods.waitForClickablility(adminPage.orderDownloadSign, 4);
-        extentTest.info("It should be waited until Download Sign is visible.");
-        extentTest.info("Download Sign links are clicked.");
-        extentTest.info("Download documents are visible on the computer.");
-        adminPage.orderDownloadSign.click();
-        String dynamicPathOfFile = "C:\\Users\\ebasm\\Downloads\\document(2).pdf";
-        softAssert.assertTrue(Files.exists(Paths.get(dynamicPathOfFile)));
-        extentTest.pass("Download documents were seen on the computer.");
+                    extentTest = extentReports.createTest("testTC_03804", "All products should be sorted bi ID Element");
+                    adminPage.adminLoginOl();
+                    extentTest.info("Browser is opened ,admin page is opened");
+                    ReusableMethods.bekle(4);
+                    extentTest.info("It is waited 4 seconds.");
+                    adminPage.ordersLink.click();
+                    extentTest.info("Orders Link is clicked.");
+                    adminPage.allOrderLink.click();
+                    extentTest.info("All order Link is clicked.");
+                    ReusableMethods.waitForVisibility(adminPage.orderOrderId, 3);
+                    extentTest.info("It should be waited until Order ID link is visible.");
+                    adminPage.orderOrderId.click();
+                    extentTest.info("Order ID Link is clicked.");
+                    adminPage.orderIdElementsMethod();
+                    List<Integer> sortedIdElements = adminPage.orderIdElementsMethod();
+                    Collections.sort(sortedIdElements);
+                    softAssert.assertEquals(sortedIdElements, adminPage.orderIdElementsMethod());
+                    extentTest.pass("All products were sorted");
 
 
-    }
-}
+                }
+
+                @Test
+                public void TC_03805_AProductSignTest () {
+
+                    adminPage = new AdminPage();
+                    softAssert = new SoftAssert();
+                    extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
+                    adminPage.adminLoginOl();
+                    extentTest.info("Browser is opened ,admin page is opened");
+                    extentTest.info("It is waited for 4 seconds.");
+                    ReusableMethods.bekle(4);
+                    adminPage.ordersLink.click();
+                    extentTest.info("Orders Link is clicked.");
+                    adminPage.allOrderLink.click();
+                    extentTest.info("All Order Link is clicked.");
+                    ReusableMethods.waitForVisibility(adminPage.orderViewSign, 3);
+                    extentTest.info("It should be waited until View Sign is visible.");
+                    extentTest.info("View Sign links are clicked.");
+                    extentTest.info("Summary texts are visible.");
+
+                    for (int i = 1; i <= 10; i++) {
+                        ReusableMethods.bekle(3);
+                        WebElement viewSign = Driver.getDriver().findElement(By.xpath("(//a[@class='ref_view_order normal btn btn-light tool_tips'])[" + i + "]"));
+                        JSUtilities.scrollToElement(Driver.getDriver(), viewSign);
+                        ReusableMethods.bekle(3);
+                        viewSign.click();
+                        ReusableMethods.bekle(3);
+                        WebElement summaryText = Driver.getDriver().findElement(By.xpath("//h5[text()='Summary']"));
+                        softAssert.assertTrue(summaryText.isDisplayed());
+                        ReusableMethods.bekle(3);
+                        Driver.getDriver().navigate().back();
+                    }
+                    extentTest.pass("Any orders were seen as a document.");
+
+                }
+
+                @Test
+
+                public void TC_03806_DownloadSignTest () {
+                    adminPage = new AdminPage();
+
+
+
+                        softAssert = new SoftAssert();
+                        extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
+                        ReusableMethods.bekle(10);
+                        adminPage.adminLoginOl();
+                        extentTest.info("Browser is opened ,admin page is opened");
+                        extentTest.info("It is waited for 4 seconds.");
+                        ReusableMethods.bekle(4);
+                        adminPage.ordersLink.click();
+                        extentTest.info("Orders Link is clicked.");
+                        adminPage.allOrderLink.click();
+                        extentTest.info("All Order Link is clicked.");
+                        ReusableMethods.waitForClickablility(adminPage.orderDownloadSign, 4);
+                        extentTest.info("It should be waited until Download Sign is visible.");
+                        extentTest.info("Download Sign links are clicked.");
+                        extentTest.info("Download documents are visible on the computer.");
+                        adminPage.orderDownloadSign.click();
+                        String dynamicPathOfFile = "C:\\Users\\ebasm\\Downloads\\document(2).pdf";
+                        softAssert.assertTrue(Files.exists(Paths.get(dynamicPathOfFile)));
+                        extentTest.pass("Download documents were seen on the computer.");
+
+
+                    }
+                }
