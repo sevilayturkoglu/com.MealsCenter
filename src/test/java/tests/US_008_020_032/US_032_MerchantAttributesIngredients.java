@@ -292,9 +292,9 @@ public class US_032_MerchantAttributesIngredients extends TestBaseReport {
 
         actions.click(merchantPage.arabicTranslation).sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB).perform();
-        softAssert.assertTrue(merchantPage.saveButton.isDisplayed());
+        softAssert.assertTrue(merchantPage.attSaveButton.isDisplayed());
         ReusableMethods.bekle(2);
-        softAssert.assertTrue(merchantPage.saveButton.isEnabled());
+        softAssert.assertTrue(merchantPage.attSaveButton.isEnabled());
         extentTest.info("Save button is enabled");
         ReusableMethods.bekle(2);
         merchantPage.attSaveButton.click();
@@ -457,9 +457,9 @@ public class US_032_MerchantAttributesIngredients extends TestBaseReport {
 
         // 12- Verify the “Save” button is visible and active
 
-        softAssert.assertTrue(merchantPage.saveButton.isDisplayed());
+        softAssert.assertTrue(merchantPage.attSaveButton.isDisplayed());
         ReusableMethods.bekle(2);
-        softAssert.assertTrue(merchantPage.saveButton.isEnabled());
+        softAssert.assertTrue(merchantPage.attSaveButton.isEnabled());
         extentTest.info("Save button is enabled");
         ReusableMethods.bekle(2);
 
@@ -604,8 +604,8 @@ public class US_032_MerchantAttributesIngredients extends TestBaseReport {
 
         // 12- Verify the “Save” button is visible and active
 
-        softAssert.assertTrue(merchantPage.saveButton.isDisplayed());
-        softAssert.assertTrue(merchantPage.saveButton.isEnabled());
+        softAssert.assertTrue(merchantPage.attSaveButton.isDisplayed());
+        softAssert.assertTrue(merchantPage.attSaveButton.isEnabled());
         extentTest.info("the save button is enabled");
         ReusableMethods.bekle(2);
 
