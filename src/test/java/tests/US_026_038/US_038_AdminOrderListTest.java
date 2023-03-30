@@ -21,7 +21,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void testTC_03801() {
+    public void TC_03801_AllOrdersLinkTest() {
         adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03801", "Orders option should be clicked, All orders text should be visible.");
         adminPage.adminLoginOl();
@@ -46,7 +46,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
-    public void testTC_03802() {
+    public void TC_03802_CancelTotalrefundTest() {
         adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03802", "Cancel, Total refund, Total Orders should be visible");
         extentTest.info("Browser is opened ,admin page is opened");
@@ -63,7 +63,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         extentTest.pass("Orders text is visible .");
         softAssert.assertTrue(adminPage.ordersText.isDisplayed());
         extentTest.info("Cancel text should be visible");
-        extentTest.pass("Cansel text is visible .");
+        extentTest.pass("Cancel text is visible .");
         softAssert.assertTrue(adminPage.cancelText.isDisplayed());
         extentTest.info("Total Refund text should be visible");
         extentTest.pass("Total Refund text is visible .");
@@ -75,7 +75,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
-    public void test_TC_03803() {
+    public void TC_03803_BySpecificDateRangeTest() {
 
         adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03803", "By a specific Date Range select option is should be visible");
@@ -92,7 +92,6 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
         extentTest.info("It should be waited until Filters button  is visible.");
         adminPage.orderFiltersButton.click();
         extentTest.info("Filters Button is clicked.");
-        //Verify that "By a specific Date Range" select option is visible.
         String expectedOption = "By a specific Date Range";
         String allOptionsFilters = adminPage.orderFiltersBody.getText();
         softAssert.assertTrue(allOptionsFilters.contains(expectedOption));
@@ -101,7 +100,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
-    public void testTC_03804() {
+    public void TC_03804_AllProductsSortedTest() {
         adminPage = new AdminPage();
         extentTest = extentReports.createTest("testTC_03804", "All products should be sorted bi ID Element");
         adminPage.adminLoginOl();
@@ -127,7 +126,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
-    public void testTC_03805() {
+    public void TC_03805_AProductSignTest() {
 
         adminPage = new AdminPage();
         softAssert = new SoftAssert();
@@ -162,7 +161,7 @@ public class US_038_AdminOrderListTest extends TestBaseReport {
     }
 
     @Test
-    public void testTC_03806() {
+    public void TC_03806_DownloadSignTest() {
         adminPage = new AdminPage();
         softAssert = new SoftAssert();
         extentTest = extentReports.createTest("testTC_03805", "A order should be able to view as a document.");
