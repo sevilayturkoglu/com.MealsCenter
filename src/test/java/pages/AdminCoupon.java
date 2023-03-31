@@ -1,5 +1,4 @@
 package pages;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,8 +12,8 @@ import utilities.ReusableMethods;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminCoupon_List_Delete_UpdatePage {
-    public AdminCoupon_List_Delete_UpdatePage(){
+public class AdminCoupon {
+    public AdminCoupon(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
     @FindBy(xpath = "//a[.='Promo']")
@@ -76,6 +75,9 @@ public class AdminCoupon_List_Delete_UpdatePage {
     @FindBy(xpath = " //tbody/tr/td[3]")
     public List<WebElement> allUsedCouponNumber;
 
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement searchbox;
+
 
     public void couponMake(String couponName) {
 //Bu method ile kupon ekliyorum ,kuponun orada sayfada goruldugunu dogruluyorum
@@ -107,8 +109,11 @@ public class AdminCoupon_List_Delete_UpdatePage {
         for (WebElement element : allCoupons) {
             couponList.add(element.getText());
         }
+        System.out.println(couponList);
         Assert.assertTrue(couponList.contains(couponName + " Pending for review"));
         ReusableMethods.bekle(1);
+        //Coupon list testi
+        Assert.assertFalse(couponList.isEmpty());
 
 
     }
@@ -171,6 +176,13 @@ public class AdminCoupon_List_Delete_UpdatePage {
         for (int i = 0; i <allNumber.size()-1 ; i++) {
             Assert.assertTrue( allNumber.get(i)>=allNumber.get(i+1));
         }
+
+    }
+
+    public void couponSearch(String couponName) {
+        searchbox.click();
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(voucherName).sendKeys(Keys.ENTER).perform();
 
     }
 }

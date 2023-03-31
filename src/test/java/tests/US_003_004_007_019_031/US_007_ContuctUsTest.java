@@ -34,7 +34,7 @@ public class US_007_ContuctUsTest extends TestBaseReport {
         extentTest.info("Call us Phone Number is visible");
         userPageBodyFooter.UserPageContuctUsEmail.isDisplayed();
         extentTest.info("email us mail address is visible");
-        Driver.closeDriver();
+
 
     }
     @Test(priority = 20)
@@ -50,7 +50,7 @@ public class US_007_ContuctUsTest extends TestBaseReport {
         Assert.assertEquals(expected,actual);
         extentTest.pass("Contuct us Message Test is PASSED");
 
-        Driver.closeDriver();
+
     }
 
 

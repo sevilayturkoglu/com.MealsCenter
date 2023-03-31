@@ -86,7 +86,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         ReusableMethods.bekle(2);
         Driver.getDriver().navigate().refresh();
         extentTest.info("Durum degisikligini gormek icin sayfa yenilendi");
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(1));
         softAssert.assertTrue(wait.until(ExpectedConditions.invisibilityOf(userPage.favouriteBurgerKing)));
         extentTest.info("Favorimden kaldirilan restaurantin gorunup gorunmedigini verify edildi");
         ReusableMethods.bekle(2);
