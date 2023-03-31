@@ -73,7 +73,7 @@ public class US_008_UserTermsConditions extends TestBaseReport {
 
         Assert.assertTrue(userPage.contactUs.isDisplayed());
         Assert.assertTrue(userPage.contactUs.isSelected());
-        extentTest.pass("the contactUs link is NOT clickable and Not enabled");
+        extentTest.fail("the contactUs link is NOT clickable and Not enabled");
 
         softAssert.assertAll();
         Driver.closeDriver();

@@ -1,5 +1,15 @@
 package tests.US_013_025_037;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import pages.MerchantPage;
+import pages.UserPage;
+import utilities.*;
+import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -19,7 +29,7 @@ public class US_037 extends TestBaseReport {
     MerchantPage merchantPage = new MerchantPage();
     Actions actions = new Actions(Driver.getDriver());
     @Test(priority = 1)
-    public void viewMerchantsListTest(){
+    public void TC_03701_ViewMerchantsListTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("viewMerchantsListTest","An admin should be able to view\n" +
                 "Merchants List" );
@@ -38,7 +48,7 @@ public class US_037 extends TestBaseReport {
         //Driver.closeDriver();
     }
     @Test(priority = 10)
-    public void changeInfoMerchantTest(){
+    public void TC_03702_ChangeInfoMerchantTest(){
         merchantPage = new MerchantPage();
         actions= new Actions(Driver.getDriver());
         extentTest = extentReports.createTest("changeInfoMerchantTest","An admin should be able to change\n" +
@@ -114,7 +124,7 @@ public class US_037 extends TestBaseReport {
 
     }
     @Test(priority = 20)
-    public void deleteInfoMerchantTest(){
+    public void TC_03703_DeleteInfoMerchantTest(){
         extentTest = extentReports.createTest("deleteInfoMerchantTest","An admin should be able to delete\n" +
                 "information about merchants" );
         adminPage = new AdminPage();

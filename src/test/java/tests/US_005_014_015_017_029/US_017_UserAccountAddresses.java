@@ -1,11 +1,9 @@
 package tests.US_005_014_015_017_029;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -14,7 +12,7 @@ import utilities.*;
 
 import java.time.Duration;
 
-public class US_017_TC_001_userAccountAddresses extends TestBaseReport {
+public class US_017_UserAccountAddresses extends TestBaseReport {
 
     /*
     As a user, I would like to have a page on the site
@@ -27,7 +25,7 @@ public class US_017_TC_001_userAccountAddresses extends TestBaseReport {
     Actions actions = new Actions(Driver.getDriver());
 
     @Test
-    public void CrudUserPageTest(){
+    public void TC_01701_CrudUserPageTest(){
 
         userPage.userLoginSariye();
         extentTest = extentReports.createTest("User  Page Visibility Test", "User page of the user,should be visible.");

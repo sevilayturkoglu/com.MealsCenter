@@ -20,7 +20,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
     MerchantPage merchantPage=new MerchantPage();
     SoftAssert softAssert=new SoftAssert();
     @Test(priority = 5)
-    public void testTC_02601(){
+    public void TC_02601_NewOrdersTest(){
         merchant_us_026_page=new Merchant_US_026_Page();
         merchantPage=new MerchantPage();
         extentTest = extentReports.createTest("testTC_02601", "New Orders option and All orders text should be visible.");
@@ -38,7 +38,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
 
     @Test(priority = 10)
 
-    public void TC_02602(){
+    public void TC_02602_IDButtonTest(){
         merchant_us_026_page=new Merchant_US_026_Page();
         merchantPage=new MerchantPage();
         extentTest = extentReports.createTest("testTC_02602", "A new product should be able to added.");
@@ -85,7 +85,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
 
     @Test(priority = 15)
 
-    public void TC_02603(){
+    public void TC_02603_EditButtonTest(){
         merchant_us_026_page=new Merchant_US_026_Page();
         merchantPage=new MerchantPage();
         extentTest = extentReports.createTest("testTC_02601", "New Orders option and All orders text should be visible.");
@@ -105,7 +105,7 @@ public class US_026_MerchantOrdersNewTest extends TestBaseReport {
     }
     @Test(priority = 20)
 
-    public  void TC_02604(){
+    public  void TC_02604_DeleteTest(){
         merchant_us_026_page=new Merchant_US_026_Page();
         merchantPage=new MerchantPage();
         extentTest = extentReports.createTest("testTC_02601", "New Orders option and All orders text should be visible.");

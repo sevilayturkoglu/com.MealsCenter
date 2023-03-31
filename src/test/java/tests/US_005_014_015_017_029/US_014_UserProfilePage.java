@@ -15,13 +15,13 @@ import utilities.TestBaseReport;
 
 import java.time.Duration;
 
-public class US_014_TC_001_UserProfilePage extends TestBaseReport {
+public class US_014_UserProfilePage extends TestBaseReport {
 
     UserPage userPage = new UserPage();
     SoftAssert softAssert = new SoftAssert();
 
     @Test(groups = "smoke")
-    public void testUserProfilePage() {
+    public void TC_01401_TestUserProfilePage() {
         userPage=new UserPage();
         userPage.userLoginSariye();
         extentTest = extentReports.createTest("User  Page Visibility Test", "User page of the user,should be visible.");
@@ -51,7 +51,7 @@ public class US_014_TC_001_UserProfilePage extends TestBaseReport {
     }
 
     @Test
-    public void testChangePassword() {
+    public void TC_01402_TestChangePassword() {
 
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
@@ -99,6 +99,10 @@ public class US_014_TC_001_UserProfilePage extends TestBaseReport {
         userPage.userNewPassword.sendKeys(ConfigReader.getProperty("userNewPassword"));
         userPage.userConfirmPassword.sendKeys(ConfigReader.getProperty("userNewPassword"));
         userPage.userChangePasswordSubmit.click();
+
+        extentTest = extentReports.createTest("User  changing password Test", "User profilepage should be visible and password should be changeble.");
+        extentTest.info("chrome browser and user profile page is active and password is changeble");
+
 
         wait.until(ExpectedConditions.visibilityOf(userPage.userChangePasswordSuccessMessage));
 

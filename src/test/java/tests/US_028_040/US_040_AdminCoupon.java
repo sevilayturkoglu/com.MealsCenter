@@ -1,4 +1,8 @@
 package tests.US_028_040;
+
+
+
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.AdminCoupon;
@@ -6,6 +10,10 @@ import pages.AdminPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseReport;
+
+
+
+
 
 
 
@@ -34,6 +42,9 @@ public class US_040_AdminCoupon extends TestBaseReport {
         Driver.closeDriver();
     }
 
+
+
+
     @Test(priority = 10)
     public void TC_04002_kuponSilme() {
         adminPage = new AdminPage();
@@ -58,6 +69,9 @@ public class US_040_AdminCoupon extends TestBaseReport {
         Driver.closeDriver();
     }
 
+
+
+
     @Test(priority = 15)
     public void TC_04003_upDate() {
         adminPage = new AdminPage();
@@ -72,10 +86,15 @@ public class US_040_AdminCoupon extends TestBaseReport {
         extentTest.info("the coupon updated");
         adminCoupon.updateCoupon();
         extentTest.info("I deleted the coupon to create a cupon with the same name");
+
         adminCoupon.couponDelete();
         extentTest.pass("the coupon updated");
         Driver.closeDriver();
     }
+
+
+
+
 
     @Test(priority = 20)
     public void TC_04004_isimSirasinaGoreCouponList() {
@@ -92,6 +111,9 @@ public class US_040_AdminCoupon extends TestBaseReport {
         extentTest.pass("All coupon were sorted");
         Driver.closeDriver();
     }
+
+
+
 
     @Test(priority = 25)
     public void TC_04004_CouponkullanılmaSayısınaGoreList() {
@@ -110,7 +132,8 @@ public class US_040_AdminCoupon extends TestBaseReport {
 
     }
 
-    @Test(priority = 30)
+    @Test(priority=30)
+
     public void TC_04005_searchBox() {
         adminPage = new AdminPage();
         adminCoupon = new AdminCoupon();

@@ -17,7 +17,7 @@ public class US_013 extends TestBaseReport {
 
 
     @Test
-    public void productAddtoCartTest(){
+    public void TC_01301_ProductAddtoCartTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("productAddtoCartTest","A product must be able to be added to \n" +
                 "the cart" );
@@ -40,7 +40,7 @@ public class US_013 extends TestBaseReport {
          //Driver.closeDriver();
     }
     @Test
-    public void paymentTest(){
+    public void TC_01302_PaymentTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("paymentTest"," the payment must be able to be made");
         userPage = new UserPage();
@@ -66,7 +66,7 @@ public class US_013 extends TestBaseReport {
         //Driver.closeDriver();
     }
     @Test
-    public void addressTest(){
+    public void TC_01303_addressTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("addressTest"," An address must be able to be entered");
         userPage = new UserPage();
@@ -99,7 +99,7 @@ public class US_013 extends TestBaseReport {
       // Driver.closeDriver();
     }
     @Test
-    public void availableToPurchaseTest(){
+    public void TC_01304_AvailableToPurchaseTest(){
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("availableToPurchaseTest"," the product is available for purchase");
         userPage = new UserPage();
