@@ -62,7 +62,7 @@ public class US_005_UserLogin extends TestBaseReport {
 
 
             Assert.assertTrue(userPage.userEmailLogin.isEnabled());
-            Driver.closeDriver();
+           // Driver.closeDriver();
         }
 
     }

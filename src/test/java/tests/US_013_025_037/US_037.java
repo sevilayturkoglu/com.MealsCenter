@@ -3,7 +3,6 @@ package tests.US_013_025_037;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.AdminLoginPage;
 import pages.MerchantPage;
 import pages.UserPage;
 import utilities.Driver;
@@ -15,7 +14,7 @@ public class US_037 extends TestBaseReport {
 
     UserPage userPage = new UserPage();
     SoftAssert softAssert = new SoftAssert();
-    AdminLoginPage adminPage = new AdminLoginPage();
+
     MerchantPage merchantPage = new MerchantPage();
     Actions actions = new Actions(Driver.getDriver());
     @Test(priority = 1)
@@ -23,15 +22,14 @@ public class US_037 extends TestBaseReport {
         merchantPage = new MerchantPage();
         extentTest = extentReports.createTest("viewMerchantsListTest","An admin should be able to view\n" +
                 "Merchants List" );
-        adminPage = new AdminLoginPage();
-        adminPage.adminLoginOl();
+
         extentTest.info("Admin signed in");
         merchantPage.merchantMenuLeftSide("Merchant");
         extentTest.info("Merchant link is clicked");
-        adminPage.listlink.click();
+
         extentTest.info("List link is clicked");
         String expectedText = "All Merchant";
-        String actualText = adminPage.allMerchantText.getText();
+
         softAssert.assertEquals(actualText,expectedText);
         extentTest.pass("Verified that All Merchant is visible");
         softAssert.assertAll();

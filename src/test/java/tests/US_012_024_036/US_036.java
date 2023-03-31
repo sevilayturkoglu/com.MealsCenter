@@ -3,7 +3,7 @@ package tests.US_012_024_036;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.AdminLoginPage;
+import pages.AdminPage;
 import utilities.TestBaseReport;
 
 public class US_036 extends TestBaseReport {
@@ -29,7 +29,7 @@ public class US_036 extends TestBaseReport {
     public void Test01() {
 
         // giris yap anasayfaya git
-        AdminLoginPage adminPage = new AdminLoginPage();
+        AdminPage adminPage = new AdminPage();
 
         adminPage.adminLoginOl();
 

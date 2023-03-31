@@ -2,7 +2,6 @@ package tests.US_005_014_015_017_029;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AdminLoginPage;
 import pages.MerchantDashboardPage;
 import pages.MerchantPage;
 import utilities.ReusableMethods;
