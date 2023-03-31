@@ -23,7 +23,7 @@ public class US_029_MerchantbackofficeOrdersCompleted extends TestBaseReport {
     public void TC_02901_MerchantBackOfficeOrderCompletedTest() {
 
         merchantPage.MerchantPageLoginSry();
-
+        merchantDashboardPage=new MerchantDashboardPage();
         extentTest=extentReports.createTest("All Orders Test","All orders shoul be listed in 'All Orders Page'");
         extentTest.info("Retaurant manager logged in as a merchant");
         merchantDashboardPage.dashboardMenuListClick("Orders");
