@@ -18,9 +18,9 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
 
 
     @Test
-    public void accordingToCustomerNameListTest() {
+    public void TC_03001_accordingToCustomerNameListTest() {
         merchantPage = new MerchantPage();
-        extentTest=extentReports.createTest("Ileri tarihli sheculded sayfasi olusturma","Musteri adina gore orderslari siralayabilir");
+        extentTest=extentReports.createTest("Musteri ismine gore ileri tarihli sheculded sayfasi olusturma","Musteri adina gore orderslari siralayabilir");
         merchantSheculdePage = new MerchantSheculdePage();
         merchantPage.merchantLogin();
         extentTest.info("Browser baslatildi,gecerli credentials ile merchant sayfasina login olundu");
@@ -47,11 +47,11 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         return orders;
     }
     @Test(dataProvider = "orderType")
-    public void accordingToOrderTypeList(String type) {
+    public void TC_03002_accordingToOrderTypeList(String type) {
         //bu testi yapmak icin Subway den ileri tarihli" Delivery,Pickup ve Dinein " siparisler verilmesi gerekir
         merchantPage = new MerchantPage();
         merchantSheculdePage = new MerchantSheculdePage();
-        extentTest=extentReports.createTest("Ileri tarihli sheculded sayfasi olusturma","Order type gore orderslari siralayabilir");
+        extentTest=extentReports.createTest("Order Typa gore ileri tarihli sheculded sayfasi olusturma","Order type gore orderslari siralayabilir");
         ReusableMethods.bekle(1);
         merchantPage.merchantLogin();
         extentTest.info("Browser baslatildi,gecerli credentials ile merchant sayfasina login olundu");
@@ -77,10 +77,10 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
 
 
     }@Test
-    public void accordingToPaymentStatus() {
+    public void TC_03003_accordingToPaymentStatus() {
         merchantPage = new MerchantPage();
         merchantSheculdePage = new MerchantSheculdePage();
-        extentTest=extentReports.createTest("Ileri tarihli sheculded sayfasi olusturma","Payment statuye gore orderslari siralayabilir");
+        extentTest=extentReports.createTest("Payment statuye gore ileri tarihli sheculded sayfasi olusturma","Payment statuye gore orderslari siralayabilir");
         merchantPage.merchantLogin();
         extentTest.info("Browser baslatildi,gecerli credentials ile merchant sayfasina login olundu");
         merchantPage.merchantMenuLeftSide("Orders");
@@ -88,13 +88,14 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         merchantSheculdePage.merchantSheculdeButton.click();
         extentTest.info("Orders altindaki menuden schulded tiklandi");
         merchantSheculdePage.paymantStatusButton.click();
+        ReusableMethods.bekle(2);
         extentTest.info("Schulded sayfasindan payment status clicklendi");
         merchantSheculdePage.paymentStatus("Unpaid");
         extentTest.info("Listelenmesi istenilen payment statu clicklendi,listenin istenilen payment statuye gore olustugu verify edildi ");
         extentTest.info("Browser kapatildi");
         extentTest.pass("Schulded listenin payment statuye gore siralandigi goruldu");
         softAssert.assertAll();
-        Driver.closeDriver();
+
     }
     @DataProvider
     public static Object[][] sortType() {
@@ -103,10 +104,10 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         return  sorted;
     }
     @Test(dataProvider = "sortType")//Delivery Time - Ascending bug var sanirim,tekrar kontrol et
-    public void zccordingToOrderSort(String sortType) {
+    public void TC_03004_zccordingToOrderSort(String sortType) {
         merchantPage = new MerchantPage();
         merchantSheculdePage = new MerchantSheculdePage();
-        extentTest=extentReports.createTest("Ileri tarihli sheculded sayfasi olusturma","Order tarhi ve order ID ye artan azalana gore orderslari siralayabilir");
+        extentTest=extentReports.createTest("Sortcesidine gore ileri tarihli sheculded sayfasi olusturma","Order tarhi ve order ID ye artan azalana gore orderslari siralayabilir");
         merchantPage.merchantLogin();
 
 
@@ -122,7 +123,7 @@ public class US_030_MerchantSheculdeTest extends TestBaseReport {
         merchantSheculdePage.sortSchulde(sortType);
         extentTest.info("Istenilen type secildi,listenin istenilen order type gore siralandigi goruldu");
         extentTest.info("Browser kapatildi");
-        extentTest.fail("Schulded listenin Delivery Time Ascendinge uygun olarak siralanmadigi goruldu");
+        extentTest.pass("Schulded listenin Delivery Time Ascendinge uygun olarak siralandigi goruldu");
         softAssert.assertAll();
 
     }

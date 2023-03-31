@@ -29,7 +29,11 @@ public class US_007_ContactUsTest extends TestBaseReport {
         String expectedText="Contact Us";
         String actualText=userPageBodyFooter.UserPageContuctUsText.getText();
         Assert.assertEquals(expectedText,actualText);
+
+
+
         extentTest.pass("Expected contact us text is same with actual contact us text");
+
 
         userPageBodyFooter.UserPageContuctUsPhone.isDisplayed();
         extentTest.info("Call us Phone Number is visible");
@@ -50,6 +54,7 @@ public class US_007_ContactUsTest extends TestBaseReport {
         String actual=userPageBodyFooter.UserPageContuctUsYourMessageText.getText();
         Assert.assertEquals(expected,actual);
         extentTest.pass("Contact us Message Test is PASSED");
+
 
     }
 

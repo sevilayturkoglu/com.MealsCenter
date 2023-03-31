@@ -22,7 +22,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
     SoftAssert softAssert = new SoftAssert();
 
     @Test(priority = 5)
-    public void favoriteRestaurantMake() {
+    public void TC_01801_favoriteRestaurantMake() {
 
         userPage = new UserPage();
         extentTest = extentReports.createTest("Favori restaurant ekleme", "Favori sayfama restaurant ekleme");
@@ -47,7 +47,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
     }
 
     @Test(priority = 15)
-    public void checkYourFavoriteRestaurants() {
+    public void TC_01802_checkYourFavoriteRestaurants() {
 
         userPage = new UserPage();
         extentTest = extentReports.createTest("Favori restaurant gorme", "Favori sayfama ekledigim restaurantlari gorebilirim");
@@ -70,7 +70,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
     }
 
     @Test(priority = 25)
-    public void eraseYourFavoriteRestaurant() {
+    public void TC_01803_eraseYourFavoriteRestaurant() {
 
         userPage = new UserPage();
         extentTest = extentReports.createTest("Favori restaurant silme", "Favori sayfamadan restaurant kaldirma ");
@@ -86,7 +86,7 @@ public class US_018_UserFavoritesTest extends TestBaseReport {
         ReusableMethods.bekle(2);
         Driver.getDriver().navigate().refresh();
         extentTest.info("Durum degisikligini gormek icin sayfa yenilendi");
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(1));
         softAssert.assertTrue(wait.until(ExpectedConditions.invisibilityOf(userPage.favouriteBurgerKing)));
         extentTest.info("Favorimden kaldirilan restaurantin gorunup gorunmedigini verify edildi");
         ReusableMethods.bekle(2);
