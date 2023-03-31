@@ -2,7 +2,7 @@ package tests.US_005_014_015_017_029;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AdminLoginPage;
+
 import pages.MerchantDashboardPage;
 import pages.MerchantPage;
 import utilities.ReusableMethods;
@@ -23,7 +23,7 @@ public class US_029_MerchantbackofficeOrdersCompleted extends TestBaseReport {
     public void TC_02901_MerchantBackOfficeOrderCompletedTest() {
 
         merchantPage.MerchantPageLoginSry();
-
+        merchantDashboardPage=new MerchantDashboardPage();
         extentTest=extentReports.createTest("All Orders Test","All orders shoul be listed in 'All Orders Page'");
         extentTest.info("Retaurant manager logged in as a merchant");
         merchantDashboardPage.dashboardMenuListClick("Orders");
@@ -36,7 +36,7 @@ public class US_029_MerchantbackofficeOrdersCompleted extends TestBaseReport {
         extentTest.info("All Orders menu is clicked");
         ReusableMethods.bekle(3);
 
-        //BURADA KALDIM
+
         merchantDashboardPage.orderCompleted.click();
         String expectedText="Order completed";
         String actualText=merchantDashboardPage.merchantOrderHistoryText.getText();
