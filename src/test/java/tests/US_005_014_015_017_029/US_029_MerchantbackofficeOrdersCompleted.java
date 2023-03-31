@@ -36,7 +36,7 @@ public class US_029_MerchantbackofficeOrdersCompleted extends TestBaseReport {
         extentTest.info("All Orders menu is clicked");
         ReusableMethods.bekle(3);
 
-        //BURADA KALDIM
+
         merchantDashboardPage.orderCompleted.click();
         String expectedText="Order completed";
         String actualText=merchantDashboardPage.merchantOrderHistoryText.getText();
