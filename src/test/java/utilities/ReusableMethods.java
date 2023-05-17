@@ -43,7 +43,18 @@ public class ReusableMethods {
                 return;
             }
         }
-      //  Driver.getDriver().switchTo().window(origin);
+        Driver.getDriver().switchTo().window(origin);
+    }
+    //========Switching Window With Contains=====//
+    public static void switchToWindowContains(String targetTitle) {
+        String origin = Driver.getDriver().getWindowHandle();
+        for (String handle : Driver.getDriver().getWindowHandles()) {
+            Driver.getDriver().switchTo().window(handle);
+            if (Driver.getDriver().getTitle().contains(targetTitle)) {
+                return;
+            }
+        }
+        Driver.getDriver().switchTo().window(origin);
     }
 
 
